@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{product_name}} | SpecChem</title>
+    <style>{{css_styles}}</style>
+</head>
+  <body>
+    <div class="label-container">
+    <div class="columns-container">
+      <!-- Left Columns -->
+      <div class="left-columns">
+       <div class="lc-section"> {{#if description}}<h4>Description</h4><p>{{description}}</p>{{/if}}</div>
+        <div class="lc-section">{{#if voc_data}}<h4>VOC Data</h4><p>{{voc_data}}</p>{{/if}}</div>
+        <div class="lc-section">{{#if application}}<h4>Application</h4><p>{{application}}</p>{{/if}}</div>
+        <div class="lc-section">{{#if features}}<h4>Features</h4><p>{{features}}</p>{{/if}}</div>
+        <div class="lc-section">{{#if limitations}}<h4>Limitations</h4><p>{{limitations}}</p>{{/if}}</div>
+        <div class="lc-section">{{#if shelf_life}}<h4>Shelf Life</h4><p>{{shelf_life}}</p>{{/if}}</div>
+      </div>
+      <!-- Center Content -->
+      <div class="center-content">
+        <div class="product-name">{{name}}</div>
+        {{#if subtitle_1}}<div class="subtitle">{{subtitle_1}}</div>{{/if}}
+        {{#if subtitle_2}}<div class="subtitle subtitle-2">{{subtitle_2}}</div>{{/if}}
+        {{#if short_description_english}}<div class="short-description-english">{{short_description_english}}</div>{{/if}}
+        {{#if short_description_french}}<div class="translated-short-description">{{short_description_french}}</div>{{/if}}
+        {{#if short_description_spanish}}<div class="translated-short-description">{{short_description_spanish}}</div>{{/if}}
+        
+        <div class="logo-container">
+          <img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/branding%2Flogo-transparent.webp?alt=media&token=0b494edd-5a0a-4f37-8227-8e88356881f8" alt="SpecChem Logo">
+        </div>
+      </div>
+
+      <!-- Right Columns -->
+      <div class="right-columns" id="Font6">
+        <div class="rc-section">{{#if pictograms}}<h4>Pictograms</h4><div class="pictograms" style="display: flex; gap: 7px; align-items: center; margin: 0 0 7px 0;">{{pictograms}}</div>{{/if}}</div>
+        <div class="rc-section">{{#if components_determining_hazard}}<h4>Components Determining Hazard</h4><p>{{components_determining_hazard}}</p>{{/if}}</div>
+        <div class="rc-section">{{#if signal_word}}<h4>Signal Word</h4><p>{{signal_word}}</p>{{/if}}</div>
+        <div class="rc-section">{{#if hazard_statements}}<h4>Hazard Statements</h4><p>{{hazard_statements}}</p>{{/if}}</div>
+        <div class="rc-section">{{#if precautionary_statements}}<h4>Precautionary Statements</h4><p>{{precautionary_statements}}</p>{{/if}}</div>
+        <div class="rc-section">{{#if response_statements}}<h4>Response Statements</h4><p>{{response_statements}}</p>{{/if}}</div>
+        <div class="rc-section">{{#if storage}}<h4>Storage</h4><p>{{storage}}</p>{{/if}}</div>
+        <div class="rc-section">{{#if disposal}}<h4>Disposal</h4><p>{{disposal}}</p>{{/if}}</div>
+        <div class="rc-section">
+          <h4>Transport</h4>
+          {{#if proper_shipping_name}}<p><b>Proper Shipping Name:</b> {{proper_shipping_name}}</p>
+          {{#if un_number}}<p><b>UN Number:</b> {{un_number}}</p>{{/if}}
+          {{#if hazard_class}}<p><b>Hazard Class:</b> {{hazard_class}}</p>{{/if}}
+          {{#if packing_group}}<p><b>Packing Group:</b> {{packing_group}}</p>{{/if}}
+          {{#if emergency_response_guide}}<p><b>N.A. Emergency Response Guidebook #:</b> {{emergency_response_guide}}</p>{{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="corner-icons">
+      <img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Frectangle-pictogram.png?alt=media&token=a469c938-f942-4f1f-b825-444828d6a8f3" alt="Other" class="corner-icon-rectangle">
+    </div>
+    <div class="code-row">
+      <img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Fproduct-qr.png?alt=media&token=c832e9c2-525d-4dbf-984d-f8f249acf86e" class="qr-code" alt="QR Code" />
+      <div class="code-info">
+<div class="batch-field"><label style="display:inline-block; min-width:105px;">Batch No:</label></div>
+<div class="package-size">5 Gallon/18.93L</div>
+{{#if used_by_date}}<div class="use-by">Used by date: {{used_by_date}}</div>{{/if}}
+</div>
+      {{#if green_conscious}}<img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Fgreen-conscious.png?alt=media&token=green-conscious-icon" class="green-conscious-icon" alt="Green Conscious" />{{/if}}
+    </div>
+    </div>
+  </body>
+</html>

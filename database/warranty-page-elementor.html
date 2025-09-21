@@ -1,0 +1,323 @@
+<!-- SpecChem Warranty Information Page - Elementor Custom HTML Widget -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap');
+
+.warranty-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+}
+
+.warranty-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #2453a6;
+}
+
+.warranty-header h1 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #21325b;
+    margin: 0 0 15px 0;
+    letter-spacing: 0.02em;
+}
+
+.warranty-header .subtitle {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #2453a6;
+    margin: 0 0 10px 0;
+}
+
+.warranty-header .description {
+    font-size: 16px;
+    color: #5a6c7d;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.warranty-sections {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.warranty-section {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 4px 15px rgba(33, 50, 91, 0.08);
+    border-left: 5px solid #2453a6;
+}
+
+.warranty-section h2 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #21325b;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.warranty-section p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2c3e50;
+    margin: 0 0 15px 0;
+}
+
+.warranty-section p:last-child {
+    margin-bottom: 0;
+}
+
+.warranty-section .highlight {
+    background: #fff3cd;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+    margin: 20px 0;
+}
+
+.warranty-section .highlight p {
+    margin: 0;
+    font-weight: 500;
+    color: #856404;
+}
+
+.label-reference {
+    background: #e7f3ff;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 40px 0;
+    border: 2px solid #2453a6;
+}
+
+.label-reference h3 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #21325b;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.label-reference p {
+    font-size: 15px;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.label-mockup {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #2c3e50;
+    border: 1px solid #e1e8ed;
+}
+
+.label-mockup .label-section {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f4f8;
+}
+
+.label-mockup .label-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.label-mockup h4 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #21325b;
+    text-transform: uppercase;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.05em;
+}
+
+.label-mockup p {
+    font-size: 11px;
+    line-height: 1.4;
+    margin: 0;
+    text-align: left;
+}
+
+.contact-section {
+    background: linear-gradient(135deg, #21325b 0%, #2453a6 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.contact-section h2 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+}
+
+.contact-section p {
+    font-size: 16px;
+    margin: 0 0 25px 0;
+    opacity: 0.95;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.contact-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.contact-item h3 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.contact-item p {
+    font-size: 14px;
+    margin: 5px 0;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .warranty-page-container {
+        padding: 20px 15px;
+    }
+    
+    .warranty-header h1 {
+        font-size: 32px;
+    }
+    
+    .warranty-section {
+        padding: 25px 20px;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<div class="warranty-page-container">
+    <div class="warranty-header">
+        <h1>Product Warranty Information</h1>
+        <div class="subtitle">SpecChem LLC - Professional Construction Chemicals</div>
+        <div class="description">
+            This page contains the complete warranty and conditions information that appears on all SpecChem product labels. 
+            Please review these terms carefully as they outline our commitment to product quality and define the scope of our warranty coverage.
+        </div>
+    </div>
+
+    <div class="warranty-sections">
+        <div class="warranty-section">
+            <h2>Conditions of Sale</h2>
+            <p>
+                SpecChem offers this product for sale subject to and limited by the warranty which may only be varied by written agreement of a duly authorized corporate officer of SpecChem. No other representative of or for SpecChem is authorized to grant any warranty or to waive limitation of liability set forth below.
+            </p>
+            <div class="highlight">
+                <p><strong>Important:</strong> Only authorized corporate officers can modify these warranty terms in writing.</p>
+            </div>
+        </div>
+
+        <div class="warranty-section">
+            <h2>Warranty Limitation</h2>
+            <p>
+                SpecChem warrants this product to be free of manufacturing defects. If the product when purchased was defective and was within use period indicated on container or carton, when used, SpecChem will replace the defective product with new product without charge to the purchaser.
+            </p>
+            <p>
+                SpecChem makes no other warranty, either expressed or implied, concerning this product. There is no warranty of merchantability.
+            </p>
+            <div class="highlight">
+                <p><strong>Limitation of Liability:</strong> NO CLAIM OF ANY KIND SHALL BE GREATER THAN THE PURCHASE PRICE OF THE PRODUCT IN RESPECT OF WHICH DAMAGES ARE CLAIMED.</p>
+            </div>
+        </div>
+
+        <div class="warranty-section">
+            <h2>Inherent Risk</h2>
+            <p>
+                Purchaser assumes all risk associated with the use or application of the product.
+            </p>
+            <div class="highlight">
+                <p><strong>Risk Assumption:</strong> The purchaser accepts full responsibility for proper product selection, application, and results.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="label-reference">
+        <h3>How This Information Appears on Product Labels</h3>
+        <p>The warranty information above is printed on every SpecChem product label to ensure transparency and legal compliance. Below is an example of how this information appears on our product labels:</p>
+        
+        <div class="label-mockup">
+            <div class="label-section">
+                <h4>Conditions of Sale</h4>
+                <p>CONDITIONS OF SALE - SpecChem offers this product for sale subject to and limited by the warranty which may only be varied by written agreement of a duly authorized corporate officer of Spec-Chem. No other representative of or for SpecChem is authorized to grant any warranty or to waive limitation of liability set forth below.</p>
+            </div>
+            
+            <div class="label-section">
+                <h4>Warranty Limitation</h4>
+                <p>WARRANTY LIMITATION - SpecChem warrants this product to be free of manufacturing defects. If the product when purchased was defective and was within use period indicated on container or carton, when used, SpecChem will replace the defective product with new product without charge to the purchaser. SpecChem makes no other warranty, either expressed or implied, concerning this product. There is no warranty of merchantability. NO CLAIM OF ANY KIND SHALL BE GREATER THAN THE PURCHASE PRICE OF THE PRODUCT IN RESPECT OF WHICH DAMAGES ARE CLAIMED.</p>
+            </div>
+            
+            <div class="label-section">
+                <h4>Inherent Risk</h4>
+                <p>INHERENT RISK - Purchaser assumes all risk associated with the use or application of the product.</p>
+            </div>
+        </div>
+        
+        <p><em>Note: This warranty information appears on all SpecChem product containers and labels in addition to safety information, application instructions, and technical specifications.</em></p>
+    </div>
+
+    <div class="contact-section">
+        <h2>Questions About Our Warranty?</h2>
+        <p>If you have questions about our warranty terms or need clarification on coverage, please contact us directly.</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>Technical Support</h3>
+                <p>Phone: 1-800-247-3932</p>
+                <p>Email: technical@specchem.com</p>
+                <p>Hours: Mon-Fri 8AM-5PM EST</p>
+            </div>
+            
+            <div class="contact-item">
+                <h3>Customer Service</h3>
+                <p>Phone: 1-800-247-3932</p>
+                <p>Email: info@specchem.com</p>
+                <p>Hours: Mon-Fri 8AM-5PM EST</p>
+            </div>
+            
+            <div class="contact-item">
+                <h3>Corporate Office</h3>
+                <p>SpecChem LLC</p>
+                <p>1511 Baltimore Ave, Suite 600</p>
+                <p>Kansas City, MO 64108</p>
+            </div>
+        </div>
+    </div>
+</div>

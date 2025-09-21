@@ -1,0 +1,774 @@
+"use client";
+
+import { useState } from "react";
+import { FileText, Loader2, CheckCircle, AlertTriangle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { LabelMakerOnly } from "@/components/auth/ProtectedComponent";
+
+// Enhanced result interface to match new two-agent system
+interface ExtractionResults {
+  labelFields: Record<string, any>;
+  allFields: Record<string, any>;
+  mappedForDatabase?: Record<string, any>;
+  flagged: boolean;
+  flagged_reason: string;
+  confidenceScores: Record<string, number>;
+  sourceLocations: Record<string, string>;
+  validation: {
+    isValid: boolean;
+    errors: string[];
+    warnings: string[];
+    overallConfidence?: number;
+    submissionType?: 'complete' | 'partial' | 'minimal';
+    requiresReview?: boolean;
+    metrics?: {
+      fieldsWithData: number;
+      totalFields: number;
+      completionRate: number;
+      requiredFieldsPresent: number;
+      totalRequiredFields: number;
+      requiredCompletionRate: number;
+      missingRequired: number;
+      partialFields: number;
+    };
+  };
+  metadata?: {
+    aiConfidenceScore: number;
+    extractionTimestamp: string;
+    schemaVersion: string;
+    fieldsExtracted: number;
+    labelFieldsExtracted: number;
+  };
+  stagingInfo?: {
+    staging_id: string;
+    operation: string;
+    requires_approval: boolean;
+    message: string;
+  };
+  // Agent system data
+  agent1_data?: any; // Raw data from Agent 1 to pass to Agent 2
+  agent2_data?: any; // Results from Agent 2 database operations
+}
+
+export default function LabelMakerAgentModal({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
+  return (
+    <LabelMakerOnly
+      fallback={
+        <Sheet open={open} onOpenChange={onOpenChange}>
+          <SheetContent className="w-full max-w-4xl overflow-auto">
+            <SheetHeader>
+              <SheetTitle>Access Denied</SheetTitle>
+            </SheetHeader>
+            <div className="p-6 text-center">
+              <div className="text-red-500 mb-4">
+                <AlertTriangle className="h-12 w-12 mx-auto" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">LabelMaker Access Required</h3>
+              <p className="text-gray-600">
+                You need LabelMaker permissions to use this feature. 
+                Contact your administrator to request access.
+              </p>
+            </div>
+          </SheetContent>
+        </Sheet>
+      }
+    >
+      <LabelMakerComponent open={open} onOpenChange={onOpenChange} />
+    </LabelMakerOnly>
+  )
+}
+
+function LabelMakerComponent({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
+  const [step, setStep] = useState<"upload"|"extracting"|"review"|"confirm"|"done"|"error">("upload");
+  const [files, setFiles] = useState<File[]>([]);
+  const [results, setResults] = useState<ExtractionResults | null>(null);
+  const [error, setError] = useState<string>("");
+  const [databasePreview, setDatabasePreview] = useState<any>(null);
+  const [operationType, setOperationType] = useState<"create"|"update">("create");
+
+  // Helper function to render field values properly
+  const renderFieldValue = (value: any): string => {
+    if (value === null || value === undefined) {
+      return 'No data';
+    }
+    
+    if (typeof value === 'string') {
+      return value || 'No data';
+    }
+    
+    if (typeof value === 'number' || typeof value === 'boolean') {
+      return String(value);
+    }
+    
+    if (Array.isArray(value)) {
+      return value.length > 0 ? value.join(', ') : 'No data';
+    }
+    
+    if (typeof value === 'object') {
+      // Handle object values by showing them in JSON format
+      try {
+        return JSON.stringify(value, null, 2);
+      } catch {
+        return 'Complex data';
+      }
+    }
+    
+    return String(value);
+  };
+
+  // Handler for file upload
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const selectedFiles = Array.from(e.target.files);
+      
+      // Validate file types and sizes
+      const validFiles: File[] = [];
+      const errors: string[] = [];
+      
+      selectedFiles.forEach((file) => {
+        // Check file type
+        if (file.type !== 'application/pdf') {
+          errors.push(`${file.name}: Only PDF files are allowed`);
+          return;
+        }
+        
+        // Check file size (max 10MB)
+        if (file.size > 10 * 1024 * 1024) {
+          errors.push(`${file.name}: File size exceeds 10MB limit`);
+          return;
+        }
+        
+        validFiles.push(file);
+      });
+      
+      if (errors.length > 0) {
+        setError(Array.isArray(errors) ? errors.join('\n') : String(errors));
+        return;
+      }
+      
+      setFiles(validFiles);
+      setError(""); // Clear any previous errors
+    }
+  };
+
+  // Handler for Agent 1: Pure PDF extraction
+  const handleExtract = async () => {
+    setStep("extracting");
+    setError("");
+    
+    try {
+      // Prepare form data for file upload
+      const formData = new FormData();
+      files.forEach((file) => {
+        formData.append('files', file);
+      });
+
+      console.log('🔍 Starting Agent 1: PDF Extraction...');
+
+      // Call Agent 1: Extraction API
+      const response = await fetch('/api/labelmaker/agents/extract', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Agent 1 extraction failed');
+      }
+
+      const extractionResult = await response.json();
+      
+      console.log('✅ Agent 1 completed successfully');
+      console.log(`📊 Extracted ${Object.keys(extractionResult.data.extracted_fields).length} fields`);
+      
+      // Convert Agent 1 results to our component format
+      const extractedFields = extractionResult.data.extracted_fields;
+      const labelRelevantFields: Record<string, any> = {};
+      
+      // Filter for label-relevant fields (simplified for now)
+      Object.entries(extractedFields).forEach(([key, value]) => {
+        if (value && value !== '' && !['extraction_confidence', 'field_confidence_scores', 'source_locations', 'extraction_notes'].includes(key)) {
+          labelRelevantFields[key] = value;
+        }
+      });
+      
+      // Set results from Agent 1 extraction
+      setResults({
+        labelFields: labelRelevantFields,
+        allFields: extractedFields,
+        mappedForDatabase: extractedFields, // Will be properly mapped by Agent 2
+        flagged: extractedFields.extraction_confidence < 0.7,
+        flagged_reason: extractedFields.extraction_notes?.join('; ') || '',
+        confidenceScores: extractedFields.field_confidence_scores || {},
+        sourceLocations: extractedFields.source_locations || {},
+        validation: {
+          isValid: true,
+          errors: [],
+          warnings: extractedFields.extraction_confidence < 0.7 ? ['Low extraction confidence'] : [],
+          overallConfidence: extractedFields.extraction_confidence || 0.8,
+          submissionType: 'complete' as const,
+          requiresReview: extractedFields.extraction_confidence < 0.7
+        },
+        metadata: {
+          aiConfidenceScore: extractedFields.extraction_confidence || 0.8,
+          extractionTimestamp: extractionResult.data.extraction_metadata.extraction_timestamp,
+          schemaVersion: "2.0-agent-system",
+          fieldsExtracted: Object.keys(extractedFields).length,
+          labelFieldsExtracted: Object.keys(labelRelevantFields).length
+        },
+        // Store Agent 1 raw data for Agent 2
+        agent1_data: extractionResult.data
+      });
+      
+      setStep("review");
+      
+    } catch (error) {
+      console.error('❌ Agent 1 extraction error:', error);
+      setError(error instanceof Error ? error.message : 'Agent 1 extraction failed');
+      setStep("error");
+    }
+  };
+
+  // Handler for preparing database write (new step before actual commit)
+  const handlePrepareDatabaseWrite = async () => {
+    if (!results) return;
+    
+    try {
+      setStep("extracting"); // Show loading
+      
+      // Check if product already exists in STAGING table
+      const checkResponse = await fetch('/api/labelmaker/staging');
+      
+      let allStagingProducts: any[] = [];
+      if (checkResponse.ok) {
+        const stagingData = await checkResponse.json();
+        allStagingProducts = [...(stagingData.pending || []), ...(stagingData.approved || [])];
+      } else {
+        // Staging table doesn't exist yet - that's fine, treat as new product
+        console.log('Staging table not found - will create new product');
+      }
+      
+      // Extract product name - handle both string and object formats
+      const getStringValue = (value: any): string => {
+        if (typeof value === 'string') return value;
+        if (value && typeof value === 'object' && value.value) return value.value;
+        return '';
+      };
+
+      const productName = getStringValue(results.allFields.product_name) || getStringValue(results.allFields.Title);
+      const existingProduct = allStagingProducts.find(p => 
+        p.Title?.toLowerCase() === productName?.toLowerCase()
+      );
+      
+      if (existingProduct) {
+        setOperationType("update");
+        setDatabasePreview({
+          ...results.allFields,
+          existing_id: existingProduct.id,
+          currently_approved: existingProduct.approved_for_production,
+          last_extracted: existingProduct.extraction_timestamp
+        });
+      } else {
+        setOperationType("create");
+        setDatabasePreview(results.allFields);
+      }
+      
+      setStep("confirm");
+      
+    } catch (error) {
+      console.error('Database preview error:', error);
+      setError(error instanceof Error ? error.message : 'Preview failed');
+      setStep("error");
+    }
+  };
+
+  // Handler for Agent 2: Database injection (after confirmation)
+  const handleCommitToDatabase = async () => {
+    if (!results || !results.agent1_data) return;
+    
+    try {
+      setStep("extracting"); // Show loading state
+      
+      console.log('💾 Starting Agent 2: Database Injection...');
+      
+      // Call Agent 2: Database injection API with Agent 1's raw data
+      const agent2Response = await fetch('/api/labelmaker/agents/inject', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(results.agent1_data) // Pass complete Agent 1 output
+      });
+
+      if (!agent2Response.ok) {
+        const errorData = await agent2Response.json();
+        
+        // Check if it's a "table doesn't exist" error
+        if (errorData.error?.includes('does not exist') || errorData.error?.includes('42P01')) {
+          // Staging table doesn't exist yet - show helpful message
+          setStep("done");
+          setResults((prev: any) => prev ? {
+            ...prev,
+            stagingInfo: {
+              staging_id: 'pending-migration',
+              operation: 'demo-mode',
+              requires_approval: true,
+              message: 'Demo mode: Staging table needs to be created. Run the migration script in Supabase to enable database writes.'
+            },
+            agent2_data: {
+              operation: 'demo-mode',
+              success: false,
+              demo_mode: true
+            }
+          } : null);
+          return;
+        }
+        
+        throw new Error(errorData.error || 'Agent 2 database injection failed');
+      }
+
+      const agent2Result = await agent2Response.json();
+      
+      console.log('✅ Agent 2 completed successfully');
+      console.log(`🎯 Database operation: ${agent2Result.data.operation}`);
+      console.log(`📋 Staging ID: ${agent2Result.data.staging_id}`);
+      
+      setStep("done");
+      setResults((prev: any) => prev ? {
+        ...prev,
+        stagingInfo: {
+          staging_id: agent2Result.data.staging_id,
+          operation: agent2Result.data.operation,
+          requires_approval: agent2Result.data.requires_approval,
+          message: agent2Result.message
+        },
+        agent2_data: agent2Result.data
+      } : null);
+      
+    } catch (error) {
+      console.error('❌ Agent 2 database injection error:', error);
+      setError(error instanceof Error ? error.message : 'Agent 2 database injection failed');
+      setStep("error");
+    }
+  };
+
+  // Handler for closing modal
+  const handleClose = () => {
+    setFiles([]);
+    setResults(null);
+    setError("");
+    setStep("upload");
+    onOpenChange(false);
+  };
+
+  return (
+    <Sheet open={open} onOpenChange={onOpenChange}>
+      <SheetContent side="right" className="max-w-2xl w-full overflow-y-auto">
+        <SheetHeader className="pb-6">
+          <SheetTitle className="flex items-center gap-2 pr-8">
+            <FileText className="w-5 h-5 text-blue-600" />
+            LabelMaker Agent
+            <span className="text-xs bg-gray-100 px-2 py-1 rounded ml-2">{step}</span>
+          </SheetTitle>
+        </SheetHeader>
+        <div className="px-4 pb-8 space-y-6">
+          {step === "upload" && (
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <label className="block text-sm font-medium mb-3">Upload TDS/SDS PDF(s)</label>
+                <input 
+                  type="file" 
+                  multiple 
+                  accept="application/pdf" 
+                  onChange={handleFileChange} 
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" 
+                />
+                {files.length > 0 && (
+                  <div className="mt-4 p-4 bg-gray-50 rounded-lg border">
+                    <p className="text-sm font-medium text-gray-700 mb-3">Selected files:</p>
+                    <ul className="space-y-3">
+                      {files.map((file, index) => (
+                        <li key={index} className="flex items-center gap-3 p-2 bg-white rounded border">
+                          <FileText className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                          <span className="flex-1 text-sm font-medium">{file.name}</span>
+                          <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                            {(file.size / 1024 / 1024).toFixed(1)} MB
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {error && (
+                  <div className="mt-4 p-4 bg-red-50 border-l-4 border-red-400 text-red-700 text-sm whitespace-pre-line rounded-r">
+                    {error}
+                  </div>
+                )}
+              </div>
+              <Button disabled={files.length === 0 || !!error} onClick={handleExtract} className="w-full py-3">
+                🔍 Start Agent 1: Extract Data from {files.length} PDF{files.length !== 1 ? 's' : ''}
+              </Button>
+            </div>
+          )}
+          {step === "extracting" && (
+            <div className="flex flex-col items-center justify-center py-16 space-y-6">
+              <Loader2 className="w-12 h-12 animate-spin text-blue-600" />
+              <div className="text-center space-y-2">
+                <div className="text-lg font-semibold">🔍 Agent 1: Extracting text from PDF(s)...</div>
+                <div className="text-gray-500">Performing complete verbatim text extraction</div>
+                <div className="text-xs text-gray-400 mt-2">
+                  Agent 1 extracts all text • Agent 2 handles database operations
+                </div>
+              </div>
+            </div>
+          )}
+          {step === "review" && results && (
+            <div className="space-y-8">
+              {/* Agent 1 Completion Banner */}
+              <div className="bg-green-50 border-l-4 border-green-400 p-6 rounded-lg">
+                <div className="flex items-center gap-3 mb-3">
+                  <CheckCircle className="w-6 h-6 text-green-600" />
+                  <span className="font-semibold text-lg text-green-800">
+                    ✅ Agent 1 Completed: PDF Text Extraction
+                  </span>
+                </div>
+                <p className="text-sm leading-relaxed text-green-700">
+                  Successfully extracted {Object.keys(results.allFields).length} fields with {(results.validation.overallConfidence! * 100).toFixed(1)}% confidence.
+                  Ready to proceed to Agent 2 for database operations.
+                </p>
+              </div>
+
+              {/* Agent System Status */}
+              <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
+                <div className="font-semibold text-blue-900 mb-4 text-lg">Two-Agent System Status</div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">✓</div>
+                    <div>
+                      <div className="font-medium text-green-700">Agent 1: PDF Text Extraction</div>
+                      <div className="text-sm text-green-600">Complete verbatim text extraction from {results.agent1_data?.files_processed?.length || 0} PDF(s)</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                    <div>
+                      <div className="font-medium text-blue-700">Agent 2: Database Injection</div>
+                      <div className="text-sm text-blue-600">Ready to validate, map, and save to staging database</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Extraction Results Preview */}
+              <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                <div className="font-semibold text-gray-900 mb-4 text-lg">Extracted Data Preview</div>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <span className="text-gray-700 font-medium">Total Fields Extracted:</span>
+                    <div className="font-semibold text-gray-900">{Object.keys(results.allFields).length}</div>
+                  </div>
+                  <div>
+                    <span className="text-gray-700 font-medium">Label-Relevant Fields:</span>
+                    <div className="font-semibold text-gray-900">{Object.keys(results.labelFields).length}</div>
+                  </div>
+                  <div>
+                    <span className="text-gray-700 font-medium">Extraction Confidence:</span>
+                    <div className="font-semibold text-gray-900">{(results.validation.overallConfidence! * 100).toFixed(1)}%</div>
+                  </div>
+                  <div>
+                    <span className="text-gray-700 font-medium">Schema Version:</span>
+                    <div className="font-semibold text-gray-900">{results.metadata?.schemaVersion}</div>
+                  </div>
+                </div>
+              </div>
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-blue-700 font-medium">Schema Version:</span>
+                    <span className="font-semibold text-blue-900">{results.metadata?.schemaVersion || '1.0'}</span>
+                  </div>
+                </div>
+                {results.metadata?.extractionTimestamp && (
+                  <div className="text-xs text-blue-600 mt-4 pt-3 border-t border-blue-200">
+                    Extracted: {new Date(results.metadata.extractionTimestamp).toLocaleString()}
+                  </div>
+                )}
+              </div>
+
+              {/* Label-Relevant Fields */}
+              <div className="bg-gray-50 rounded-lg p-6 border">
+                <div className="font-semibold mb-4 flex items-center gap-3">
+                  <span className="w-4 h-4 bg-blue-500 rounded-full"></span>
+                  <span className="text-lg">Label-Relevant Fields ({Object.keys(results.labelFields).length})</span>
+                </div>
+                {Object.keys(results.labelFields).length > 0 ? (
+                  <ul className="space-y-4">
+                    {Object.entries(results.labelFields).map(([key, value]) => (
+                      <li key={key} className="space-y-2">
+                        <span className="font-mono text-xs bg-blue-100 px-3 py-1 rounded-md inline-block">{key}</span>
+                        <div className="text-sm text-gray-700 pl-4 border-l-3 border-gray-300 py-2 bg-white rounded-r p-3 whitespace-pre-wrap">
+                          {renderFieldValue(value)}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-gray-500 italic py-4">No label-relevant fields extracted</p>
+                )}
+              </div>
+
+              {/* All Extracted Fields */}
+              <div className="bg-gray-50 rounded-lg p-6 border">
+                <div className="font-semibold mb-4 flex items-center gap-3">
+                  <span className="w-4 h-4 bg-gray-400 rounded-full"></span>
+                  <span className="text-lg">All Extracted Fields ({Object.keys(results.allFields).length})</span>
+                </div>
+                {Object.keys(results.allFields).length > 0 ? (
+                  <div className="max-h-72 overflow-y-auto">
+                    <ul className="space-y-4">
+                      {Object.entries(results.allFields).map(([key, value]) => (
+                        <li key={key} className="space-y-2">
+                          <span className="font-mono text-xs bg-gray-200 px-3 py-1 rounded-md inline-block">{key}</span>
+                          <div className="text-sm text-gray-700 pl-4 border-l-3 border-gray-300 py-2 bg-white rounded-r p-3 whitespace-pre-wrap">
+                            {renderFieldValue(value)}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <p className="text-gray-500 italic py-4">No fields extracted</p>
+                )}
+              </div>
+
+              {/* Validation & Flags */}
+              {results.validation && (results.validation.errors.length > 0 || results.validation.warnings.length > 0) && (
+                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
+                  <div className="font-semibold text-yellow-800 mb-4 text-lg">Validation Issues</div>
+                  {results.validation.errors.length > 0 && (
+                    <div className="mb-4">
+                      <span className="text-sm font-medium text-red-700 mb-2 block">Errors:</span>
+                      <ul className="list-disc ml-5 space-y-1 text-sm text-red-600">
+                        {results.validation.errors.map((error: string, index: number) => (
+                          <li key={index}>{error}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {results.validation.warnings.length > 0 && (
+                    <div>
+                      <span className="text-sm font-medium text-yellow-700 mb-2 block">Warnings:</span>
+                      <ul className="list-disc ml-5 space-y-1 text-sm text-yellow-600">
+                        {results.validation.warnings.map((warning: string, index: number) => (
+                          <li key={index}>{warning}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {results.flagged && (
+                <div className="flex items-center gap-3 text-yellow-700 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg">
+                  <AlertTriangle className="w-5 h-5 flex-shrink-0" />
+                  <span>Flagged for review: {results.flagged_reason}</span>
+                </div>
+              )}
+
+              <div className="flex gap-3 pt-4">
+                <Button 
+                  onClick={handlePrepareDatabaseWrite} 
+                  className={`flex-1 py-3 ${
+                    results.validation.submissionType === 'complete' 
+                      ? 'bg-green-600 hover:bg-green-700' 
+                      : 'bg-yellow-600 hover:bg-yellow-700'
+                  } text-white`}
+                >
+                  {results.validation.submissionType === 'complete' 
+                    ? '✅ Preview Complete Data' 
+                    : results.validation.submissionType === 'partial'
+                    ? '⚠️ Preview Partial Data (Testing)'
+                    : '🔍 Preview Minimal Data (Review Required)'
+                  }
+                </Button>
+                <Button variant="outline" onClick={handleClose} className="px-6">Cancel</Button>
+              </div>
+            </div>
+          )}
+          {step === "confirm" && databasePreview && (
+            <div className="space-y-8">
+              <div className={`border-l-4 p-6 rounded-lg ${
+                results?.validation.submissionType === 'complete' 
+                  ? 'bg-green-50 border-green-400' 
+                  : 'bg-yellow-50 border-yellow-400'
+              }`}>
+                <div className="flex items-center gap-3 mb-3">
+                  {results?.validation.submissionType === 'complete' ? (
+                    <CheckCircle className="w-6 h-6 text-green-600" />
+                  ) : (
+                    <AlertTriangle className="w-6 h-6 text-yellow-600" />
+                  )}
+                  <span className={`font-semibold text-lg ${
+                    results?.validation.submissionType === 'complete' ? 'text-green-800' : 'text-yellow-800'
+                  }`}>
+                    Safe Staging Mode - {results?.validation.submissionType === 'complete' ? 'Complete Data ✅' : 'Partial Data ⚠️'}
+                  </span>
+                </div>
+                <p className={`text-sm leading-relaxed ${
+                  results?.validation.submissionType === 'complete' ? 'text-green-700' : 'text-yellow-700'
+                }`}>
+                  You are about to <strong>{operationType}</strong> a {results?.validation.submissionType} extraction in the <strong>STAGING</strong> database. 
+                  This is completely safe and will not affect your production data.
+                  {results?.validation.submissionType !== 'complete' && ' Partial data can be completed manually later.'}
+                </p>
+              </div>
+
+              {operationType === "update" && (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                  <div className="font-semibold text-blue-800 mb-3 text-lg">🔄 Update Staging Record</div>
+                  <p className="text-blue-700 text-sm leading-relaxed">
+                    This will update the staging record for "{results?.allFields.product_name}". 
+                    {databasePreview.currently_approved && " Previous approval status will be reset."}
+                  </p>
+                </div>
+              )}
+
+              {/* Completion Summary for Confirmation */}
+              {results?.validation.metrics && (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                  <div className="font-semibold text-blue-800 mb-4 text-lg">📊 Data Completion Summary</div>
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-blue-700 font-medium">Fields Extracted:</span>
+                      <span className="font-semibold">{results.validation.metrics.fieldsWithData}/{results.validation.metrics.totalFields}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-blue-700 font-medium">Required Fields:</span>
+                      <span className="font-semibold">{results.validation.metrics.requiredFieldsPresent}/{results.validation.metrics.totalRequiredFields}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-blue-700 font-medium">Completion Rate:</span>
+                      <span className="font-semibold">{(results.validation.metrics.completionRate * 100).toFixed(1)}%</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-blue-700 font-medium">AI Confidence:</span>
+                      <span className="font-semibold">{((results.validation.overallConfidence || 0) * 100).toFixed(1)}%</span>
+                    </div>
+                  </div>
+                  {results.validation.submissionType !== 'complete' && (
+                    <div className="mt-3 pt-3 border-t border-blue-200 text-xs text-blue-600">
+                      This {results.validation.submissionType} extraction can be improved with manual data entry later.
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <div className="bg-gray-50 rounded-lg p-6 border">
+                <div className="font-semibold mb-4 text-lg">Staging Database Preview</div>
+                <div className="space-y-3 max-h-72 overflow-y-auto">
+                  {results ? Object.entries(results.allFields).map(([key, value]) => (
+                    <div key={key} className="space-y-2 text-sm">
+                      <span className="font-mono text-xs bg-gray-200 px-3 py-1 rounded-md inline-block">
+                        {key} → Database Column
+                      </span>
+                      <div className="text-gray-700 pl-4 border-l-3 border-gray-300 py-2 bg-white rounded-r p-3">
+                        {String(value) || '<empty>'}
+                      </div>
+                    </div>
+                  )) : <p className="text-gray-500">No data available</p>}
+                </div>
+              </div>
+
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div className="font-semibold text-blue-800 mb-3 text-lg">🛡️ Staging Mode Benefits</div>
+                <ul className="text-blue-700 text-sm space-y-2 leading-relaxed">
+                  <li>• Safe testing environment - no production impact</li>
+                  <li>• {operationType === 'create' ? 'New staging record will be created' : 'Staging record will be updated'}</li>
+                  <li>• Review and approve data before going live</li>
+                  <li>• Easy to promote to production when ready</li>
+                </ul>
+              </div>
+
+              <div className="flex gap-3 pt-4">
+                <Button 
+                  onClick={handleCommitToDatabase} 
+                  className={`flex-1 py-3 ${
+                    results?.validation.submissionType === 'complete' 
+                      ? 'bg-green-600 hover:bg-green-700' 
+                      : 'bg-yellow-600 hover:bg-yellow-700'
+                  } text-white`}
+                >
+                  💾 Continue to Agent 2: Database Injection
+                </Button>
+                <Button variant="outline" onClick={() => setStep("review")} className="px-4">
+                  ← Back to Review
+                </Button>
+                <Button variant="outline" onClick={handleClose} className="px-6">Cancel</Button>
+              </div>
+            </div>
+          )}
+          {step === "done" && (
+            <div className="flex flex-col items-center justify-center py-16 space-y-6">
+              <CheckCircle className="w-16 h-16 text-green-600" />
+              <div className="text-xl font-semibold text-center">
+                {results?.stagingInfo?.operation === 'demo-mode' ? 'AI Extraction Complete! 🎉' : 'Saved to Staging Database! 🎉'}
+              </div>
+              
+              {results?.stagingInfo && (
+                <div className={`border rounded-lg p-6 w-full max-w-md ${
+                  results.stagingInfo.operation === 'demo-mode' 
+                    ? 'bg-amber-50 border-amber-200' 
+                    : 'bg-blue-50 border-blue-200'
+                }`}>
+                  <div className="text-sm space-y-3">
+                    <div><strong>Operation:</strong> {results.stagingInfo.operation}</div>
+                    <div><strong>Status:</strong> {results.stagingInfo.staging_id}</div>
+                    <div className={`${results.stagingInfo.operation === 'demo-mode' ? 'text-amber-700' : 'text-blue-700'} leading-relaxed`}>
+                      {results.stagingInfo.message}
+                    </div>
+                  </div>
+                </div>
+              )}
+              
+              <div className={`border rounded-lg p-6 w-full max-w-md ${
+                results?.stagingInfo?.operation === 'demo-mode' 
+                  ? 'bg-yellow-50 border-yellow-200' 
+                  : 'bg-amber-50 border-amber-200'
+              }`}>
+                <div className="text-sm text-gray-800">
+                  <strong className="block mb-3">Next Steps:</strong>
+                  <ul className="space-y-2 list-disc list-inside">
+                    {results?.stagingInfo?.operation === 'demo-mode' ? (
+                      <>
+                        <li>Run the staging table migration in Supabase</li>
+                        <li>Then retry to save data to staging database</li>
+                        <li>Extract is working perfectly - just need the database setup!</li>
+                      </>
+                    ) : (
+                      <>
+                        <li>Review the extracted data in your admin panel</li>
+                        <li>Approve for production when ready</li>
+                        <li>Data is safely isolated in staging until approved</li>
+                      </>
+                    )}
+                  </ul>
+                </div>
+              </div>
+              
+              <Button className="mt-8 px-8 py-3" onClick={handleClose}>Close</Button>
+            </div>
+          )}
+          {step === "error" && (
+            <div className="flex flex-col items-center justify-center py-16 space-y-6">
+              <AlertTriangle className="w-16 h-16 text-red-600" />
+              <div className="text-xl font-semibold text-red-700 text-center">Error Occurred</div>
+              <div className="text-center text-gray-600 max-w-md leading-relaxed">{error}</div>
+              <Button className="mt-8 px-8 py-3" onClick={handleClose}>Close</Button>
+            </div>
+          )}
+        </div>
+      </SheetContent>
+    </Sheet>
+  );
+}

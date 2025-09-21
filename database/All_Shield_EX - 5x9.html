@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>All Shield EX | SpecChem</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
+
+    @page {
+      size: 9in 5in;
+      margin: 0;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e7eaf0;
+      font-family: 'Open Sans', Arial, sans-serif;
+    }
+    .label-container {
+      width: 9in;
+      height: 5in;
+      margin: 0 auto;
+      background: url("https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/branding%2F5x9-label-template.png?alt=media&token=afc42346-5527-4c06-8c50-1aaef543e1ef") no-repeat center center;
+      background-size: cover;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .watermark {
+      position: absolute;
+      top: 54%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 215px;
+      opacity: 0.14;
+      z-index: 1;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+      filter: blur(0.2px);
+      max-width: 60%;
+    }
+
+    .columns-container {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      height: 100%;
+      padding: 0.33in 0.36in 0.11in 0.36in;
+      box-sizing: border-box;
+      z-index: 2;
+    }
+
+    .left-columns, .right-columns {
+      width: 32%;
+      min-width: 130px;
+      max-width: 33%;
+      line-height: 1.16;
+      word-break: break-word;
+    }
+    .left-columns {
+      color: #18335b;
+      margin-top: .2in;
+      column-count: 2;
+      column-gap: 0.19in;
+    }
+    .right-columns {
+      color: #232942;
+      font-size: 4.7px;
+      line-height: 1.12;
+      margin-top: .5in;
+      column-count: 2;
+      column-gap: 0.19in;
+    }
+
+    .contact-block {
+      font-size: 4px;
+      line-height: 1.25;
+      margin-bottom: 2px;
+      color: #1a2340;
+      font-family: 'Open Sans', Arial, sans-serif;
+      word-break: break-word;
+    }
+
+    .left-columns h4 {
+      font-family: 'Montserrat', 'Open Sans', Arial, sans-serif;
+      font-size: 8.8px;
+      color: #1e3369;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.5px;
+      margin-top: 11px;
+      letter-spacing: 0.07em;
+      padding-left: 5px; 
+    }
+    .left-columns p, .left-columns ul, .left-columns li {
+      font-size: 6.2px;
+      color: inherit;
+      font-family: 'Montserrat', 'Open Sans', Arial, sans-serif;
+      margin: 0 0 3px 0;
+    }
+    .left-columns ul {
+      padding-left: 12px;
+    }
+    .right-columns h4 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 6.3px;
+      color: #233066;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.5px;
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+    .right-columns p,
+    .right-columns ul,
+    .right-columns li,
+    .right-columns .statement-list {
+      font-size: 4px;
+      color: inherit;
+      font-family: 'Open Sans', Arial, sans-serif;
+      margin: 0 0 1.4px 0;
+      list-style: none;
+      padding-left: 0;
+    }
+    .right-columns .statement-list {
+      margin-bottom: 0.5em;
+    }
+    .right-columns .statement-list > div {
+      margin-bottom: 1px;
+    }
+    .right-columns .signal-word {
+      font-size: 4.7px;
+      font-weight: 700;
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin-top: 0;
+      margin-bottom: 0.6px;
+    }
+
+    .center-content {
+      width: 31%;
+      min-width: 110px;
+      max-width: 32%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      z-index: 5;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 120px;
+    }
+    .center-content .product-name {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #21325b;
+      letter-spacing: 0.01em;
+      margin: 0 0 2px 0;
+      line-height: 1.1;
+    }
+    .short-description-english {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #2453a6;
+      margin: 0 0 1.7px 0;
+      letter-spacing: 0.01em;
+    }
+    .translated-short-description {
+      font-size: 8px;
+      font-family: 'Open Sans', Arial, sans-serif;
+      color: #395073;
+      font-weight: 500;
+      margin: 0 0 1.3px 0;
+    }
+    .logo-container {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 38%;
+      margin: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .logo-container img {
+      width: 150px;
+      filter: drop-shadow(0 2px 8px #132e5712);
+    }
+    .center-bottom-content {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 17px;
+      width: 100%;
+    }
+
+    .pictograms {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      margin: 0 0 3px 0;
+    }
+    .pictograms img {
+      width: 13px;
+      height: 13px;
+      object-fit: contain;
+      border-radius: 3px;
+      border: 1px solid #e3e8f1;
+      background: #f7fafc;
+    }
+
+    .label-bottom-bar {
+      position: absolute;
+      left: .1in;
+      bottom: .3in;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      z-index: 15;
+      height: 88px;
+    }
+    .corner-icon-danger {
+      width: 100px;
+      height: 60px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px #22316622;
+      padding: 4px;
+      margin-left: 4px;
+    }
+    .corner-icon {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px #22316622;
+      padding: 4px;
+      margin-left: 13px;
+    }
+    .code-row {
+      position: absolute;
+      left: 50%;
+      bottom: 0.53in;
+      transform: translateX(-50%);
+      width: auto;
+      z-index: 20;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 35px;
+    }
+    .code-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      font-size: 13px;
+      color: #1b2754;
+      font-family: 'Open Sans', Arial, sans-serif;
+      gap: 4px;
+      min-width: 175px;
+    }
+    .batch-field,
+    .package-size,
+    .use-by {
+      text-align: left;
+      margin-left: 0;
+      font-size: 13px;
+      color: #1b2754;
+      font-family: 'Open Sans', Arial, sans-serif;
+    }
+    .batch-field label {
+      display: inline-block;
+      min-width: 74px;
+      padding: 0;
+      margin: 0;
+    }
+    .batch-field input {
+      width: 84px;
+      font-size: 13px;
+      border: none;
+      border-bottom: 1.5px solid #223166;
+      background: #f3f7ff;
+      outline: none;
+      padding: 2px 3px;
+      border-radius: 2.5px 2.5px 0 0;
+      margin-left: 0;
+      vertical-align: middle;
+    }
+    .qr-code {
+      width: 38px;
+      filter: drop-shadow(0 2px 4px #25408014);
+    }
+    .green-conscious-icon {
+      width: 38px;
+    }
+
+    .product-name-badge-wrap {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 7px;
+    }
+    .product-name-badge-wrap img {
+      width: 30px;
+      height: 30px;
+      margin-top: 2px;
+    }
+    .eco-badge {
+      margin-top: -10px;
+      vertical-align: baseline;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: none !important;
+      }
+      .label-container { box-shadow: none !important; border-radius: 0 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="label-container">
+    <div class="columns-container">
+
+      <!-- Left Columns -->
+      <div class="left-columns">
+        <div class="lc-section">
+<h4>Description</h4>
+<p>All Shield EX is an exempt solvent, low VOC, synthetic-modified, silane-siloxane concrete protectant.</p>
+<p>This clear, penetrating, breathable protectant is designed for use on interior/exterior, horizontal/vertical concrete, natural or synthetic stone surfaces to resist oil, water, food stains, and many other liquid contaminants.</p>
+<p>All Shield EX penetrates the surface and bonds directly with the substrate, which results in a surface that is highly resistant to moisture, staining and deicing salts.</p>
+<p>All Shield EX helps protect concrete and stone surfaces including commercial and industrial floors, vehicle repair and service facilities, pavements, driveways, brick and concrete pavers, parking structures, bridges, marine platforms etc. against the corrosive effects of de-icing salts, moisture and weathering.</p>
+</div>
+<div class="lc-section">
+<h4>VOC Data</h4>
+<p><strong>Low VOC (< 100 gm/l) formula; SCAQMD, OTC, LADCO, compliant</strong></p>
+</div>
+<div class="lc-section">
+<h4>Application</h4>
+<p>EQUIPMENT: Must use a low pressure (  50 psi), non-atomizing sprayer with a respirator and proper ventilation.</p>
+<p>Use a microfiber applicator for polished, dense surfaces.</p>
+<p>COVERAGE RATE: Average rate is determined by surface porosity:.</p>
+<p>New Concrete: 150-200 ft²/gal
+  Light Broom finish: 200-400 ft²/gal
+  Smoothed/Medium Trowel: 400-500 ft²/gal
+  Dense/Polished Concrete: 800-1200 ft²/gal.</p>
+<p>A test area is recommended to determine actual coverage rates.</p>
+<p>NEW CONCRETE: Surface should be dry, well cured (21 day minimum) using water, polyethylene, curing paper, SpecChem "E Cure®", or a dissipating resin based curing compound like "SpecRez".</p>
+<p>Always test a small area to confirm appearance, compatibility, coverage and desired performance.</p>
+<p>Substrate must be free of oil, moisture, curing residue, dust, debris, and all other contaminants and must be absorptive to allow penetration of the ALL SHIELD EX.</p>
+<p>All joint sealants, caulks and patching should be in place before applying.</p>
+<p>HORIZONTAL/VERTICAL SURFACES: Generously apply using a low pressure sprayer (airless sprayer 10 to 20 psi), roller, brush or broom.</p>
+<p>Broom or squeegee out any puddles or tire tracking marks.</p>
+<p>Adjust application to wet only porous surfaces or apply additional coats in a wet-on-wet method.</p>
+<p>Do not allow excess or dry on the surface.</p>
+<p>OLD CONCRETE AND MASONRY: Remove any previously applied sealers, dust, dirt, oil, etc. with power wash and SpecChem Orange Peel or Berry Peel.</p>
+<p>Let dry.</p>
+<p>Clean or use other appropriate measures to properly prepare the substrate.</p>
+<p>Membranes of any kind must be removed.</p>
+<p>Substrates must be dry and absorptive to allow penetration of the ALL SHIELD EX.</p>
+</div>
+<div class="lc-section">
+<h4>Features</h4>
+<ul>
+<li>Excellent oil, water and stain repellent for interior/exterior surfaces subjected to motor oil, de-icing salts and other damaging contaminants.</li>
+<li>Low VOC (< 100 gm/l) formula; SCAQMD, OTC, LADCO, compliant</li>
+<li>Reduces water penetration minimizing the effects of freeze-thaw and weathering on concrete structures</li>
+<li>Long-lasting protection for new as well as old concrete and stone surfaces</li>
+<li>Dries quickly, tack-free and skid-resistant</li>
+<li>Colorless and non-yellowing</li>
+<li>USDA accepted for indirect food contact</li>
+<li>Fast drying and can be recoated</li>
+</ul>
+</div>
+<div class="lc-section">
+<h4>Limitations</h4>
+<ul>
+<li>DO NOT CUT OR WELD CONTAINER</li>
+<li>FLAMMABLE LIQUID</li>
+<li>KEEP AWAY FROM OPEN FLAME</li>
+<li>PROFESSIONAL/INDUSTRIAL USE ONLY</li>
+<li>All Shield EX is not suitable for asphaltic surfaces or for below grade waterproofing. Protect glass, metal and other non-masonry surfaces from over spray.</li>
+<li>Can be applied before freezing (32°F) provided the concrete is free of frost or any contaminants. Substrate must be completely dry or whitening may occur. Do not use over a curing membrane.</li>
+<li>Do not atomize/aerosolize when spraying. Must use respirators with organic vapor cartridges, gloves, and avoid operation until solvents have completely evaporated (approx. 60 mins). Avoid any inhalation or skin contact. Do not buff, burnish or polish after application.</li>
+<li>Initial reaction will be in 16 to 24 hours. Treated areas may be returned to service once product has penetrated and surface is dry. Substrates should be saturated with material, but not allowed to puddle. Do not apply if precipitation is expected within four hours, or if rain has preceded the application in the past 12 hours.</li>
+<li>Test compatibility with natural or synthetic stone. Over-application may cause a slight darkening of the surface or leave a sticky residue on the surface. Do not apply in high winds. Do not dilute.</li>
+<li>Please refer to the safety data sheet (SDS) for more detail.</li>
+</ul>
+</div>
+<div class="lc-section">
+<h4>Shelf Life</h4>
+<p>Containers are to be sealed and stored in a clean, dry area between 45-85°F (6-29°C). Keep from freezing. Shelf life is 24 months in unopened containers.</p>
+</div>
+      </div>
+
+      <!-- Center Content -->
+      <div class="center-content">
+        <div class="product-name" style="margin:0;">All Shield EX</div>
+        
+        <div class="short-description-english">Modified oleophobic penetrating concrete protectant</div>
+        <div class="translated-short-description">Protecteur de béton pénétrant oléophobe modifié</div>
+        <div class="translated-short-description">Protectante penetrante para concreto modificado oleofóbico</div>
+        <div class="center-bottom-content">
+          
+        </div>
+      </div>
+
+      <!-- Logo moved outside .center-content -->
+      <div class="logo-container">
+        <img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/branding%2Flogo-transparent.webp?alt=media&token=0b494edd-5a0a-4f37-8227-8e88356881f8" alt="SpecChem Logo">
+      </div>
+
+      <!-- Right Columns -->
+      <div class="right-columns">
+        <div class="rc-section">
+ <h4>Pictograms</h4>
+<div class="pictograms" style="display: flex; gap: 5px; align-items: center; margin: 0 0 5px 0; flex-wrap: nowrap; overflow-x: auto;"><img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Fflame.png?alt=media&token=3691deab-dcab-4803-8c2b-150c141e95a1" alt="Pictogram" style="width: 19.5px; height: 19.5px; object-fit: contain; border-radius: 4px; border: 1px solid #e3e8f1; background: #f7fafc; margin-right: 5px; display: inline-block; flex-shrink: 0;"><img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Fexclamation.png?alt=media&token=a0120ae4-b4d0-482c-aca9-1400dbd294b9" alt="Pictogram" style="width: 19.5px; height: 19.5px; object-fit: contain; border-radius: 4px; border: 1px solid #e3e8f1; background: #f7fafc; margin-right: 5px; display: inline-block; flex-shrink: 0;"><img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Fhealth-hazard.png?alt=media&token=6afae00b-0abb-47d6-9740-364dd060e28e" alt="Pictogram" style="width: 19.5px; height: 19.5px; object-fit: contain; border-radius: 4px; border: 1px solid #e3e8f1; background: #f7fafc; margin-right: 5px; display: inline-block; flex-shrink: 0;"></div>
+</div>
+
+<div class="rc-section">
+<h4>Components Determining Hazard / </h4>
+<p>Fluorinated Acrylic Copolym, Alkanes, C11-15-iso, Dipropylene Glycol Methyl Ether, PARACHLOROBENZOTRIFLUORIDE</p>
+<p>Fluorinated Acrylic Copolym, Alkanes, C11-15-iso, Dipropylene Glycol Methyl Ether, PARACHLOROBENZOTRIFLUORIDE</p>
+</div>
+
+<div class="rc-section">
+<h4>Signal Word</h4>
+<p><strong>Danger</strong></p>
+</div>
+
+<div class="rc-section">
+<h4>Hazard Statements</h4>
+<p>Highly flammable liquid and vapour. May be fatal if swallowed and enters airways. May cause drowsiness or dizziness. Causes skin irritation. Causes serious eye irritation. Flammable liquid. Category 3. Aspiration hazard. Category 1. Specific target organ toxicity, single exposure; Narcotic effects. Category 3. Skin Corrosion/Irritation. Category 2. Eye Irritation. Category 2A.</p>
+</div>
+
+<div class="rc-section">
+<h4>Precautionary Statements</h4>
+<p>Keep away from heat/sparks/open flames/hot surfaces.- No smoking. Keep container tightly closed. Ground/Bond container and receiving equipment. Use explosion-proof electrical/ventilating/lightning and other equipment. Use only non-sparking tools. Take precautionary measures against static discharge. Wear protective gloves/eye protection/face protection. Wash hands, forearms and face thoroughly after handling. Avoid breathing dust/fume/gas/mist/vapours/spray. Use only outdoors or in a well-ventilated area.</p>
+</div>
+
+<div class="rc-section">
+<h4>Response Statements</h4>
+<p>IF ON SKIN (or hair): Remove/Take off immediately all contaminated clothing.</p>
+<p>Rinse skin with water/shower.</p>
+<p>In case of fire: Use dry chemical, CO2, water spray (fog) or foam for extinction.</p>
+<p>IF INHALED: Remove victim to fresh air and keep at rest in a position comfortable for breathing.</p>
+<p>Call a POSION CENTER or doctor/physician if you feel unwell.</p>
+<p>IF IN EYES: Rinse cautiously with water for several minutes.</p>
+<p>Remove contact lenses, if present and easy to do.</p>
+<p>Continue rinsing.</p>
+<p>IF SWALLOWED: Immediately call a POISON CENTER or doctor/physician.</p>
+<p>Do NOT induce vomiting.</p>
+<p>If skin irritation occurs: Get medical advice/attention.</p>
+<p>If eye irritation persists: Get medical advice/attention.</p>
+</div>
+
+<div class="rc-section">
+<h4>Storage</h4>
+<p>Store in a well-ventilated place. Keep container tightly closed. Keep cool. Store locked up.</p>
+</div>
+
+<div class="rc-section">
+<h4>Disposal</h4>
+<p>Dispose of contents/container in accordance with local/regional/national/international regulations.</p>
+</div>
+
+<div class="rc-section">
+<h4>Transport</h4>
+<p><b>Proper Shipping Name:</b> Flammable liquids, n.o.s.
+(Contains: Petroleum Distillate, Para-chlorobenzotrifluorides)</p>
+<p><b>UN Number:</b> UN1993</p>
+<p><b>Hazard Class:</b> Class 3</p>
+<p><b>Packing Group:</b> III</p>
+<p><b>N.A. Emergency Response Guidebook #:</b> Not applicable.<br>
+
+In containers of 119 gallons or less this product is not regulated by DOT. Shipments in containers of more than 119 gallons, this product is regulated by DOT and must ship as flammable liquid.</p>
+</div>
+      </div>
+    </div>
+
+    <div class="label-bottom-bar">
+      <img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Frectangle-pictogram.png?alt=media&token=a469c938-f942-4f1f-b825-444828d6a8f3" alt="Danger Icon" class="corner-icon-danger">
+    </div>
+
+    <div class="code-row">
+      <img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Fproduct-qr.png?alt=media&token=c832e9c2-525d-4dbf-984d-f8f249acf86e" class="qr-code" alt="QR Code" />
+      <div class="code-info">
+        <label>Batch No:</label>
+          <input type="text" name="batch-no" />
+        <div class="package-size">1 Gallon/3.875L</div>
+        <div class="use-by">Used by date: 2 Years</div>
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>

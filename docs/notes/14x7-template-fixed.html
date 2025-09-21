@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{product_name}} | SpecChem</title>
+    <style>{{css_styles}}</style>
+</head>
+  <body>
+    <div class="label-container">
+    <div class="columns-container">
+      <!-- Left Columns -->
+      <div class="left-columns" id="Font6">
+        {{#if description}}<div class="lc-section"><h4>Description</h4><p>{{description}}</p></div>{{/if}}
+        {{#if voc_data}}<div class="lc-section"><h4>VOC Data</h4><p>{{voc_data}}</p></div>{{/if}}
+        {{#if application}}<div class="lc-section"><h4>Application</h4><p>{{application}}</p></div>{{/if}}
+        {{#if features}}<div class="lc-section"><h4>Features</h4><p>{{features}}</p></div>{{/if}}
+        {{#if limitations}}<div class="lc-section"><h4>Limitations</h4><p>{{limitations}}</p></div>{{/if}}
+        {{#if shelf_life}}<div class="lc-section"><h4>Shelf Life</h4><p>{{shelf_life}}</p></div>{{/if}}
+      </div>
+      <!-- Center Content -->
+      <div class="center-content">
+        <div class="product-name">{{name}}</div>
+        {{#if short_description_english}}<div class="short-description-english">{{short_description_english}}</div>{{/if}}
+        {{#if short_description_french}}<div class="translated-short-description">{{short_description_french}}</div>{{/if}}
+        {{#if short_description_spanish}}<div class="translated-short-description">{{short_description_spanish}}</div>{{/if}}
+        {{#if subtitle_1}}<div class="subtitle">{{subtitle_1}}</div>{{/if}}
+        {{#if subtitle_2}}<div class="subtitle subtitle-2">{{subtitle_2}}</div>{{/if}}
+        <div class="logo-container">
+<img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/branding%2Flogo-transparent.webp?alt=media&token=0b494edd-5a0a-4f37-8227-8e88356881f8" alt="SpecChem Logo">
+</div>
+      </div>
+      <!-- Right Columns -->
+      <div class="right-columns" id="Font6">
+        {{#if pictograms}}<div class="rc-section"><h4>Pictograms</h4><div class="pictograms" style="display: flex; gap: 7px; align-items: center; margin: 0 0 7px 0;">{{pictograms}}</div></div>{{/if}}
+        {{#if components_determining_hazard}}<div class="rc-section"><h4>Components Determining Hazard{{#if composants_determinant_le_danger}} / Français{{/if}}</h4><p>{{components_determining_hazard}}</p>{{#if composants_determinant_le_danger}}<p>{{composants_determinant_le_danger}}</p>{{/if}}</div>{{/if}}
+        {{#if signal_word}}<div class="rc-section"><h4>Signal Word{{#if mot_de_signalement}} / Français{{/if}}</h4><p>{{signal_word}}</p>{{#if mot_de_signalement}}<p>{{mot_de_signalement}}</p>{{/if}}</div>{{/if}}
+        {{#if hazard_statements}}<div class="rc-section"><h4>Hazard Statements{{#if mentions_de_danger}} / Français{{/if}}</h4><p>{{hazard_statements}}</p>{{#if mentions_de_danger}}<p>{{mentions_de_danger}}</p>{{/if}}</div>{{/if}}
+        {{#if precautionary_statements}}<div class="rc-section"><h4>Precautionary Statements{{#if conseils_de_prudence}} / Français{{/if}}</h4><p>{{precautionary_statements}}</p>{{#if conseils_de_prudence}}<p>{{conseils_de_prudence}}</p>{{/if}}</div>{{/if}}
+        {{#if response_statements}}<div class="rc-section"><h4>Response Statements{{#if premiers_soins}} / Français{{/if}}</h4><p>{{response_statements}}</p>{{#if premiers_soins}}<p>{{premiers_soins}}</p>{{/if}}</div>{{/if}}
+        {{#if storage}}<div class="rc-section"><h4>Storage{{#if consignes_de_stockage}} / Français{{/if}}</h4><p>{{storage}}</p>{{#if consignes_de_stockage}}<p>{{consignes_de_stockage}}</p>{{/if}}</div>{{/if}}
+        {{#if disposal}}<div class="rc-section"><h4>Disposal{{#if consignes_delimination}} / Français{{/if}}</h4><p>{{disposal}}</p>{{#if consignes_delimination}}<p>{{consignes_delimination}}</p>{{/if}}</div>{{/if}}
+        {{#if proper_shipping_name}}<div class="rc-section"><h4>Transport</h4><p><b>Proper Shipping Name:</b> {{proper_shipping_name}}</p>{{#if un_number}}<p><b>UN Number:</b> {{un_number}}</p>{{/if}}{{#if hazard_class}}<p><b>Hazard Class:</b> {{hazard_class}}</p>{{/if}}{{#if packing_group}}<p><b>Packing Group:</b> {{packing_group}}</p>{{/if}}{{#if emergency_response_guide}}<p><b>N.A. Emergency Response Guidebook #:</b> {{emergency_response_guide}}</p>{{/if}}</div>{{/if}}
+      </div>
+    </div>
+    {{#if corner_icons}}<div class="corner-icons">{{corner_icons}}</div>{{/if}}
+    <div class="code-row">
+      <img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Fproduct-qr.png?alt=media&token=c832e9c2-525d-4dbf-984d-f8f249acf86e" class="qr-code" alt="QR Code" />
+      <div class="code-info">
+<div class="batch-field"><label style="display:inline-block; min-width:105px;">Batch No:</label></div>
+{{#if package_size}}<div class="package-size">{{package_size}}</div>{{/if}}
+{{#if used_by_date}}<div class="use-by">Used by date: {{used_by_date}}</div>{{/if}}
+</div>
+      {{#if green_conscious}}<img src="https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Fgreen-conscious.png?alt=media&token=green-conscious-icon" class="green-conscious-icon" alt="Green Conscious" />{{/if}}
+    </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,541 @@
+// Database types for the products management system
+// Auto-generated from Supabase schema
+
+export type Database = {
+  public: {
+    Tables: {
+      categories: {
+        Row: {
+          id: string
+          name: string
+          slug: string
+          description: string | null
+          parent_id: string | null
+          sort_order: number
+          is_active: boolean
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          slug: string
+          description?: string | null
+          parent_id?: string | null
+          sort_order?: number
+          is_active?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          slug?: string
+          description?: string | null
+          parent_id?: string | null
+          sort_order?: number
+          is_active?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      pictograms: {
+        Row: {
+          id: string
+          name: string
+          slug: string
+          url: string
+          description: string | null
+          is_active: boolean
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          slug: string
+          url: string
+          description?: string | null
+          is_active?: boolean
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          slug?: string
+          url?: string
+          description?: string | null
+          is_active?: boolean
+          created_at?: string
+        }
+      }
+      products: {
+        Row: {
+          id: string
+          name: string
+          slug: string
+          sku: string | null
+          category_id: string | null
+          short_description_english: string | null
+          short_description_french: string | null
+          short_description_spanish: string | null
+          description: string | null
+          application: string | null
+          features: string | null
+          coverage: string | null
+          limitations: string | null
+          shelf_life: string | null
+          voc_data: string | null
+          signal_word: 'Danger' | 'Warning' | 'None'
+          components_determining_hazard: string | null
+          hazard_statements: string | null
+          precautionary_statements: string | null
+          response_statements: string | null
+          first_aid: string | null
+          storage: string | null
+          disposal: string | null
+          composants_determinant_le_danger: string | null
+          mot_de_signalement: string | null
+          mentions_de_danger: string | null
+          conseils_de_prudence: string | null
+          premiers_soins: string | null
+          mesures_de_premiers_secours: string | null
+          consignes_de_stockage: string | null
+          consignes_delimination: string | null
+          proper_shipping_name: string | null
+          un_number: string | null
+          hazard_class: 'Class 1' | 'Class 2' | 'Class 3' | 'Class 4' | 'Class 5' | 'Class 6' | 'Class 7' | 'Class 8' | 'Class 9' | 'Not applicable'
+          packing_group: 'PG I' | 'PG II' | 'PG III' | 'Not applicable'
+          emergency_response_guide: string | null
+          subtitle_1: string | null
+          subtitle_2: string | null
+          do_not_freeze: boolean
+          mix_well: boolean
+          green_conscious: boolean
+          used_by_date: string | null
+          is_active: boolean
+          sort_order: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          slug: string
+          sku?: string | null
+          category_id?: string | null
+          short_description_english?: string | null
+          short_description_french?: string | null
+          short_description_spanish?: string | null
+          description?: string | null
+          application?: string | null
+          features?: string | null
+          coverage?: string | null
+          limitations?: string | null
+          shelf_life?: string | null
+          voc_data?: string | null
+          signal_word?: 'Danger' | 'Warning' | 'None'
+          components_determining_hazard?: string | null
+          hazard_statements?: string | null
+          precautionary_statements?: string | null
+          response_statements?: string | null
+          first_aid?: string | null
+          storage?: string | null
+          disposal?: string | null
+          composants_determinant_le_danger?: string | null
+          mot_de_signalement?: string | null
+          mentions_de_danger?: string | null
+          conseils_de_prudence?: string | null
+          premiers_soins?: string | null
+          mesures_de_premiers_secours?: string | null
+          consignes_de_stockage?: string | null
+          consignes_delimination?: string | null
+          proper_shipping_name?: string | null
+          un_number?: string | null
+          hazard_class?: 'Class 1' | 'Class 2' | 'Class 3' | 'Class 4' | 'Class 5' | 'Class 6' | 'Class 7' | 'Class 8' | 'Class 9' | 'Not applicable'
+          packing_group?: 'PG I' | 'PG II' | 'PG III' | 'Not applicable'
+          emergency_response_guide?: string | null
+          subtitle_1?: string | null
+          subtitle_2?: string | null
+          do_not_freeze?: boolean
+          mix_well?: boolean
+          green_conscious?: boolean
+          used_by_date?: string | null
+          is_active?: boolean
+          sort_order?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          slug?: string
+          sku?: string | null
+          category_id?: string | null
+          short_description_english?: string | null
+          short_description_french?: string | null
+          short_description_spanish?: string | null
+          description?: string | null
+          application?: string | null
+          features?: string | null
+          coverage?: string | null
+          limitations?: string | null
+          shelf_life?: string | null
+          voc_data?: string | null
+          signal_word?: 'Danger' | 'Warning' | 'None'
+          components_determining_hazard?: string | null
+          hazard_statements?: string | null
+          precautionary_statements?: string | null
+          response_statements?: string | null
+          first_aid?: string | null
+          storage?: string | null
+          disposal?: string | null
+          composants_determinant_le_danger?: string | null
+          mot_de_signalement?: string | null
+          mentions_de_danger?: string | null
+          conseils_de_prudence?: string | null
+          premiers_soins?: string | null
+          mesures_de_premiers_secours?: string | null
+          consignes_de_stockage?: string | null
+          consignes_delimination?: string | null
+          proper_shipping_name?: string | null
+          un_number?: string | null
+          hazard_class?: 'Class 1' | 'Class 2' | 'Class 3' | 'Class 4' | 'Class 5' | 'Class 6' | 'Class 7' | 'Class 8' | 'Class 9' | 'Not applicable'
+          packing_group?: 'PG I' | 'PG II' | 'PG III' | 'Not applicable'
+          emergency_response_guide?: string | null
+          subtitle_1?: string | null
+          subtitle_2?: string | null
+          do_not_freeze?: boolean
+          mix_well?: boolean
+          green_conscious?: boolean
+          used_by_date?: string | null
+          is_active?: boolean
+          sort_order?: number
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      product_pictograms: {
+        Row: {
+          id: string
+          product_id: string
+          pictogram_id: string
+          sort_order: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          product_id: string
+          pictogram_id: string
+          sort_order?: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          product_id?: string
+          pictogram_id?: string
+          sort_order?: number
+          created_at?: string
+        }
+      }
+      product_media: {
+        Row: {
+          id: string
+          product_id: string
+          media_type: string
+          url: string
+          alt_text: string | null
+          caption: string | null
+          is_primary: boolean
+          sort_order: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          product_id: string
+          media_type: string
+          url: string
+          alt_text?: string | null
+          caption?: string | null
+          is_primary?: boolean
+          sort_order?: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          product_id?: string
+          media_type?: string
+          url?: string
+          alt_text?: string | null
+          caption?: string | null
+          is_primary?: boolean
+          sort_order?: number
+          created_at?: string
+        }
+      }
+      label_templates: {
+        Row: {
+          id: string
+          name: string
+          slug: string
+          description: string | null
+          width_mm: number | null
+          height_mm: number | null
+          html_template: string
+          css_template: string
+          is_active: boolean
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          slug: string
+          description?: string | null
+          width_mm?: number | null
+          height_mm?: number | null
+          html_template: string
+          css_template: string
+          is_active?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          slug?: string
+          description?: string | null
+          width_mm?: number | null
+          height_mm?: number | null
+          html_template?: string
+          css_template?: string
+          is_active?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      product_labels: {
+        Row: {
+          id: string
+          product_id: string
+          template_id: string | null
+          generated_html: string | null
+          pdf_url: string | null
+          language: string
+          version: number
+          is_current: boolean
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          product_id: string
+          template_id?: string | null
+          generated_html?: string | null
+          pdf_url?: string | null
+          language?: string
+          version?: number
+          is_current?: boolean
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          product_id?: string
+          template_id?: string | null
+          generated_html?: string | null
+          pdf_url?: string | null
+          language?: string
+          version?: number
+          is_current?: boolean
+          created_at?: string
+        }
+      }
+      product_variants: {
+        Row: {
+          id: string
+          product_id: string
+          name: string
+          sku: string | null
+          size: string | null
+          unit: string | null
+          weight_kg: number | null
+          volume_liters: number | null
+          price: number | null
+          is_active: boolean
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          product_id: string
+          name: string
+          sku?: string | null
+          size?: string | null
+          unit?: string | null
+          weight_kg?: number | null
+          volume_liters?: number | null
+          price?: number | null
+          is_active?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          product_id?: string
+          name?: string
+          sku?: string | null
+          size?: string | null
+          unit?: string | null
+          weight_kg?: number | null
+          volume_liters?: number | null
+          price?: number | null
+          is_active?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      product_specifications: {
+        Row: {
+          id: string
+          product_id: string
+          spec_name: string
+          spec_value: string
+          unit: string | null
+          test_method: string | null
+          sort_order: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          product_id: string
+          spec_name: string
+          spec_value: string
+          unit?: string | null
+          test_method?: string | null
+          sort_order?: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          product_id?: string
+          spec_name?: string
+          spec_value?: string
+          unit?: string | null
+          test_method?: string | null
+          sort_order?: number
+          created_at?: string
+        }
+      }
+      application_methods: {
+        Row: {
+          id: string
+          product_id: string
+          method_name: string
+          instructions: string
+          coverage_rate: string | null
+          equipment_required: string | null
+          temperature_range: string | null
+          sort_order: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          product_id: string
+          method_name: string
+          instructions: string
+          coverage_rate?: string | null
+          equipment_required?: string | null
+          temperature_range?: string | null
+          sort_order?: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          product_id?: string
+          method_name?: string
+          instructions?: string
+          coverage_rate?: string | null
+          equipment_required?: string | null
+          temperature_range?: string | null
+          sort_order?: number
+          created_at?: string
+        }
+      }
+    }
+    Views: {
+      products_with_category: {
+        Row: {
+          id: string
+          name: string
+          slug: string
+          category_name: string | null
+          category_slug: string | null
+          // ... other product fields
+        }
+      }
+      products_with_pictograms: {
+        Row: {
+          id: string
+          name: string
+          pictogram_names: string[] | null
+          pictogram_urls: string[] | null
+          // ... other product fields
+        }
+      }
+    }
+    Functions: {
+      [_ in never]: never
+    }
+    Enums: {
+      hazard_signal: 'Danger' | 'Warning' | 'None'
+      hazard_class: 'Class 1' | 'Class 2' | 'Class 3' | 'Class 4' | 'Class 5' | 'Class 6' | 'Class 7' | 'Class 8' | 'Class 9' | 'Not applicable'
+      packing_group: 'PG I' | 'PG II' | 'PG III' | 'Not applicable'
+    }
+  }
+}
+
+// Helper types for common operations
+export type Product = Database['public']['Tables']['products']['Row']
+export type ProductInsert = Database['public']['Tables']['products']['Insert']
+export type ProductUpdate = Database['public']['Tables']['products']['Update']
+
+export type Category = Database['public']['Tables']['categories']['Row']
+export type CategoryInsert = Database['public']['Tables']['categories']['Insert']
+
+export type Pictogram = Database['public']['Tables']['pictograms']['Row']
+export type LabelTemplate = Database['public']['Tables']['label_templates']['Row']
+
+// Extended types with relationships
+export type ProductWithCategory = Product & {
+  category?: Category
+  pictograms?: Pictogram[]
+}
+
+export type ProductWithPictograms = Product & {
+  pictograms: Pictogram[]
+}
+
+// API response types
+export type ApiResponse<T> = {
+  data: T | null
+  error: string | null
+  count?: number
+}
+
+export type ProductsResponse = ApiResponse<ProductWithCategory[]>
+export type ProductResponse = ApiResponse<ProductWithCategory>
+export type CategoriesResponse = ApiResponse<Category[]>
+export type PictogramsResponse = ApiResponse<Pictogram[]>
+
+// Label generation types
+export type LabelData = {
+  product: ProductWithPictograms
+  template: LabelTemplate
+  language: 'en' | 'fr' | 'es'
+}
+
+export type GeneratedLabel = {
+  html: string
+  css: string
+  productId: string
+  templateId: string
+  language: string
+}

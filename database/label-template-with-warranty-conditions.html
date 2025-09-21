@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Berry Clean | SpecChem</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&family=Lato:wght@400;700&display=swap');
+        
+        @page {
+            size: 14.875in 7.625in;
+            margin: 0;
+        }
+        
+        #Font6 p, #Font6 ul, #Font6 li { font-size: 6px !important; }
+        #Font6-5 p, #Font6-5 ul, #Font6-5 li { font-size: 6.5px !important; }
+        #Font7 p, #Font7 ul, #Font7 li { font-size: 7px !important; }
+        #Font8 p, #Font8 ul, #Font8 li { font-size: 8px !important; }
+        #Font9 p, #Font9 ul, #Font9 li { font-size: 9px !important; }
+        #Font10 p, #Font10 ul, #Font10 li { font-size: 9px !important; }
+        #Font11 p, #Font11 ul, #Font11 li { font-size: 9.5px !important; }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: #e7eaf0;
+            font-family: 'Open Sans', Arial, sans-serif;
+        }
+        
+        .label-container {
+            width: 14.875in;
+            height: 7.625in;
+            margin: 0 auto;
+            background: url("https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/branding%2Fblank-tapered-label.png?alt=media&token=930baa3f-38d5-46fa-81a3-0df0c1eb15a8") no-repeat center center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        .columns-container {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex: 1 1 0;
+            width: 100%;
+            height: 100%;
+            padding: 0.60in 0.68in 0.24in 0.68in;
+            box-sizing: border-box;
+            z-index: 2;
+            margin-top: .6in;
+        }
+        
+        .left-columns, .right-columns { 
+            width: 31.5%;
+            min-width: 320px;
+            max-width: 35%;
+            line-height: 1.22;
+            column-count: 2;
+            column-gap: 0.25in;
+            z-index: 10;
+        }
+        
+        .left-columns li, .right-columns li, .left-columns ul, .right-columns ul {
+            line-height: 1.22;
+        }
+        
+        .right-columns {
+            color: #232942;
+            line-height: 1.14;
+            column-gap: 0.15in;
+        }
+        
+        .left-columns {
+            color: #18335b;
+        }
+        
+        .left-columns h4, .right-columns h4 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 11px;
+            color: #233066;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 2px;
+            letter-spacing: 0.06em;
+            margin-top: 5px;
+            break-after: avoid;
+            page-break-after: avoid;
+        }
+        
+        .left-columns p, .left-columns ul, .left-columns li {
+            font-size: 8px;
+            color: inherit;
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0 0 3px 0;
+        }
+        
+        .right-columns p, .right-columns ul, .right-columns li {
+            font-size: 7px;
+            color: inherit;
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0 0 2px 0;
+        }
+        
+        .rc-statement {
+            font-size: 7px;
+            color: inherit;
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0 0 3px 0;
+        }
+        
+        .right-columns ul, .right-columns .statement-list {
+            list-style: none;
+            padding-left: 0;
+            margin-left: 0;
+            margin-bottom: 2px;
+            font-size: 7px;
+            color: inherit;
+            font-family: 'Open Sans', Arial, sans-serif;
+            line-height: 1.16;
+        }
+        
+        .right-columns li, .right-columns .statement-list li {
+            margin: 0 0 2px 0;
+            padding-left: 0;
+            font-size: inherit;
+            color: inherit;
+            font-family: inherit;
+            line-height: inherit;
+            background: none;
+            border: none;
+            display: block;
+        }
+        
+        .contact-block {
+            font-size: 6px;
+            line-height: 1.3;
+            margin-bottom: 4px;
+            color: #1a2340;
+            font-family: 'Open Sans', Arial, sans-serif;
+            word-break: break-word;
+        }
+        
+        /* Center Column Styling */
+        .center-content {
+            width: 27%;
+            min-width: 240px;
+            max-width: 28%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            z-index: 5;
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .center-content .product-name {
+            font-family: 'Verdana', Arial, sans-serif;
+            font-size: 45px;
+            font-weight: 700;
+            color: #013A81;
+            letter-spacing: 0.03em;
+            margin: 0 0 2px 0;
+            line-height: 1.1;
+        }
+        
+        .short-description-english {
+            font-family: 'Lato', Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #013A81;
+            margin: 0 0 2px 0;
+            letter-spacing: 0.02em;
+        }
+        
+        .translated-short-description {
+            font-size: 12px;
+            font-family: 'Lato', Arial, sans-serif;
+            color: #013A81;
+            font-weight: 400;
+            margin: 0 0 2px 0;
+        }
+        
+        .logo-container img {
+            height: 1.15in;
+            width: auto;
+            margin: 11px 0 4px 0;
+            filter: drop-shadow(0 2px 8px #132e5712);
+        }
+        
+        /* Code row and info styles */
+        .code-row {
+            position: absolute;
+            left: 50%;
+            bottom: 0.75in;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 80px;
+            z-index: 20;
+            margin: 0;
+        }
+        
+        .code-info {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: row;
+            align-items: center !important;
+            min-width: 200px;
+            font-size: 13px;
+            color: #1b2754;
+            font-family: 'Open Sans', Arial, sans-serif;
+            gap: 15px;
+            z-index: 2;
+        }
+        
+        .qr-code {
+            width: 72px;
+            height: 72px;
+            flex-shrink: 0;
+        }
+        
+        .batch-info-column {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .green-conscious-icon {
+            position: absolute;
+            right: 20%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 72px;
+        }
+        
+        .batch-field {
+            font-size: 13px;
+            font-family: 'Open Sans', Arial, sans-serif;
+            color: #233066;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 3px;
+        }
+        
+        .batch-field label {
+            display: inline-block !important;
+            min-width: 105px !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        
+        .package-size, .use-by {
+            font-size: 12px;
+            margin-bottom: 2px;
+            color: #1b2754;
+            text-align: left !important;
+            margin-left: 0 !important;
+        }
+        
+        .pictograms {
+            display: flex;
+            gap: 7px;
+            align-items: center;
+            margin: 0 0 7px 0;
+        }
+        
+        .pictograms img {
+            width: 26px;
+            height: 26px;
+            object-fit: contain;
+            border-radius: 5px;
+            border: 1px solid #e3e8f1;
+            background: #f7fafc;
+        }
+        
+        .signal-word {
+            font-weight: 700;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        
+        .statement-list {
+            margin: 0 0 2px 0;
+            padding-left: 13px;
+            color: #183363;
+        }
+        
+        .statement-list li {
+            margin: 0 0 2px 0;
+            list-style: disc;
+            font-size: inherit;
+        }
+        
+        /* Corner icons */
+        .corner-icons {
+            position: absolute;
+            left: .5in;
+            bottom: 0.75in;
+            display: flex;
+            flex-direction: row;
+            gap: 14px;
+            z-index: 12;
+        }
+        
+        .corner-icon {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1.5px 6px #22316622;
+            padding: 3px;
+        }
+        
+        .corner-icon-rectangle {
+            width: 125px;
+            height: 75px;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1.5px 6px #22316622;
+            padding: 3px;
+        }
+        
+        /* NEW WARRANTY/CONDITIONS STYLES */
+        .warranty-conditions-footer {
+            position: absolute;
+            bottom: 0.15in;
+            left: 0.5in;
+            right: 0.5in;
+            z-index: 15;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 4px;
+            padding: 6px 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .warranty-section {
+            font-size: 5px;
+            line-height: 1.2;
+            color: #2c3e50;
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin-bottom: 3px;
+        }
+        
+        .warranty-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .warranty-section .section-title {
+            font-weight: 600;
+            color: #1a252f;
+            margin-right: 3px;
+        }
+        
+        .warranty-conditions-right {
+            margin-top: 8px;
+        }
+        
+        .warranty-conditions-right .rc-section {
+            margin-bottom: 4px;
+        }
+        
+        .warranty-conditions-right .rc-section h4 {
+            font-size: 9px;
+            margin-bottom: 1px;
+            margin-top: 3px;
+        }
+        
+        .warranty-conditions-right .rc-section p {
+            font-size: 6px;
+            line-height: 1.15;
+            margin: 0 0 2px 0;
+        }
+        
+        /* Manufacturing and Safety Notice Styles */
+        .manufacturing-safety-notices {
+            margin-top: 8px;
+        }
+        
+        .manufacturing-safety-notices .rc-section {
+            margin-bottom: 4px;
+        }
+        
+        .manufacturing-safety-notices .rc-section h4 {
+            font-size: 9px;
+            margin-bottom: 1px;
+            margin-top: 3px;
+        }
+        
+        .manufacturing-safety-notices .rc-section p {
+            font-size: 6.5px;
+            line-height: 1.2;
+            margin: 0 0 2px 0;
+            font-weight: 500;
+        }
+        
+        .manufacturing-notice {
+            color: #1a5b2e !important;
+            font-weight: 600 !important;
+        }
+        
+        .safety-notice {
+            color: #b91c1c !important;
+            font-weight: 600 !important;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background: none !important;
+            }
+            .label-container { 
+                box-shadow: none !important; 
+                border-radius: 0 !important; 
+            }
+        }
+        
+        .center-content .subtitle {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 16px;
+            color: #294b88;
+            font-weight: 500;
+            letter-spacing: 0.015em;
+            margin: 2px 0 2px 0;
+        }
+        
+        .center-content .subtitle.subtitle-2 {
+            font-size: 13px;
+            color: #466db2;
+            font-weight: 400;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="label-container">
+        <div class="columns-container">
+            <!-- Left Columns -->
+            <div class="left-columns">
+                <div class="lc-section">
+                    <h4>Description</h4>
+                    <p>Berry Clean is a cost effective, natural raspberry scented, cleaner/degreaser concentrate. BERRY CLEAN will effectively remove grease, grime, many types of carpet/tile cutback adhesives and other contaminants from architectural concrete and other surfaces. BERRY CLEAN will also remove acrylic and resin concrete curing compounds from concrete surfaces.</p>
+                    <p>BERRY CLEAN can be diluted in water to offer added versatility and can eliminate the need to stock multiple cleaners. Standard harsh cleaners and degreasers are high in VOC's and restricted from use in many parts of the country.</p>
+                    <p>BERRY CLEAN is VOC compliant (less than 25 grams/liter) with a pleasant raspberry scent.</p>
+                </div>
+                <div class="lc-section">
+                    <h4>VOC Data</h4>
+                    <p>BERRY CLEAN is VOC compliant (less than 25 grams/liter).</p>
+                </div>
+                <div class="lc-section">
+                    <h4>Application</h4>
+                    <p>Coverage: Concentrated BERRY CLEAN is ready-to-use on tough jobs or follow the recommended dilution table. Field test to determine the optimal concentration for the specific application.</p>
+                    <p>The product will turn white when diluted with water. When using BERRY CLEAN diluted in water, lightly agitate before each use.</p>
+                    <p>Use: Scrape off excess accumulations of grease, grime and contaminants. Apply BERRY CLEAN to the floor or stain either as a concentrate or at the recommended dilution rate.</p>
+                </div>
+                <div class="lc-section">
+                    <h4>Features</h4>
+                    <p>Complies with all national VOC Regulations<br>
+                    Meets stringent VOC for SCAQMD/OTC/CA/VA (with less than 25 grams/liter)<br>
+                    Water dispersible for easy clean-up and versatility<br>
+                    Removes residual acrylic &amp; resin curing compounds<br>
+                    Pleasant raspberry scent</p>
+                </div>
+                <div class="lc-section">
+                    <h4>Limitations</h4>
+                    <p>Conduct tests prior to application on various painted surfaces. BERRY CLEAN concentrate may soften, discolor and/or remove some paints. Do not use on resilient tile, rubber, or asphalt. BERRY CLEAN is highly concentrated, personal protective equipment should be worn. DO NOT EXPOSE TO OR APPLY NEAR FIRE OR FLAMES. FOR WELL VENTILATED OR EXTERIOR USE ONLY.</p>
+                </div>
+                <div class="lc-section">
+                    <h4>Shelf Life</h4>
+                    <p>Shelf life in the original tightly closed containers is five years from the date of manufacture. Do not allow the accumulation of water, dirt, or other contaminants on the container.</p>
+                </div>
+            </div>
+
+            <!-- Center Content -->
+            <div class="center-content">
+                <div class="product-name">Berry Clean</div>
+                <div class="short-description-english">Raspberry scented solvent cleaner/degreaser</div>
+                <div class="translated-short-description">Nettoyant/dégraissant à solvant parfumé à la framboise</div>
+                <div class="translated-short-description">Disolvente/limpiador/desengrasador con aroma a frambuesa</div>
+                <div class="logo-container">
+                    <img src="./Berry Clean _ SpecChem_files/logo-transparent.webp" alt="SpecChem Logo">
+                </div>
+            </div>
+
+            <!-- Right Columns -->
+            <div class="right-columns" id="Font6">
+                <div class="rc-section">
+                    <h4>Pictograms</h4>
+                    <div class="pictograms">
+                        <img src="./Berry Clean _ SpecChem_files/environmental-hazard.png" alt="Dangerous for the environment">
+                        <img src="./Berry Clean _ SpecChem_files/exclamation.png" alt="Health hazard/Hazardous to the ozone layer">
+                        <img src="./Berry Clean _ SpecChem_files/flame.png" alt="Flammable">
+                        <img src="./Berry Clean _ SpecChem_files/health-hazard.png" alt="Serious health hazard">
+                    </div>
+                </div>
+                <div class="rc-section">
+                    <h4>Components Determining Hazard</h4>
+                    <p>Acetone, p-Chloro-a,a,a-trifluorotoluene</p>
+                </div>
+                <div class="rc-section">
+                    <h4>Signal Word</h4>
+                    <p>Danger</p>
+                </div>
+                <div class="rc-section">
+                    <h4>Hazard Statements</h4>
+                    <p>Flammable liquid and vapor. Harmful if swallowed. Harmful in contact with skin. Harmful if inhaled. May be fatal if swallowed and enters airways. Causes skin irritation. May cause an allergic skin reaction. Causes serious eye irritation. Very toxic to aquatic life with long-lasting effects.</p>
+                </div>
+                <div class="rc-section">
+                    <h4>Precautionary Statements</h4>
+                    <p>Keep away from heat/sparks/open flames/hot surfaces. No smoking. Keep container tightly closed. Ground/bond container and receiving equipment. Use explosion-proof electrical/ventilating/lighting equipment. Use only non-sparking tools. Take precautionary measures against static discharge. Wear protective gloves/eye protection/face protection. Avoid breathing fume/gas/mist/vapors/spray. Wash thoroughly after handling. Do not eat, drink, or smoke when using this product. Contaminated work clothing should not be allowed out of the workplace. Avoid release to the environment.</p>
+                </div>
+                <div class="rc-section">
+                    <h4>Storage</h4>
+                    <p>Store in a well-ventilated place. Keep cool. Store locked up.</p>
+                </div>
+                <div class="rc-section">
+                    <h4>Disposal</h4>
+                    <p>Dispose of contents/container in accordance with local/regional/national/international regulations.</p>
+                </div>
+                <div class="rc-section">
+                    <h4>Transport</h4>
+                    <p><b>Proper Shipping Name:</b> Flammable liquids, n.o.s. (Contains p-Chloro-a,a,a-trifluorotoluene, Acetone)</p>
+                    <p><b>UN Number:</b> UN1993</p>
+                    <p><b>Hazard Class:</b> Class 3</p>
+                    <p><b>Packing Group:</b> PG II</p>
+                    <p><b>N.A. Emergency Response Guidebook #:</b> 128</p>
+                </div>
+                
+                <!-- NEW MANUFACTURING AND SAFETY NOTICES -->
+                <div class="manufacturing-safety-notices">
+                    <div class="rc-section">
+                        <h4>Manufacturing</h4>
+                        <p class="manufacturing-notice">Made in America</p>
+                    </div>
+                    <div class="rc-section">
+                        <h4>Safety Notice</h4>
+                        <p class="safety-notice">DO NOT EXPOSE TO OR APPLY NEAR FIRE OR FLAMES.</p>
+                        <p class="safety-notice">FOR WELL VENTILATED OR EXTERIOR USE ONLY!</p>
+                    </div>
+                </div>
+                
+                <!-- NEW WARRANTY/CONDITIONS SECTION IN RIGHT COLUMN -->
+                <div class="warranty-conditions-right">
+                    <div class="rc-section">
+                        <h4>Conditions of Sale</h4>
+                        <p>CONDITIONS OF SALE - SpecChem offers this product for sale subject to and limited by the warranty which may only be varied by written agreement of a duly authorized corporate officer of Spec-Chem. No other representative of or for SpecChem is authorized to grant any warranty or to waive limitation of liability set forth below.</p>
+                    </div>
+                    <div class="rc-section">
+                        <h4>Warranty Limitation</h4>
+                        <p>WARRANTY LIMITATION - SpecChem warrants this product to be free of manufacturing defects. If the product when purchased was defective and was within use period indicated on container or carton, when used, SpecChem will replace the defective product with new product without charge to the purchaser. SpecChem makes no other warranty, either expressed or implied, concerning this product. There is no warranty of merchantability. NO CLAIM OF ANY KIND SHALL BE GREATER THAN THE PURCHASE PRICE OF THE PRODUCT IN RESPECT OF WHICH DAMAGES ARE CLAIMED.</p>
+                    </div>
+                    <div class="rc-section">
+                        <h4>Inherent Risk</h4>
+                        <p>INHERENT RISK - Purchaser assumes all risk associated with the use or application of the product.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Corner Icons -->
+        <div class="corner-icons">
+            <img src="./Berry Clean _ SpecChem_files/rectangle-pictogram.png" alt="Other" class="corner-icon-rectangle">
+        </div>
+
+        <!-- Code Row -->
+        <div class="code-row">
+            <div class="code-info">
+                <img src="./Berry Clean _ SpecChem_files/product-qr.png" class="qr-code" alt="QR Code">
+                <div class="batch-info-column">
+                    <div class="batch-field">
+                        <label>Batch No:</label>
+                    </div>
+                    <div class="package-size">5 Gallon/18.93L</div>
+                    <div class="use-by">Used by date: 5 years</div>
+                </div>
+            </div>
+            <img src="./Berry Clean _ SpecChem_files/green-conscious.png" class="green-conscious-icon" alt="Green Conscious">
+        </div>
+    </div>
+</body>
+</html>

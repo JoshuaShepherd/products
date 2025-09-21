@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&family=Lato:wght@400;700&display=swap');
+
+@page {
+    size: 14.875in 7.625in;
+    margin: 0;
+}
+
+#Font6 p, #Font6 ul, #Font6 li { font-size: 6px !important; }
+#Font6-5 p, #Font6-5 ul, #Font6-5 li { font-size: 6.5px !important; }
+#Font7 p, #Font7 ul, #Font7 li { font-size: 7px !important; }
+#Font8 p, #Font8 ul, #Font8 li { font-size: 8px !important; }
+#Font9 p, #Font9 ul, #Font9 li { font-size: 9px !important; }
+#Font10 p, #Font10 ul, #Font10 li { font-size: 9px !important; }
+#Font11 p, #Font11 ul, #Font11 li { font-size: 9.5px !important; }
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #e7eaf0;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.label-container {
+    width: 14.875in;
+    height: 7.625in;
+    margin: 0 auto;
+    background: url("https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/branding%2Fblank-tapered-label.png?alt=media&token=930baa3f-38d5-46fa-81a3-0df0c1eb15a8") no-repeat center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.columns-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1 1 0;
+    width: 100%;
+    height: 100%;
+    padding: 0.60in 0.68in 0.24in 0.68in;
+    box-sizing: border-box;
+    z-index: 2;
+    margin-top: .6in;
+}
+
+.left-columns, .right-columns { 
+    width: 31.5%;
+    min-width: 320px;
+    max-width: 35%;
+    line-height: 1.22;
+    column-count: 2;
+    column-gap: 0.25in;
+    z-index: 10;
+}
+
+.left-columns li, .right-columns li, .left-columns ul, .right-columns ul {
+    line-height: 1.22;
+}
+
+.right-columns {
+    color: #232942;
+    line-height: 1.14;
+    column-gap: 0.15in;
+}
+
+.left-columns {
+    color: #18335b;
+}
+
+.left-columns h4, .right-columns h4 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 11px;
+    color: #233066;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2px;
+    letter-spacing: 0.06em;
+    margin-top: 5px;
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
+.left-columns p, .left-columns ul, .left-columns li {
+    font-size: 8px;
+    color: inherit;
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0 0 3px 0;
+}
+
+.right-columns p, .right-columns ul, .right-columns li {
+    font-size: 7px;
+    color: inherit;
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0 0 2px 0;
+}
+
+.rc-statement {
+    font-size: 7px;
+    color: inherit;
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0 0 3px 0;
+}
+
+.right-columns ul, .right-columns .statement-list {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+    margin-bottom: 2px;
+    font-size: 7px;
+    color: inherit;
+    font-family: 'Open Sans', Arial, sans-serif;
+    line-height: 1.16;
+}
+
+.right-columns li, .right-columns .statement-list li {
+    margin: 0 0 2px 0;
+    padding-left: 0;
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    background: none;
+    border: none;
+    display: block;
+}
+
+.contact-block {
+    font-size: 6px;
+    line-height: 1.3;
+    margin-bottom: 4px;
+    color: #1a2340;
+    font-family: 'Open Sans', Arial, sans-serif;
+    word-break: break-word;
+}
+
+/* Center Column Styling */
+.center-content {
+    width: 27%;
+    min-width: 240px;
+    max-width: 28%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.center-content .product-name {
+    font-family: 'Verdana', Arial, sans-serif;
+    font-size: 54px;
+    font-weight: 700;
+    color: #013A81;
+    letter-spacing: 0.03em;
+    margin: 0 0 2px 0;
+    line-height: 1.1;
+}
+
+.short-description-english {
+    font-family: 'Lato', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #013A81;
+    margin: 0 0 2px 0;
+    letter-spacing: 0.02em;
+}
+
+.translated-short-description {
+    font-size: 12px;
+    font-family: 'Lato', Arial, sans-serif;
+    color: #013A81;
+    font-weight: 400;
+    margin: 0 0 2px 0;
+}
+
+.logo-container img {
+    height: .85in;
+    width: auto;
+    margin: 11px 0 4px 0;
+    filter: drop-shadow(0 2px 8px #132e5712);
+}
+
+/* Code row and info styles */
+.code-row {
+    position: absolute;
+    left: 50%;
+    bottom: 0.75in;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 80px;
+    z-index: 20;
+    margin: 0;
+}
+
+.code-info {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center !important;
+    min-width: 200px;
+    font-size: 13px;
+    color: #1b2754;
+    font-family: 'Open Sans', Arial, sans-serif;
+    gap: 15px;
+    z-index: 2;
+}
+
+.qr-code {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+}
+
+.batch-info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.green-conscious-icon {
+    position: absolute;
+    right: 20%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 72px;
+}
+
+.batch-field {
+    font-size: 13px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #233066;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 3px;
+}
+
+.batch-field label {
+    display: inline-block !important;
+    min-width: 105px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.package-size, .use-by {
+    font-size: 12px;
+    margin-bottom: 2px;
+    color: #1b2754;
+    text-align: left !important;
+    margin-left: 0 !important;
+}
+
+.pictograms {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    margin: 0 0 7px 0;
+}
+
+.pictograms img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    border-radius: 5px;
+    border: 1px solid #e3e8f1;
+    background: #f7fafc;
+}
+
+.signal-word {
+    font-weight: 700;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.statement-list {
+    margin: 0 0 2px 0;
+    padding-left: 13px;
+    color: #183363;
+}
+
+.statement-list li {
+    margin: 0 0 2px 0;
+    list-style: disc;
+    font-size: inherit;
+}
+
+/* Corner icons */
+.corner-icons {
+    position: absolute;
+    left: .5in;
+    bottom: 0.75in;
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    z-index: 12;
+}
+
+.corner-icon {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1.5px 6px #22316622;
+    padding: 3px;
+}
+
+.corner-icon-rectangle {
+    width: 125px;
+    height: 75px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1.5px 6px #22316622;
+    padding: 3px;
+}
+
+/* Manufacturing and Safety Notice Styles */
+.manufacturing-safety-notices {
+    margin-top: 8px;
+}
+
+.manufacturing-safety-notices .rc-section {
+    margin-bottom: 4px;
+}
+
+.manufacturing-safety-notices .rc-section h4 {
+    font-size: 9px;
+    margin-bottom: 1px;
+    margin-top: 3px;
+}
+
+.manufacturing-safety-notices .rc-section p {
+    font-size: 6.5px;
+    line-height: 1.2;
+    margin: 0 0 2px 0;
+    font-weight: 500;
+}
+
+.manufacturing-notice {
+    color: #1a5b2e !important;
+    font-weight: 600 !important;
+}
+
+.safety-notice {
+    font-weight: 600 !important;
+}
+
+/* Manufacturing Footer */
+.manufacturing-footer {
+    position: absolute;
+    bottom: 0.05in;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 25;
+    text-align: center;
+}
+
+.manufacturing-footer .manufacturing-notice {
+    font-size: 8px;
+    font-family: 'Lato', Arial, sans-serif;
+    color: #1a5b2e;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Warranty/Conditions Styles */
+.warranty-conditions-right {
+    margin-top: 8px;
+}
+
+.warranty-conditions-right .rc-section {
+    margin-bottom: 4px;
+}
+
+.warranty-conditions-right .rc-section h4 {
+    font-size: 9px;
+    margin-bottom: 1px;
+    margin-top: 3px;
+}
+
+.warranty-conditions-right .rc-section p {
+    font-size: 6px;
+    line-height: 1.15;
+    margin: 0 0 2px 0;
+}
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: none !important;
+    }
+    .label-container { 
+        box-shadow: none !important; 
+        border-radius: 0 !important; 
+    }
+}
+
+.center-content .subtitle {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    color: #294b88;
+    font-weight: 500;
+    letter-spacing: 0.015em;
+    margin: 2px 0 2px 0;
+}
+
+.center-content .subtitle.subtitle-2 {
+    font-size: 13px;
+    color: #466db2;
+    font-weight: 400;
+    margin-bottom: 2px;
+}
