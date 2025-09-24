@@ -20,7 +20,9 @@ import {
   AlignLeft,
   AlignCenter,
   AlignRight,
-  Trash2
+  Trash2,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
 import { ProductAPI, Product } from '@/lib/product-api'
@@ -97,6 +99,48 @@ export default function NewLabelEditorPage() {
       loadTemplateCSS();
     }
   }, [selectedProduct, selectedTemplateSize]);
+
+  // Product navigation functions
+  const navigateToProduct = (direction: 'prev' | 'next') => {
+    if (!selectedProduct || products.length === 0) return;
+    
+    const currentIndex = products.findIndex(p => p.id === selectedProduct.id);
+    if (currentIndex === -1) return;
+    
+    let newIndex;
+    if (direction === 'prev') {
+      newIndex = currentIndex === 0 ? products.length - 1 : currentIndex - 1;
+    } else {
+      newIndex = currentIndex === products.length - 1 ? 0 : currentIndex + 1;
+    }
+    
+    setSelectedProduct(products[newIndex]);
+  };
+
+  const canNavigatePrev = selectedProduct && products.length > 1;
+  const canNavigateNext = selectedProduct && products.length > 1;
+
+  // Keyboard shortcuts for product navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Only handle if no input/textarea is focused and Ctrl/Cmd is held
+      if ((e.ctrlKey || e.metaKey) && !['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement).tagName)) {
+        switch (e.key) {
+          case 'ArrowLeft':
+            e.preventDefault();
+            navigateToProduct('prev');
+            break;
+          case 'ArrowRight':
+            e.preventDefault();
+            navigateToProduct('next');
+            break;
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedProduct, products]);
 
   const loadProducts = async () => {
     try {
@@ -1643,16 +1687,40 @@ body {
             </div>
             
             <div className="flex items-center gap-3">
-              <SearchableSelect
-                options={productOptions}
-                value={selectedProduct ? selectedProduct.id : undefined}
-                onValueChange={(value) => {
-                  const product = products.find(p => p.id === value);
-                  setSelectedProduct(product || null);
-                }}
-                placeholder="Search products..."
-                className="w-80"
-              />
+              <div className="flex items-center gap-1">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => navigateToProduct('prev')}
+                  disabled={!canNavigatePrev}
+                  className="px-2"
+                  title="Previous product"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+                
+                <SearchableSelect
+                  options={productOptions}
+                  value={selectedProduct ? selectedProduct.id : undefined}
+                  onValueChange={(value) => {
+                    const product = products.find(p => p.id === value);
+                    setSelectedProduct(product || null);
+                  }}
+                  placeholder="Search products..."
+                  className="w-80"
+                />
+                
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => navigateToProduct('next')}
+                  disabled={!canNavigateNext}
+                  className="px-2"
+                  title="Next product"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </div>
               
               <Select value={selectedTemplateSize} onValueChange={(value: '14x7' | '5x9') => setSelectedTemplateSize(value)}>
                 <SelectTrigger className="w-32">
