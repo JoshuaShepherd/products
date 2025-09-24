@@ -215,16 +215,14 @@ export async function GET(
       );
     }
 
-    // Check for custom CSS in product_labels table
-    const { data: customLabel } = await supabase
-      .from('product_labels')
-      .select('generated_html')
+    // Check for individual label template CSS overrides for this product
+    const { data: individualTemplate, error: individualError } = await supabase
+      .from('individual_label_templates')
+      .select('custom_css, css_overrides, template_id, notes')
       .eq('product_id', product.id)
-      .eq('template_id', template.id)
-      .single();
+      .maybeSingle();
 
-    const customCSS = customLabel?.generated_html || null;
-    console.log(`🎨 Custom CSS for ${product.name}: ${customCSS ? 'Found' : 'Not found'}`);
+    console.log(`🎨 Individual CSS for ${product.name}: ${individualTemplate ? 'Found' : 'Not found'}`);
 
     // Extract pictogram data from the joined query
     const pictogramData = product.product_pictograms?.map((pp: any) => pp.pictograms) || [];
@@ -279,7 +277,17 @@ export async function GET(
 
     // Get HTML and CSS templates
     let html = template.html_template;
-    const css = template.css_template;
+    let finalCSS = template.css_template;
+
+    // Add individual label template CSS overrides if they exist
+    if (individualTemplate) {
+      if (individualTemplate.custom_css) {
+        finalCSS += `\n\n/* INDIVIDUAL TEMPLATE CUSTOM CSS */\n${individualTemplate.custom_css}`;
+      }
+      if (individualTemplate.css_overrides) {
+        finalCSS += `\n\n/* INDIVIDUAL TEMPLATE CSS OVERRIDES */\n${individualTemplate.css_overrides}`;
+      }
+    }
 
     // Process conditional sections in HTML template
     function processConditionals(html: string, vars: Record<string, string>): string {
@@ -331,7 +339,7 @@ export async function GET(
     }
 
     // Process conditionals with proper nesting support
-    let processedHTML = processConditionals(html, templateVars);
+    const processedHTML = processConditionals(html, templateVars);
     html = processedHTML;
 
     // Replace simple template variables {{variable}}
@@ -341,7 +349,7 @@ export async function GET(
     });
 
     // Add CSS styles if specified in template
-    html = html.replace(/\{\{css_styles\}\}/g, css || '');
+    html = html.replace(/\{\{css_styles\}\}/g, finalCSS || '');
 
     // Create complete HTML document for PDF generation
     const completeHTML = `
@@ -351,8 +359,8 @@ export async function GET(
           <meta charset="UTF-8">
           <title>${product.name} - Label</title>
           <style>
-            /* Template CSS (baseline styles) */
-            ${css}
+            /* Template CSS with Individual Overrides Applied */
+            ${finalCSS}
             
             /* PDF-specific styles */
             @media print {
@@ -372,9 +380,6 @@ export async function GET(
               height: 24px;
               margin: 2px;
             }
-            
-            /* Custom Product CSS (overrides template styles) */
-            ${customCSS || '/* No custom CSS for this product */'}
           </style>
         </head>
         <body>

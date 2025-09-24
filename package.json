@@ -2,13 +2,16 @@
   "name": "products",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
     "postinstall": "npx puppeteer browsers install chrome",
-    "setup-puppeteer": "npx puppeteer browsers install chrome"
+    "setup-puppeteer": "npx puppeteer browsers install chrome",
+    "extract-schema": "node database-extractor.js",
+    "update-docs": "npm run extract-schema && echo '✅ Database documentation updated. Please review LIVE_DATABASE_SCHEMA.md and update copilot-instructions.md if needed.'"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

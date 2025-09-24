@@ -9,16 +9,7 @@ export async function GET(request: NextRequest) {
     
     let query = supabase
       .from('label_templates')
-      .select(`
-        *,
-        label_template_versions!inner(
-          id,
-          version_number,
-          is_published,
-          created_at,
-          change_notes
-        )
-      `)
+      .select('*')
       .eq('is_active', true)
       .order('created_at', { ascending: false })
 

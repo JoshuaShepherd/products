@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { SearchableSelect, SearchableSelectOption } from '@/components/ui/searchable-select';
 import { 
   Save, 
   Search,
@@ -59,7 +60,7 @@ export default function NewLabelEditorPage() {
   const [previewHtml, setPreviewHtml] = useState<string>('');
   const [cssContent, setCssContent] = useState<string>('');
   const [originalCss, setOriginalCss] = useState<string>('');
-  const [showCssEditor, setShowCssEditor] = useState(false);
+  const [showCssEditor, setShowCssEditor] = useState(true); // Open by default
   const [labelHtml, setLabelHtml] = useState<string>('');
   const [isGeneratingPreview, setIsGeneratingPreview] = useState(false);
   const [showSavePreview, setShowSavePreview] = useState(false);
@@ -110,7 +111,7 @@ export default function NewLabelEditorPage() {
   const loadTemplate = async () => {
     try {
       setLoading(true);
-      const templateSlug = selectedTemplateSize === '14x7' ? 'enhanced-14x7-fixed' : 'biostrip-5x9';
+      const templateSlug = selectedTemplateSize === '14x7' ? '14x7-enhanced' : '5x9-compact';
       console.log('🔍 Loading template with slug:', templateSlug);
       
       const response = await fetch(`/api/templates?slug=${templateSlug}`);
@@ -233,7 +234,7 @@ export default function NewLabelEditorPage() {
   };
 
   const generatePreview = async () => {
-    if (!selectedProduct) return;
+    if (!selectedProduct || !template) return;
 
     setIsGeneratingPreview(true);
     try {
@@ -248,15 +249,19 @@ export default function NewLabelEditorPage() {
       
       const productionHtml = await response.text();
       
-      // If we have custom CSS, inject it into the HTML
-      let finalHtml = productionHtml;
+      // Create the merged CSS (base template + custom overrides)
+      let mergedCss = template.css_template;
+      
       if (cssContent && cssContent !== originalCss) {
-        // Replace the CSS in the HTML with our custom CSS
-        finalHtml = productionHtml.replace(
-          /<style[^>]*>[\s\S]*?<\/style>/i,
-          `<style>${cssContent}</style>`
-        );
+        // Add custom CSS overrides to the base template CSS
+        mergedCss = `${template.css_template}\n\n/* INDIVIDUAL CUSTOMIZATIONS */\n${cssContent}`;
       }
+      
+      // Replace the CSS in the HTML with our merged CSS
+      const finalHtml = productionHtml.replace(
+        /<style[^>]*>[\s\S]*?<\/style>/i,
+        `<style>${mergedCss}</style>`
+      );
       
       setLabelHtml(finalHtml);
       setPreviewHtml(finalHtml);
@@ -803,12 +808,13 @@ body {
         template_size: selectedTemplateSize,
         existing_record: existingTemplate || null,
         payload: isUpdate ? {
+          template_id: template?.id || null,
           css_overrides: cssContent,
           notes: `CSS customization for ${selectedProduct.name} - ${selectedTemplateSize} label - Updated ${new Date().toISOString()}`,
           updated_at: new Date().toISOString()
         } : {
           product_id: selectedProduct.id,
-          template_id: null,
+          template_id: template?.id || null,
           css_overrides: cssContent,
           notes: `CSS customization for ${selectedProduct.name} - ${selectedTemplateSize} label - Created ${new Date().toISOString()}`
         },
@@ -935,6 +941,13 @@ body {
 
   const hasUnsavedChanges = cssContent !== originalCss;
 
+  // Create options for the searchable select
+  const productOptions: SearchableSelectOption[] = products.map(product => ({
+    value: product.id,
+    label: product.name,
+    subtitle: product.short_description_english || undefined
+  }));
+
   const generateHtmlFromElements = (): string => {
     return elements.map(element => {
       switch (element.type) {
@@ -990,14 +1003,20 @@ body {
 
   if (!selectedProduct) {
     return (
-      <div className="container mx-auto p-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-4">Label Editor</h1>
-            <p className="text-gray-600 mb-8">Select a product to start editing its label template</p>
+      <div className="h-screen flex flex-col">
+        {/* Compact Header */}
+        <div className="border-b bg-white px-6 py-4">
+          <div className="flex items-center justify-between max-w-7xl mx-auto">
+            <div>
+              <h1 className="text-xl font-semibold">Label Editor</h1>
+              <p className="text-sm text-gray-600">Select a product to start editing</p>
+            </div>
           </div>
+        </div>
 
-          <Card>
+        {/* Center Selection */}
+        <div className="flex-1 flex items-center justify-center bg-gray-50">
+          <Card className="w-full max-w-md">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Search className="h-5 w-5" />
@@ -1005,21 +1024,16 @@ body {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <Select onValueChange={(value) => {
-                const product = products.find(p => p.id === value);
-                setSelectedProduct(product || null);
-              }}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Search and select a product..." />
-                </SelectTrigger>
-                <SelectContent>
-                  {products?.map((product) => (
-                    <SelectItem key={product.id} value={product.id}>
-                      {product.name}
-                    </SelectItem>
-                  )) || []}
-                </SelectContent>
-              </Select>
+              <SearchableSelect
+                options={productOptions}
+                value={undefined}
+                onValueChange={(value) => {
+                  const product = products.find(p => p.id === value);
+                  setSelectedProduct(product || null);
+                }}
+                placeholder="Search products..."
+                className="w-full"
+              />
             </CardContent>
           </Card>
         </div>
@@ -1028,253 +1042,240 @@ body {
   }
 
   return (
-    <div className="container mx-auto p-6">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-2xl font-bold">Label Editor</h1>
-          <p className="text-gray-600">Editing: {selectedProduct.name}</p>
-        </div>
-        <div className="flex items-center gap-4">
-          <Button 
-            variant="outline" 
-            onClick={() => setSelectedProduct(null)}
-          >
-            Change Product
-          </Button>
-          {hasUnsavedChanges && (
-            <Badge variant="destructive" className="animate-pulse">
-              Unsaved Changes
-            </Badge>
-          )}
-          <Button 
-            onClick={previewSaveChanges}
-            disabled={saving || !hasUnsavedChanges}
-            className={hasUnsavedChanges ? "bg-green-600 hover:bg-green-700" : ""}
-            variant={hasUnsavedChanges ? "default" : "outline"}
-          >
-            {saving && <RefreshCw className="h-4 w-4 mr-2 animate-spin" />}
-            {hasUnsavedChanges ? "💾 Preview & Save Changes" : "✅ Saved"}
-          </Button>
-        </div>
-      </div>
-
-      {/* Template Size Selector */}
-          <Card>
-            <CardContent className="space-y-4">
-              <div>
-                <Label>Template Size</Label>
-                <Select value={selectedTemplateSize} onValueChange={(value: '14x7' | '5x9') => setSelectedTemplateSize(value)}>
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="14x7">14×7" (Landscape)</SelectItem>
-                    <SelectItem value="5x9">5×9" (Portrait)</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+    <div className="h-screen flex flex-col">
+      {/* Compact Top Bar */}
+      <div className="border-b bg-white px-6 py-3 flex-shrink-0">
+        <div className="flex items-center justify-between max-w-7xl mx-auto">
+          {/* Left: Product Search & Size Selector */}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <h1 className="text-lg font-semibold">Label Editor</h1>
+              <div className="w-px h-6 bg-gray-300"></div>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <SearchableSelect
+                options={productOptions}
+                value={selectedProduct ? selectedProduct.id : undefined}
+                onValueChange={(value) => {
+                  const product = products.find(p => p.id === value);
+                  setSelectedProduct(product || null);
+                }}
+                placeholder="Search products..."
+                className="w-80"
+              />
               
-              <div className="pt-2">
-                <Button 
-                  variant={showCssEditor ? "default" : "outline"}
-                  onClick={() => setShowCssEditor(!showCssEditor)}
-                  className="w-full"
-                >
-                  <Palette className="h-4 w-4 mr-2" />
-                  {showCssEditor ? 'Hide CSS Editor' : 'Open CSS Editor'}
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+              <Select value={selectedTemplateSize} onValueChange={(value: '14x7' | '5x9') => setSelectedTemplateSize(value)}>
+                <SelectTrigger className="w-32">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="14x7">14×7"</SelectItem>
+                  <SelectItem value="5x9">5×9"</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
 
-      {/* Full-Width Preview */}
-      <div className="mb-6">
-        <Card className="h-full">
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <CardTitle className="text-lg">Live Preview</CardTitle>
-                <Badge variant="secondary">{selectedTemplateSize}</Badge>
-                {(loading || isGeneratingPreview) && <RefreshCw className="h-4 w-4 animate-spin" />}
+          {/* Right: Status & Actions */}
+          <div className="flex items-center gap-3">
+            {(loading || isGeneratingPreview) && (
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <RefreshCw className="h-4 w-4 animate-spin" />
+                Updating...
               </div>
-              <div className="text-sm text-gray-500">
-                Full-width preview • CSS editing {showCssEditor ? 'enabled' : 'available'} below
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="border rounded-lg p-6 bg-white min-h-[500px] flex items-center justify-center">
-              {labelHtml ? (
-                <iframe
-                  srcDoc={labelHtml}
-                  className="w-full h-full border-0 min-h-[450px] max-w-full"
-                  title="Label Preview"
-                />
-              ) : previewHtml ? (
-                <div
-                  dangerouslySetInnerHTML={{ __html: previewHtml }}
-                  className="transform-gpu"
-                  style={{ 
-                    transform: 'scale(0.8)',
-                    transformOrigin: 'center'
-                  }}
-                />
-              ) : (
-                <div className="text-center text-gray-500 py-8">
-                  <div className="text-6xl text-gray-300 mb-4">🏷️</div>
-                  <p>Loading label preview...</p>
-                </div>
-              )}
-            </div>
-          </CardContent>
-        </Card>
+            )}
+            
+            {hasUnsavedChanges && (
+              <Badge variant="destructive" className="animate-pulse">
+                Unsaved Changes
+              </Badge>
+            )}
+            
+            <Button 
+              onClick={previewSaveChanges}
+              disabled={saving || !hasUnsavedChanges}
+              size="sm"
+              className={hasUnsavedChanges ? "bg-green-600 hover:bg-green-700" : ""}
+              variant={hasUnsavedChanges ? "default" : "outline"}
+            >
+              {saving && <RefreshCw className="h-4 w-4 mr-2 animate-spin" />}
+              {hasUnsavedChanges ? "Save Changes" : "✅ Saved"}
+            </Button>
+          </div>
+        </div>
       </div>
 
-      {/* Bottom Section - CSS Editor (when enabled) */}
-      {showCssEditor && (
-        <div className="grid grid-cols-1 gap-6">
-          <Card>
-            <CardHeader>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Palette className="h-5 w-5" />
-                  <CardTitle className="text-lg">CSS Editor</CardTitle>
-                  <Badge variant="outline">Live Editing</Badge>
-                </div>
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleCssChange(originalCss)}
-                    disabled={!hasUnsavedChanges}
-                  >
-                    ↩️ Reset to Original
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setShowCssEditor(false)}
-                  >
-                    Hide Editor
-                  </Button>
-                </div>
+      {/* Main Content Area - Full Width Label */}
+      <div className="flex-1 bg-gray-50 overflow-auto">
+        <div className="p-6">
+          <div className="bg-white rounded-lg shadow-sm border min-h-[500px] flex items-center justify-center">
+            {labelHtml ? (
+              <iframe
+                srcDoc={labelHtml}
+                className="w-full h-full border-0 min-h-[500px]"
+                title="Label Preview"
+              />
+            ) : previewHtml ? (
+              <div
+                dangerouslySetInnerHTML={{ __html: previewHtml }}
+                className="transform-gpu"
+                style={{ 
+                  transform: selectedTemplateSize === '14x7' ? 'scale(0.8)' : 'scale(0.9)',
+                  transformOrigin: 'center'
+                }}
+              />
+            ) : (
+              <div className="text-center text-gray-500 py-8">
+                <div className="text-6xl text-gray-300 mb-4">🏷️</div>
+                <p>Loading label preview...</p>
               </div>
-            </CardHeader>
-            <CardContent className="p-0">
-              <div className="h-[400px]">
-                <Editor
-                  height="100%"
-                  defaultLanguage="css"
-                  value={cssContent}
-                  onChange={(value) => handleCssChange(value || '')}
-                  theme="vs-light"
-                  options={{
-                    minimap: { enabled: false },
-                    fontSize: 14,
-                    wordWrap: 'on',
-                    automaticLayout: true,
-                    scrollBeyondLastLine: false,
-                    folding: true,
-                    lineNumbers: 'on'
-                  }}
-                />
-              </div>
-            </CardContent>
-          </Card>
+            )}
+          </div>
         </div>
-      )}
+      </div>
+
+      {/* CSS Editor - Full Width Below Label */}
+      <div className="h-[400px] border-t bg-white flex flex-col">
+        {/* CSS Editor Header */}
+        <div className="border-b px-6 py-3 flex-shrink-0">
+          <div className="flex items-center justify-between max-w-7xl mx-auto">
+            <div className="flex items-center gap-2">
+              <Palette className="h-4 w-4" />
+              <h3 className="font-medium">CSS Editor</h3>
+              <Badge variant="outline" className="text-xs">Live</Badge>
+            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handleCssChange(originalCss)}
+              disabled={!hasUnsavedChanges}
+            >
+              Reset
+            </Button>
+          </div>
+        </div>
+        
+        {/* CSS Editor Content */}
+        <div className="flex-1">
+          <Editor
+            height="100%"
+            defaultLanguage="css"
+            value={cssContent}
+            onChange={(value) => handleCssChange(value || '')}
+            theme="vs-light"
+            options={{
+              minimap: { enabled: false },
+              fontSize: 13,
+              wordWrap: 'on',
+              automaticLayout: true,
+              scrollBeyondLastLine: false,
+              folding: true,
+              lineNumbers: 'on',
+              padding: { top: 16, bottom: 16 }
+            }}
+          />
+        </div>
+      </div>
 
       {/* Save Preview Modal */}
       <Dialog open={showSavePreview} onOpenChange={setShowSavePreview}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-lg">
           <DialogHeader>
-            <DialogTitle>Preview Save Changes</DialogTitle>
+            <DialogTitle className="flex items-center gap-2">
+              <Save className="h-5 w-5" />
+              Save CSS Customization
+            </DialogTitle>
             <DialogDescription>
-              Review the changes that will be saved to the database for {selectedProduct.name}
+              Save custom CSS styling for <strong>{selectedProduct?.name}</strong>
             </DialogDescription>
           </DialogHeader>
           
           {savePreviewData && (
-            <div className="space-y-4">
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium">Operation Details</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <Label className="text-muted-foreground">Operation</Label>
-                      <div className="font-mono font-medium">
-                        {savePreviewData.operation === 'UPDATE' ? '📝 UPDATE' : '🆕 INSERT'}
-                      </div>
-                    </div>
-                    <div>
-                      <Label className="text-muted-foreground">Table</Label>
-                      <div className="font-mono">{savePreviewData.table}</div>
-                    </div>
-                    <div>
-                      <Label className="text-muted-foreground">Product</Label>
-                      <div className="font-medium">{savePreviewData.product_info.name}</div>
-                    </div>
-                    <div>
-                      <Label className="text-muted-foreground">Template Size</Label>
-                      <div>{savePreviewData.template_size}</div>
-                    </div>
-                    <div>
-                      <Label className="text-muted-foreground">CSS Length</Label>
-                      <div>{savePreviewData.css_length.toLocaleString()} characters</div>
-                    </div>
-                    <div>
-                      <Label className="text-muted-foreground">Has Changes</Label>
-                      <div>{savePreviewData.has_changes ? '✅ Yes' : '❌ No'}</div>
-                    </div>
+            <div className="space-y-4 py-4">
+              {/* Operation Summary */}
+              <div className="bg-slate-50 p-4 rounded-lg border">
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="font-medium text-sm">
+                    {savePreviewData.operation === 'UPDATE' ? 'Update Existing Customization' : 'Create New Customization'}
+                  </h4>
+                  <Badge variant={savePreviewData.operation === 'UPDATE' ? 'default' : 'secondary'}>
+                    {savePreviewData.operation}
+                  </Badge>
+                </div>
+                
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Product:</span>
+                    <span className="font-medium">{savePreviewData.product_info.name}</span>
                   </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm font-medium">Database Payload</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="bg-muted p-3 rounded-md">
-                    <pre className="text-xs overflow-auto max-h-48">
-{JSON.stringify(savePreviewData.payload, null, 2)}
-                    </pre>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Label Size:</span>
+                    <span>{savePreviewData.template_size}</span>
                   </div>
-                </CardContent>
-              </Card>
-
-              {savePreviewData.existing_record && (
-                <Card>
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-sm font-medium">Existing Record</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-sm space-y-2">
-                      <div><strong>ID:</strong> {savePreviewData.existing_record.id}</div>
-                      <div><strong>Current CSS Length:</strong> {savePreviewData.existing_record.css_overrides?.length || 0} characters</div>
-                      <div><strong>Last Updated:</strong> {new Date(savePreviewData.existing_record.updated_at).toLocaleString()}</div>
-                      <div><strong>Notes:</strong> {savePreviewData.existing_record.notes}</div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">CSS Length:</span>
+                    <span>{savePreviewData.css_length.toLocaleString()} characters</span>
+                  </div>
+                  {savePreviewData.existing_record && (
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Last Updated:</span>
+                      <span>{new Date(savePreviewData.existing_record.updated_at).toLocaleDateString()}</span>
                     </div>
-                  </CardContent>
-                </Card>
+                  )}
+                </div>
+              </div>
+
+              {/* Warning if no changes */}
+              {!savePreviewData.has_changes && (
+                <div className="bg-yellow-50 border border-yellow-200 p-3 rounded-lg">
+                  <div className="flex items-center gap-2 text-yellow-800">
+                    <span className="text-sm font-medium">⚠️ No changes detected</span>
+                  </div>
+                  <p className="text-xs text-yellow-700 mt-1">
+                    The CSS content appears to be the same as before.
+                  </p>
+                </div>
+              )}
+
+              {/* Success indicator if changes exist */}
+              {savePreviewData.has_changes && (
+                <div className="bg-green-50 border border-green-200 p-3 rounded-lg">
+                  <div className="flex items-center gap-2 text-green-800">
+                    <span className="text-sm font-medium">✅ Ready to save</span>
+                  </div>
+                  <p className="text-xs text-green-700 mt-1">
+                    Your CSS customization will {savePreviewData.operation === 'UPDATE' ? 'update the existing' : 'create a new'} template.
+                  </p>
+                </div>
               )}
             </div>
           )}
 
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setShowSavePreview(false)}>
+          <DialogFooter className="gap-2">
+            <Button 
+              variant="outline" 
+              onClick={() => setShowSavePreview(false)}
+              disabled={saving}
+            >
               Cancel
             </Button>
             <Button 
               onClick={confirmSaveTemplate}
               disabled={saving}
-              className="bg-green-600 hover:bg-green-700"
+              className="bg-green-600 hover:bg-green-700 text-white"
             >
-              {saving && <RefreshCw className="h-4 w-4 mr-2 animate-spin" />}
-              {saving ? 'Saving...' : 'Confirm Save'}
+              {saving ? (
+                <>
+                  <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
+                  Saving...
+                </>
+              ) : (
+                <>
+                  <Save className="h-4 w-4 mr-2" />
+                  {savePreviewData?.operation === 'UPDATE' ? 'Update Template' : 'Create Template'}
+                </>
+              )}
             </Button>
           </DialogFooter>
         </DialogContent>

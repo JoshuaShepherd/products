@@ -208,7 +208,7 @@ export async function GET(
     console.log('  - pictograms:', templateVars.pictograms);
     
     // Process conditionals with proper nesting support
-    let processedHTML = processConditionals(html, templateVars);
+    const processedHTML = processConditionals(html, templateVars);
     
     html = processedHTML;
     

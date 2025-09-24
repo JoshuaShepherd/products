@@ -26,7 +26,7 @@ export async function GET(
       .from('products')
       .select(`
         *,
-        product_pictograms!inner(
+        product_pictograms(
           pictograms(*)
         )
       `)
@@ -54,6 +54,13 @@ export async function GET(
         { status: 404 }
       )
     }
+
+    // Check for individual label template CSS overrides for this product
+    const { data: individualTemplate, error: individualError } = await supabase
+      .from('individual_label_templates')
+      .select('custom_css, css_overrides, template_id, notes')
+      .eq('product_id', product.id)
+      .maybeSingle()
 
     // Extract pictogram data from the joined query
     const pictogramData = product.product_pictograms?.map((pp: any) => pp.pictograms) || []
@@ -216,7 +223,7 @@ export async function GET(
     console.log('  - pictograms:', templateVars.pictograms);
     
     // Process conditionals with proper nesting support
-    let processedHTML = processConditionals(html, templateVars);
+    const processedHTML = processConditionals(html, templateVars);
     
     html = processedHTML;
     
@@ -226,8 +233,21 @@ export async function GET(
       html = html.replace(regex, templateVars[key]);
     });
     
-    // Add CSS styles if specified in template
-    html = html.replace(/\{\{css_styles\}\}/g, template.css_template || '');
+    // Build final CSS with individual overrides
+    let finalCSS = template.css_template || '';
+    
+    // Add individual label template CSS overrides if they exist
+    if (individualTemplate) {
+      if (individualTemplate.custom_css) {
+        finalCSS += `\n\n/* INDIVIDUAL TEMPLATE CUSTOM CSS */\n${individualTemplate.custom_css}`;
+      }
+      if (individualTemplate.css_overrides) {
+        finalCSS += `\n\n/* INDIVIDUAL TEMPLATE CSS OVERRIDES */\n${individualTemplate.css_overrides}`;
+      }
+    }
+    
+    // Add CSS styles with individual overrides applied
+    html = html.replace(/\{\{css_styles\}\}/g, finalCSS);
 
     // Return HTML with appropriate content type
     return new NextResponse(html, {

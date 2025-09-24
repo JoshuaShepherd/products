@@ -98,6 +98,39 @@ export default function LabelsPage() {
     setSelectedProducts(new Set());
   };
 
+  // HTML download function
+  const downloadHTML = async (productName: string) => {
+    try {
+      setGenerating(true);
+      setError(null);
+      
+      const response = await fetch(
+        `/api/label/${encodeURIComponent(productName)}?size=${labelSize}`
+      );
+      
+      if (!response.ok) {
+        throw new Error('HTML generation failed');
+      }
+      
+      const htmlContent = await response.text();
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${productName}_${labelSize}_label.html`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+      
+    } catch (error) {
+      console.error('HTML download failed:', error);
+      setError('Failed to download HTML');
+    } finally {
+      setGenerating(false);
+    }
+  };
+
   // PDF download function
   const downloadPDF = async (productName: string) => {
     try {
@@ -128,6 +161,59 @@ export default function LabelsPage() {
     } finally {
       setGenerating(false);
     }
+  };
+
+  // Bulk HTML generation
+  const generateBulkHTMLs = async () => {
+    if (selectedProducts.size === 0) return;
+    
+    setGenerating(true);
+    setError(null);
+    const errors: string[] = [];
+    let successCount = 0;
+    
+    for (const productId of selectedProducts) {
+      const product = products.find(p => p.id === productId);
+      if (!product) continue;
+      
+      try {
+        const response = await fetch(
+          `/api/label/${encodeURIComponent(product.name)}?size=${labelSize}`
+        );
+        
+        if (!response.ok) {
+          throw new Error(`Failed to generate HTML for ${product.name}`);
+        }
+        
+        const htmlContent = await response.text();
+        const blob = new Blob([htmlContent], { type: 'text/html' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${product.name}_${labelSize}_label.html`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+        
+        successCount++;
+        // Add delay to prevent overwhelming the server
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+      } catch (error) {
+        console.error(`Failed to generate HTML for ${product.name}:`, error);
+        errors.push(product.name);
+      }
+    }
+    
+    if (errors.length > 0) {
+      setError(`Failed to generate HTMLs for: ${errors.join(', ')}`);
+    } else if (successCount > 0) {
+      // Clear selection after successful bulk generation
+      setSelectedProducts(new Set());
+    }
+    
+    setGenerating(false);
   };
 
   // Bulk PDF generation
@@ -243,6 +329,16 @@ export default function LabelsPage() {
           >
             <Eye className="h-4 w-4" />
             Preview
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => downloadHTML(product.name)}
+            disabled={generating}
+            className="flex items-center gap-1"
+          >
+            <Download className="h-4 w-4" />
+            HTML
           </Button>
           <Button
             variant="default"
@@ -388,6 +484,15 @@ export default function LabelsPage() {
 
                   <div className="flex gap-2">
                     <Button
+                      onClick={generateBulkHTMLs}
+                      disabled={selectedProducts.size === 0 || generating}
+                      variant="outline"
+                      className="flex items-center gap-2"
+                    >
+                      <Download className="h-4 w-4" />
+                      {generating ? "Generating..." : "Download HTMLs"}
+                    </Button>
+                    <Button
                       onClick={generateBulkPDFs}
                       disabled={selectedProducts.size === 0 || generating}
                       variant="outline"
@@ -447,6 +552,16 @@ export default function LabelsPage() {
                             >
                               <Eye className="h-4 w-4" />
                               Preview
+                            </Button>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => downloadHTML(product.name)}
+                              disabled={generating}
+                              className="flex items-center gap-1"
+                            >
+                              <Download className="h-4 w-4" />
+                              HTML
                             </Button>
                             <Button
                               variant="default"

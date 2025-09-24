@@ -1,4 +1,27 @@
-# Products & Label Management System
+# Products & Label M## 📊 Database Schema
+
+**Live Documentation**: [LIVE_DATABASE_SCHEMA.md](./LIVE_DATABASE_SCHEMA.md) - Always current, auto-generated database documentation
+
+### Database Extractor Tool
+
+The database schema is automatically documented using our custom extraction tool:
+
+```bash
+# Extract current database schema and data
+npm run extract-schema
+
+# Extract with documentation update
+npm run update-docs
+```
+
+This tool:
+- ✅ Analyzes live production data
+- ✅ Generates comprehensive table documentation  
+- ✅ Tracks record counts and relationships
+- ✅ Provides sample data for each field
+- ✅ Maintains version control with timestamps
+
+### Key Tablesgement System
 
 A comprehensive database-driven product and label management system designed for concrete chemical companies. This system manages hundreds of chemical products with complete safety data, regulatory information, and generates professional labels in multiple formats.
 
