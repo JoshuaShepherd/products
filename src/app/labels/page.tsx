@@ -47,6 +47,12 @@ export default function LabelsPage() {
   const [generating, setGenerating] = useState(false);
   const [previewProduct, setPreviewProduct] = useState<Product | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  // Ensure client-side hydration
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Fetch all products on mount
   useEffect(() => {
@@ -113,15 +119,18 @@ export default function LabelsPage() {
       }
       
       const htmlContent = await response.text();
-      const blob = new Blob([htmlContent], { type: 'text/html' });
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${productName}_${labelSize}_label.html`;
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
+      
+      if (typeof window !== 'undefined') {
+        const blob = new Blob([htmlContent], { type: 'text/html' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${productName}_${labelSize}_label.html`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      }
       
     } catch (error) {
       console.error('HTML download failed:', error);
@@ -146,14 +155,17 @@ export default function LabelsPage() {
       }
       
       const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${productName}_${labelSize}_label.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
+      
+      if (typeof window !== 'undefined') {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${productName}_${labelSize}_label.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      }
       
     } catch (error) {
       console.error('PDF download failed:', error);
@@ -357,6 +369,11 @@ export default function LabelsPage() {
       </div>
     </div>
   );
+
+  // Prevent hydration mismatch by ensuring client-side rendering
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <SidebarProvider>
