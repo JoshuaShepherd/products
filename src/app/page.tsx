@@ -10,6 +10,7 @@ import { ProductDropdown } from "@/components/ProductDropdown";
 import { FloatingAssistant } from "@/components/FloatingAssistant";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -147,9 +148,11 @@ function ProductsPageContent() {
                 Viewing: {selectedField}
               </span>
               {/* Subtle header branding */}
-              <img 
+              <Image 
                 src="/sc_white_alt.webp" 
-                alt="SpecChem" 
+                alt="SpecChem"
+                width={24}
+                height={24}
                 className="h-6 opacity-40 hidden sm:block"
                 draggable={false}
               />
@@ -162,9 +165,11 @@ function ProductsPageContent() {
               {/* Mobile-first search experience */}
               <div className="w-full max-w-2xl px-4 md:px-0">
                 <div className="text-center mb-6 md:mb-8">
-                  <img 
+                  <Image 
                     src="/sc_black_watermark.webp" 
-                    alt="SpecChem" 
+                    alt="SpecChem"
+                    width={64}
+                    height={64}
                     className="h-12 md:h-16 opacity-20 mx-auto mb-4"
                     draggable={false}
                   />
@@ -272,9 +277,11 @@ function ProductsPageContent() {
           )}
           
           {/* Brand watermark */}
-          <img 
+          <Image 
             src="/sc_white_alt.webp" 
-            alt="SpecChem Watermark" 
+            alt="SpecChem Watermark"
+            width={288}
+            height={288}
             className="fixed right-8 bottom-8 w-72 opacity-[0.03] pointer-events-none z-0 select-none"
             draggable={false}
           />

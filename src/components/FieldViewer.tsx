@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 import ProductFieldViewer from "@/components/ProductFieldViewer";
 import { PDFExportButton } from "@/components/pdf-export";
 import { getProductLabelHtml } from "@/lib/pdf-export";
@@ -161,6 +162,7 @@ function renderIconField(value: string) {
     <img
       src={value}
       alt=""
+      loading="lazy"
       style={{
         maxWidth: 48,
         marginRight: 8,

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Check, X } from 'lucide-react';
+import Image from 'next/image';
 
 // Available pictograms with their URLs and names
 const AVAILABLE_PICTOGRAMS = [
@@ -137,6 +138,7 @@ export function PictogramSelector({ value, onChange }: PictogramSelectorProps) {
                     src={url}
                     alt={pictogram?.name || 'Pictogram'}
                     className="w-12 h-12 rounded border-2 border-blue-300 dark:border-blue-600"
+                    loading="lazy"
                   />
                   <button
                     onClick={() => handlePictogramToggle(pictogram || { id: 'unknown', name: 'Unknown', url })}
@@ -177,6 +179,7 @@ export function PictogramSelector({ value, onChange }: PictogramSelectorProps) {
                     src={pictogram.url}
                     alt={pictogram.name}
                     className="w-10 h-10 object-contain"
+                    loading="lazy"
                   />
                   <span className="text-xs text-center text-gray-600 dark:text-gray-400 font-medium leading-tight">
                     {pictogram.name}
@@ -234,6 +237,7 @@ export function PictogramDisplay({ value }: PictogramDisplayProps) {
                 src={url}
                 alt={pictogram?.name || 'Pictogram'}
                 className="w-12 h-12 object-contain"
+                loading="lazy"
               />
               <span className="text-xs text-gray-600 dark:text-gray-400 text-center font-medium">
                 {pictogram?.name || 'Unknown'}

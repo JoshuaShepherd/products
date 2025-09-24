@@ -1,6 +1,7 @@
 "use client";
 import * as React from "react"
 import { ChevronDown, ChevronRight, X } from "lucide-react"
+import Image from "next/image"
 
 import { SearchForm } from "@/components/search-form"
 import { VersionSwitcher } from "@/components/version-switcher"
@@ -140,9 +141,11 @@ export function AppSidebar({
         
         {/* SpecChem branding and user menu */}
         <div className="flex items-center justify-between py-2">
-          <img 
+          <Image 
             src="/sc_black_watermark.webp" 
-            alt="SpecChem" 
+            alt="SpecChem"
+            width={32}
+            height={32}
             className="h-8 opacity-60"
             draggable={false}
           />
