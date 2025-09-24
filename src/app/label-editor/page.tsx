@@ -313,20 +313,99 @@ export default function NewLabelEditorPage() {
 
   const getDefaultCSS = (labelSize: '14x7' | '5x9'): string => {
     if (labelSize === '5x9') {
-      return `@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&family=Lato:wght@400;700&display=swap');
-
-@page {
-    size: 9in 5in;
-    margin: 0;
+      return `/* 🎯 FREQUENTLY ADJUSTED: Product name size for fitting different product names */
+.center-content .product-name {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 24px; /* Adjust this value to fit product names */
+    font-weight: 700;
+    color: #21325b;
+    letter-spacing: 0.01em;
+    margin: 0 0 2px 0;
+    line-height: 1.1;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    background: #e7eaf0;
+/* 🎯 FREQUENTLY ADJUSTED: Column text sizes for content volume */
+.left-columns p,
+.left-columns ul,
+.left-columns li {
+    font-size: 6.2px; /* Increase for readability, decrease for more content */
+    color: inherit;
+    font-family: 'Montserrat', 'Open Sans', Arial, sans-serif;
+    margin: 0 0 3px 0;
+}
+
+.right-columns p,
+.right-columns ul,
+.right-columns li,
+.right-columns .statement-list {
+    font-size: 4px; /* Increase for readability, decrease for more content */
+    color: inherit;
     font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0 0 1.4px 0;
+    list-style: none;
+    padding-left: 0;
 }
 
+/* 🎯 FREQUENTLY ADJUSTED: Column header sizes */
+.left-columns h4 {
+    font-family: 'Montserrat', 'Open Sans', Arial, sans-serif;
+    font-size: 8.8px; /* Adjust for header prominence */
+    color: #1e3369;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.5px;
+    margin-top: 11px;
+    letter-spacing: 0.07em;
+    padding-left: 5px; 
+}
+
+.right-columns h4 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 6.3px; /* Adjust for header prominence */
+    color: #233066;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.5px;
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+}
+
+/* 🎯 FREQUENTLY ADJUSTED: Column layout positioning */
+.columns-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 0.33in 0.36in 0.11in 0.36in; /* Adjust padding for content fitting */
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+/* 🎯 FREQUENTLY ADJUSTED: Product descriptions */
+.short-description-english {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px; /* Adjust for description length */
+    font-weight: 600;
+    color: #2453a6;
+    margin: 0 0 1.7px 0;
+    letter-spacing: 0.01em;
+}
+
+.translated-short-description {
+    font-size: 8px; /* Match or adjust relative to English description */
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #395073;
+    font-weight: 500;
+    margin: 0 0 1.3px 0;
+}
+
+/* ==========================================================================
+   📐 LAYOUT STRUCTURE - Occasionally adjusted
+   ========================================================================== */
+
+/* Label Container and Page Setup */
 .label-container {
     width: 9in;
     height: 5in;
@@ -339,7 +418,7 @@ body {
     overflow: hidden;
     box-sizing: border-box;
 }
-
+/* Watermark Element */
 .watermark {
     position: absolute;
     top: 54%;
@@ -354,19 +433,9 @@ body {
     max-width: 60%;
 }
 
-.columns-container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    height: 100%;
-    padding: 0.33in 0.36in 0.11in 0.36in;
-    box-sizing: border-box;
-    z-index: 2;
-}
-
-.left-columns, .right-columns {
+/* Column Layout Structure */
+.left-columns,
+.right-columns {
     width: 32%;
     min-width: 130px;
     max-width: 33%;
@@ -390,6 +459,23 @@ body {
     column-gap: 0.19in;
 }
 
+/* Center Content Layout */
+.center-content {
+    width: 31%;
+    min-width: 110px;
+    max-width: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 120px;
+}
+
+/* Special Elements */
 .contact-block {
     font-size: 4px;
     line-height: 1.25;
@@ -399,50 +485,8 @@ body {
     word-break: break-word;
 }
 
-.left-columns h4 {
-    font-family: 'Montserrat', 'Open Sans', Arial, sans-serif;
-    font-size: 8.8px;
-    color: #1e3369;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 0.5px;
-    margin-top: 11px;
-    letter-spacing: 0.07em;
-    padding-left: 5px; 
-}
-
-.left-columns p, .left-columns ul, .left-columns li {
-    font-size: 6.2px;
-    color: inherit;
-    font-family: 'Montserrat', 'Open Sans', Arial, sans-serif;
-    margin: 0 0 3px 0;
-}
-
 .left-columns ul {
     padding-left: 12px;
-}
-
-.right-columns h4 {
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 6.3px;
-    color: #233066;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 0.5px;
-    margin-top: 4px;
-    letter-spacing: 0.04em;
-}
-
-.right-columns p,
-.right-columns ul,
-.right-columns li,
-.right-columns .statement-list {
-    font-size: 4px;
-    color: inherit;
-    font-family: 'Open Sans', Arial, sans-serif;
-    margin: 0 0 1.4px 0;
-    list-style: none;
-    padding-left: 0;
 }
 
 .right-columns .statement-list {
@@ -461,64 +505,7 @@ body {
     margin-bottom: 0.6px;
 }
 
-.center-content {
-    width: 31%;
-    min-width: 110px;
-    max-width: 32%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    z-index: 5;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 120px;
-}
-
-.center-content .product-name {
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: #21325b;
-    letter-spacing: 0.01em;
-    margin: 0 0 2px 0;
-    line-height: 1.1;
-}
-
-.short-description-english {
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: #2453a6;
-    margin: 0 0 1.7px 0;
-    letter-spacing: 0.01em;
-}
-
-.translated-short-description {
-    font-size: 8px;
-    font-family: 'Open Sans', Arial, sans-serif;
-    color: #395073;
-    font-weight: 500;
-    margin: 0 0 1.3px 0;
-}
-
-.logo-container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 38%;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.logo-container img {
-    width: 150px;
-    filter: drop-shadow(0 2px 8px #132e5712);
-}
-
+/* Typography Components */
 .center-content .subtitle {
     font-family: 'Montserrat', Arial, sans-serif;
     font-size: 10px;
@@ -535,6 +522,281 @@ body {
     margin-bottom: 1px;
 }
 
+.product-name-badge-wrap {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 7px;
+}
+
+.product-name-badge-wrap img {
+    width: 30px;
+    height: 30px;
+    margin-top: 2px;
+}
+
+.eco-badge {
+    margin-top: -10px;
+    vertical-align: baseline;
+}
+
+/* ==========================================================================
+   🖼️ VISUAL ELEMENTS - Moderately adjusted
+   ========================================================================== */
+
+/* Logo and Branding */
+.logo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 38%;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-container img {
+    width: 150px;
+    filter: drop-shadow(0 2px 8px #132e5712);
+}
+
+/* Center Content Additional Elements */
+.center-bottom-content {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 17px;
+    width: 100%;
+}
+
+/* Pictograms */
+.pictograms {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin: 0 0 3px 0;
+}
+
+.pictograms img {
+    width: 13px;
+    height: 13px;
+    object-fit: contain;
+    border-radius: 3px;
+    border: 1px solid #e3e8f1;
+    background: #f7fafc;
+}
+
+/* Bottom Elements - Corner Icons and Bars */
+.label-bottom-bar {
+    position: absolute;
+    left: .1in;
+    bottom: .3in;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    z-index: 15;
+    height: 88px;
+}
+
+.corner-icon-danger {
+    width: 100px;
+    height: 60px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px #22316622;
+    padding: 4px;
+    margin-left: 4px;
+}
+
+.corner-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px #22316622;
+    padding: 4px;
+    margin-left: 13px;
+}
+
+/* Bottom Elements - Code Row */
+.code-row {
+    position: absolute;
+    left: 50%;
+    bottom: 0.53in;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 20;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 35px;
+}
+
+.code-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 13px;
+    color: #1b2754;
+    font-family: 'Open Sans', Arial, sans-serif;
+    gap: 4px;
+    min-width: 175px;
+}
+
+.batch-info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.batch-field,
+.package-size,
+.use-by {
+    text-align: left;
+    margin-left: 0;
+    font-size: 13px;
+    color: #1b2754;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.batch-field label {
+    display: inline-block;
+    min-width: 74px;
+    padding: 0;
+    margin: 0;
+}
+
+.batch-field input {
+    width: 84px;
+    font-size: 13px;
+    border: none;
+    border-bottom: 1.5px solid #223166;
+    background: #f3f7ff;
+    outline: none;
+    padding: 2px 3px;
+    border-radius: 2.5px 2.5px 0 0;
+    margin-left: 0;
+    vertical-align: middle;
+}
+
+.qr-code {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px #25408014);
+}
+
+.green-conscious-icon {
+    width: 38px;
+    position: absolute;
+    right: -15%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ==========================================================================
+   📋 LEGAL & COMPLIANCE SECTIONS - Occasionally adjusted
+   ========================================================================== */
+
+/* Manufacturing and Safety Notices */
+.manufacturing-safety-notices {
+    margin-top: 4px;
+}
+
+.manufacturing-safety-notices .rc-section {
+    margin-bottom: 2px;
+}
+
+.manufacturing-safety-notices .rc-section h4 {
+    font-size: 5px;
+    margin-bottom: 0.5px;
+    margin-top: 2px;
+}
+
+.manufacturing-safety-notices .rc-section p {
+    font-size: 3.5px;
+    line-height: 1.1;
+    margin: 0 0 1px 0;
+    font-weight: 500;
+}
+
+.manufacturing-notice {
+    color: #1a5b2e !important;
+    font-weight: 600 !important;
+}
+
+.safety-notice {
+    font-weight: 600 !important;
+}
+
+/* Manufacturing Footer */
+.manufacturing-footer {
+    position: absolute;
+    bottom: 0.02in;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 25;
+    text-align: center;
+}
+
+.manufacturing-footer .manufacturing-notice {
+    font-size: 6px;
+    font-family: 'Lato', Arial, sans-serif;
+    color: #1a5b2e;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Warranty Conditions Right Column */
+.warranty-conditions-right {
+    margin-top: 4px;
+}
+
+.warranty-conditions-right .rc-section {
+    margin-bottom: 2px;
+}
+
+.warranty-conditions-right .rc-section h4 {
+    font-size: 5px;
+    margin-bottom: 0.5px;
+    margin-top: 2px;
+}
+
+.warranty-conditions-right .rc-section p {
+    font-size: 3.2px;
+    line-height: 1.1;
+    margin: 0 0 1px 0;
+}
+
+/* ==========================================================================
+   ⚙️ FOUNDATION STYLES - Rarely modified
+   ========================================================================== */
+
+/* ⚠️ CRITICAL: Font imports - Do not modify */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&family=Lato:wght@400;700&display=swap');
+
+/* ⚠️ CRITICAL: Page setup - Do not modify print dimensions */
+@page {
+    size: 9in 5in;
+    margin: 0;
+}
+
+/* Base Body Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: #e7eaf0;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+/* ⚠️ CRITICAL: Print styles - Do not modify */
 @media print {
     body {
         -webkit-print-color-adjust: exact;
@@ -548,28 +810,89 @@ body {
 }`;
     } else {
       // 14x7 landscape template
-      return `@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&family=Lato:wght@400;700&display=swap');
-
-@page {
-    size: 14.875in 7.625in;
-    margin: 0;
+      return `/* 🎯 FREQUENTLY ADJUSTED: Product name size for fitting different product names */
+.center-content .product-name {
+    font-family: 'Verdana', Arial, sans-serif;
+    font-size: 54px; /* Adjust this value to fit product names */
+    font-weight: 700;
+    color: #013A81;
+    letter-spacing: 0.03em;
+    margin: 0 0 2px 0;
+    line-height: 1.1;
 }
 
-#Font6 p, #Font6 ul, #Font6 li { font-size: 6px !important; }
-#Font6-5 p, #Font6-5 ul, #Font6-5 li { font-size: 6.5px !important; }
-#Font7 p, #Font7 ul, #Font7 li { font-size: 7px !important; }
-#Font8 p, #Font8 ul, #Font8 li { font-size: 8px !important; }
-#Font9 p, #Font9 ul, #Font9 li { font-size: 9px !important; }
-#Font10 p, #Font10 ul, #Font10 li { font-size: 9px !important; }
-#Font11 p, #Font11 ul, #Font11 li { font-size: 9.5px !important; }
-
-body {
-    margin: 0;
-    padding: 0;
-    background: #e7eaf0;
+/* 🎯 FREQUENTLY ADJUSTED: Column text sizes for content volume */
+.left-columns p,
+.left-columns ul,
+.left-columns li {
+    font-size: 8px; /* Increase for readability, decrease for more content */
+    color: inherit;
     font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0 0 3px 0;
 }
 
+.right-columns p,
+.right-columns ul,
+.right-columns li {
+    font-size: 7px; /* Increase for readability, decrease for more content */
+    color: inherit;
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0 0 2px 0;
+}
+
+/* 🎯 FREQUENTLY ADJUSTED: Column header sizes */
+.left-columns h4,
+.right-columns h4 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 11px; /* Adjust for header prominence */
+    color: #233066;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2px;
+    letter-spacing: 0.06em;
+    margin-top: 5px;
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
+/* 🎯 FREQUENTLY ADJUSTED: Column layout positioning */
+.columns-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1 1 0;
+    width: 100%;
+    height: 100%;
+    padding: 0.60in 0.68in 0.24in 0.68in; /* Adjust padding for content fitting */
+    box-sizing: border-box;
+    z-index: 2;
+    margin-top: .6in;
+}
+
+/* 🎯 FREQUENTLY ADJUSTED: Product descriptions */
+.short-description-english {
+    font-family: 'Lato', Arial, sans-serif;
+    font-size: 12px; /* Adjust for description length */
+    font-weight: 700;
+    color: #013A81;
+    margin: 0 0 2px 0;
+    letter-spacing: 0.02em;
+}
+
+.translated-short-description {
+    font-size: 12px; /* Match or adjust relative to English description */
+    font-family: 'Lato', Arial, sans-serif;
+    color: #013A81;
+    font-weight: 400;
+    margin: 0 0 2px 0;
+}
+
+/* ==========================================================================
+   📐 LAYOUT STRUCTURE - Occasionally adjusted
+   ========================================================================== */
+
+/* Label Container and Page Setup */
 .label-container {
     width: 14.875in;
     height: 7.625in;
@@ -582,22 +905,9 @@ body {
     overflow: hidden;
     box-sizing: border-box;
 }
-
-.columns-container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex: 1 1 0;
-    width: 100%;
-    height: 100%;
-    padding: 0.60in 0.68in 0.24in 0.68in;
-    box-sizing: border-box;
-    z-index: 2;
-    margin-top: .6in;
-}
-
-.left-columns, .right-columns { 
+/* Column Layout Structure */
+.left-columns,
+.right-columns { 
     width: 31.5%;
     min-width: 320px;
     max-width: 35%;
@@ -607,8 +917,15 @@ body {
     z-index: 10;
 }
 
-.left-columns li, .right-columns li, .left-columns ul, .right-columns ul {
+.left-columns li,
+.right-columns li,
+.left-columns ul,
+.right-columns ul {
     line-height: 1.22;
+}
+
+.left-columns {
+    color: #18335b;
 }
 
 .right-columns {
@@ -617,37 +934,22 @@ body {
     column-gap: 0.15in;
 }
 
-.left-columns {
-    color: #18335b;
+/* Center Content Layout */
+.center-content {
+    width: 27%;
+    min-width: 240px;
+    max-width: 28%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
 }
-
-.left-columns h4, .right-columns h4 {
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 11px;
-    color: #233066;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 2px;
-    letter-spacing: 0.06em;
-    margin-top: 5px;
-    break-after: avoid;
-    page-break-after: avoid;
-}
-
-.left-columns p, .left-columns ul, .left-columns li {
-    font-size: 8px;
-    color: inherit;
-    font-family: 'Open Sans', Arial, sans-serif;
-    margin: 0 0 3px 0;
-}
-
-.right-columns p, .right-columns ul, .right-columns li {
-    font-size: 7px;
-    color: inherit;
-    font-family: 'Open Sans', Arial, sans-serif;
-    margin: 0 0 2px 0;
-}
-
+/* Special Elements */
 .rc-statement {
     font-size: 7px;
     color: inherit;
@@ -655,7 +957,8 @@ body {
     margin: 0 0 3px 0;
 }
 
-.right-columns ul, .right-columns .statement-list {
+.right-columns ul,
+.right-columns .statement-list {
     list-style: none;
     padding-left: 0;
     margin-left: 0;
@@ -666,7 +969,8 @@ body {
     line-height: 1.16;
 }
 
-.right-columns li, .right-columns .statement-list li {
+.right-columns li,
+.right-columns .statement-list li {
     margin: 0 0 2px 0;
     padding-left: 0;
     font-size: inherit;
@@ -687,16 +991,301 @@ body {
     word-break: break-word;
 }
 
-.center-content {
-    width: 27%;
-    min-width: 240px;
-    max-width: 28%;
+/* Typography Components */
+.signal-word {
+    font-weight: 700;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.statement-list {
+    margin: 0 0 2px 0;
+    padding-left: 13px;
+    color: #183363;
+}
+
+.statement-list li {
+    margin: 0 0 2px 0;
+    list-style: disc;
+    font-size: inherit;
+}
+
+.center-content .subtitle {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    color: #294b88;
+    font-weight: 500;
+    letter-spacing: 0.015em;
+    margin: 2px 0 2px 0;
+}
+
+.center-content .subtitle.subtitle-2 {
+    font-size: 13px;
+    color: #466db2;
+    font-weight: 400;
+    margin-bottom: 2px;
+}
+/* ==========================================================================
+   🖼️ VISUAL ELEMENTS - Moderately adjusted
+   ========================================================================== */
+
+/* Logo and Branding */
+.logo-container img {
+    height: .85in;
+    width: auto;
+    margin: 11px 0 4px 0;
+    filter: drop-shadow(0 2px 8px #132e5712);
+}
+
+/* Pictograms */
+.pictograms {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    margin: 0 0 7px 0;
+}
+
+.pictograms img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    border-radius: 5px;
+    border: 1px solid #e3e8f1;
+    background: #f7fafc;
+}
+
+/* Bottom Elements - Code Row */
+.code-row {
+    position: absolute;
+    left: 50%;
+    bottom: 0.75in;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 80px;
+    z-index: 20;
+    margin: 0;
+}
+
+.code-info {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center !important;
+    min-width: 200px;
+    font-size: 13px;
+    color: #1b2754;
+    font-family: 'Open Sans', Arial, sans-serif;
+    gap: 15px;
+    z-index: 2;
+}
+
+.qr-code {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+}
+
+.batch-info-column {
     display: flex;
     flex-direction: column;
+    gap: 4px;
+}
+
+.batch-field {
+    font-size: 13px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #233066;
+    display: flex;
     align-items: center;
-    text-align: center;
-    z-index: 5;
+    gap: 8px;
+    margin-bottom: 3px;
+}
+
+.batch-field label {
+    display: inline-block !important;
+    min-width: 105px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.package-size,
+.use-by {
+    font-size: 12px;
+    margin-bottom: 2px;
+    color: #1b2754;
+    text-align: left !important;
+    margin-left: 0 !important;
+}
+
+/* Corner Icons */
+.corner-icons {
     position: absolute;
+    left: .5in;
+    bottom: 0.75in;
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    z-index: 12;
+}
+
+.corner-icon {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1.5px 6px #22316622;
+    padding: 3px;
+}
+
+.corner-icon-rectangle {
+    width: 125px;
+    height: 75px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1.5px 6px #22316622;
+    padding: 3px;
+}
+
+.green-conscious-icon {
+    position: absolute;
+    right: 20%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 72px;
+}
+/* ==========================================================================
+   📋 LEGAL & COMPLIANCE SECTIONS - Occasionally adjusted
+   ========================================================================== */
+
+/* Warranty and Conditions Footer */
+.warranty-conditions-footer {
+    position: absolute;
+    bottom: 0.15in;
+    left: 0.5in;
+    right: 0.5in;
+    z-index: 15;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 4px;
+    padding: 6px 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.warranty-section {
+    font-size: 5px;
+    line-height: 1.2;
+    color: #2c3e50;
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin-bottom: 3px;
+}
+
+.warranty-section:last-child {
+    margin-bottom: 0;
+}
+
+.warranty-section .section-title {
+    font-weight: 600;
+    color: #1a252f;
+    margin-right: 3px;
+}
+
+/* Warranty Conditions Right Column */
+.warranty-conditions-right {
+    margin-top: 8px;
+}
+
+.warranty-conditions-right .rc-section {
+    margin-bottom: 4px;
+}
+
+.warranty-conditions-right .rc-section h4 {
+    font-size: 9px;
+    margin-bottom: 1px;
+    margin-top: 3px;
+}
+
+.warranty-conditions-right .rc-section p {
+    font-size: 6px;
+    line-height: 1.15;
+    margin: 0 0 2px 0;
+}
+
+/* Manufacturing and Safety Notices */
+.manufacturing-safety-notices {
+    margin-top: 8px;
+}
+
+.manufacturing-safety-notices .rc-section {
+    margin-bottom: 4px;
+}
+
+.manufacturing-safety-notices .rc-section h4 {
+    font-size: 9px;
+    margin-bottom: 1px;
+    margin-top: 3px;
+}
+
+.manufacturing-safety-notices .rc-section p {
+    font-size: 6.5px;
+    line-height: 1.2;
+    margin: 0 0 2px 0;
+    font-weight: 500;
+}
+
+.manufacturing-notice {
+    color: #1a5b2e !important;
+    font-weight: 600 !important;
+}
+
+.safety-notice {
+    font-weight: 600 !important;
+}
+
+/* ==========================================================================
+   ⚙️ FOUNDATION STYLES - Rarely modified
+   ========================================================================== */
+
+/* ⚠️ CRITICAL: Font imports - Do not modify */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&family=Lato:wght@400;700&display=swap');
+
+/* ⚠️ CRITICAL: Page setup - Do not modify print dimensions */
+@page {
+    size: 14.875in 7.625in;
+    margin: 0;
+}
+
+/* Font Size Utility Classes */
+#Font6 p, #Font6 ul, #Font6 li { font-size: 6px !important; }
+#Font6-5 p, #Font6-5 ul, #Font6-5 li { font-size: 6.5px !important; }
+#Font7 p, #Font7 ul, #Font7 li { font-size: 7px !important; }
+#Font8 p, #Font8 ul, #Font8 li { font-size: 8px !important; }
+#Font9 p, #Font9 ul, #Font9 li { font-size: 9px !important; }
+#Font10 p, #Font10 ul, #Font10 li { font-size: 9px !important; }
+#Font11 p, #Font11 ul, #Font11 li { font-size: 9.5px !important; }
+
+/* Base Body Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: #e7eaf0;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+/* ⚠️ CRITICAL: Print styles - Do not modify */
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: none !important;
+    }
+    .label-container { 
+        box-shadow: none !important; 
+        border-radius: 0 !important; 
+    }
+}
     top: 15%;
     left: 50%;
     transform: translateX(-50%);
