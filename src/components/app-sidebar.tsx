@@ -57,8 +57,8 @@ export function AppSidebar({
 
   // Transportation fields
   const TRANSPORT_FIELDS = [
-    "Transport: Proper Shipping Name", "Transport: UN Number", "Transport: Hazard Class", 
-    "Transport: Packing Group", "Transport: Emergency Response Guide"
+    "Proper Shipping Name", "UN Number", "Hazard Class", 
+    "Packing Group", "Emergency Response Guide"
   ];
 
   // Product feature fields 

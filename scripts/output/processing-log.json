@@ -1,0 +1,87 @@
+{
+  "startTime": "2025-09-25T06:16:52.315Z",
+  "endTime": "2025-09-25T06:16:59.280Z",
+  "totalFiles": 226,
+  "processedFiles": 226,
+  "failedFiles": 0,
+  "successfulExtractions": 225,
+  "qualityMetrics": {
+    "pdfExtractionRate": "100.0",
+    "highConfidenceRate": "85.8",
+    "productMatchRate": "77.9",
+    "fieldCompletionRates": {
+      "signal_word": {
+        "completed": 206,
+        "percentage": "91.2"
+      },
+      "hazard_statements": {
+        "completed": 210,
+        "percentage": "92.9"
+      },
+      "precautionary_statements": {
+        "completed": 166,
+        "percentage": "73.5"
+      },
+      "un_number": {
+        "completed": 0,
+        "percentage": "0.0"
+      },
+      "proper_shipping_name": {
+        "completed": 195,
+        "percentage": "86.3"
+      },
+      "hazard_class": {
+        "completed": 218,
+        "percentage": "96.5"
+      },
+      "packing_group": {
+        "completed": 197,
+        "percentage": "87.2"
+      },
+      "first_aid": {
+        "completed": 208,
+        "percentage": "92.0"
+      },
+      "storage": {
+        "completed": 223,
+        "percentage": "98.7"
+      },
+      "disposal": {
+        "completed": 225,
+        "percentage": "99.6"
+      },
+      "emergency_response_guide": {
+        "completed": 0,
+        "percentage": "0.0"
+      }
+    }
+  },
+  "pdfProcessorStats": {
+    "totalFiles": 226,
+    "successfulExtractions": 226,
+    "failedExtractions": 0,
+    "emptyExtractions": 0
+  },
+  "textParserStats": {
+    "signal_word": 206,
+    "hazard_statements": 210,
+    "precautionary_statements": 166,
+    "response_statements": 54,
+    "components_determining_hazard": 216,
+    "first_aid": 208,
+    "storage": 223,
+    "disposal": 225,
+    "un_number": 0,
+    "proper_shipping_name": 195,
+    "hazard_class": 218,
+    "packing_group": 197,
+    "emergency_response_guide": 0
+  },
+  "productMatcherStats": {
+    "totalFiles": 226,
+    "exactMatches": 153,
+    "fuzzyMatches": 23,
+    "noMatches": 0,
+    "lowConfidenceMatches": 50
+  }
+}

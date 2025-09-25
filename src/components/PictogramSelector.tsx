@@ -68,7 +68,14 @@ function extractUrls(value: string): string[] {
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'");
   
-  // Handle both HTML format and plain URLs
+  // Handle comma-separated URLs as primary format
+  if (decodedValue.includes('http') && !decodedValue.includes('<img')) {
+    return decodedValue.split(/[,\n]/)
+      .map(url => url.trim())
+      .filter(Boolean);
+  }
+  
+  // Handle legacy HTML format for backward compatibility
   if (decodedValue.includes('<img')) {
     // Extract URLs from HTML img tags
     const imgRegex = /src="([^"]+)"/g;
@@ -86,13 +93,11 @@ function extractUrls(value: string): string[] {
     .filter(Boolean);
 }
 
-// Helper function to create HTML format from URLs
-function createHtmlFromUrls(urls: string[]): string {
+// Helper function to create comma-separated URLs from URLs array
+function createUrlsFromArray(urls: string[]): string {
   if (urls.length === 0) return '';
   
-  return urls.map(url => 
-    `<img src="${url}" alt="Pictogram" style="max-width: 48px; margin-right: 8px; display: inline-block; vertical-align: middle;">`
-  ).join(' ');
+  return urls.join(',');
 }
 
 export function PictogramSelector({ value, onChange }: PictogramSelectorProps) {
@@ -116,9 +121,9 @@ export function PictogramSelector({ value, onChange }: PictogramSelectorProps) {
     
     setSelectedUrls(newUrls);
     
-    // Update the parent component with HTML format
-    const htmlValue = createHtmlFromUrls(newUrls);
-    onChange(htmlValue);
+    // Update the parent component with comma-separated URLs
+    const urlsValue = createUrlsFromArray(newUrls);
+    onChange(urlsValue);
   };
 
   return (

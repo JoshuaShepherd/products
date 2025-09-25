@@ -1,0 +1,3115 @@
+{
+  "total_products": 256,
+  "last_updated": "2025-09-25T06:12:16.572Z",
+  "products": [
+    {
+      "id": "51cf7a85-03d6-4687-8a7b-ca04dbac6475",
+      "name": "All Shield EX",
+      "slug": "all-shield-ex",
+      "variations": [
+        "All Shield EX",
+        "All-Shield-EX",
+        "AllShieldEX",
+        "all shield ex",
+        "ALL SHIELD EX",
+        "All Shield",
+        "All-Shield"
+      ]
+    },
+    {
+      "id": "fe302387-8ec6-4902-a103-6a6ddf83d688",
+      "name": "All Shield SB",
+      "slug": "all-shield-sb",
+      "variations": [
+        "All Shield SB",
+        "All-Shield-SB",
+        "AllShieldSB",
+        "all shield sb",
+        "ALL SHIELD SB",
+        "All Shield",
+        "All-Shield"
+      ]
+    },
+    {
+      "id": "98bf4651-1230-4d1b-b858-ff154724555b",
+      "name": "All Shield WB",
+      "slug": "all-shield-wb",
+      "variations": [
+        "All Shield WB",
+        "All-Shield-WB",
+        "AllShieldWB",
+        "all shield wb",
+        "ALL SHIELD WB",
+        "All Shield",
+        "All-Shield"
+      ]
+    },
+    {
+      "id": "f7f82679-e836-489c-9343-6c0aeaf3bd18",
+      "name": "Aqua Shine",
+      "slug": "aqua-shine",
+      "variations": [
+        "Aqua Shine",
+        "Aqua-Shine",
+        "AquaShine",
+        "aqua shine",
+        "AQUA SHINE"
+      ]
+    },
+    {
+      "id": "cb534ffb-2574-4052-9768-d9efa6c01b80",
+      "name": "Berry Clean",
+      "slug": "berry-clean",
+      "variations": [
+        "Berry Clean",
+        "Berry-Clean",
+        "BerryClean",
+        "berry clean",
+        "BERRY CLEAN"
+      ]
+    },
+    {
+      "id": "506ce7a7-a553-494d-8615-03bdd6a0e396",
+      "name": "Bio Strip WB",
+      "slug": "bio-strip-wb",
+      "variations": [
+        "Bio Strip WB",
+        "Bio-Strip-WB",
+        "BioStripWB",
+        "bio strip wb",
+        "BIO STRIP WB",
+        "Bio Strip",
+        "Bio-Strip"
+      ]
+    },
+    {
+      "id": "31728cdd-f6ed-4498-a1fc-536da0694d19",
+      "name": "Bio Strip WB Concentrate",
+      "slug": "bio-strip-wb-concentrate",
+      "variations": [
+        "Bio Strip WB Concentrate",
+        "Bio-Strip-WB-Concentrate",
+        "BioStripWBConcentrate",
+        "bio strip wb concentrate",
+        "BIO STRIP WB CONCENTRATE",
+        "Bio Strip",
+        "Bio-Strip"
+      ]
+    },
+    {
+      "id": "c8cabb99-2c7c-491d-b5cb-a685930cb38e",
+      "name": "C-Set",
+      "slug": "c-set",
+      "variations": [
+        "C-Set",
+        "C Set",
+        "c-set",
+        "C-SET"
+      ]
+    },
+    {
+      "id": "a10a0fc6-c32f-47a3-9e87-c2fe16f808ca",
+      "name": "Clean Lift 20/20",
+      "slug": "clean-lift-2020",
+      "variations": [
+        "Clean Lift 20/20",
+        "Clean-Lift-20/20",
+        "CleanLift20/20",
+        "clean lift 20/20",
+        "CLEAN LIFT 20/20"
+      ]
+    },
+    {
+      "id": "09bb9a9e-0eda-4e90-95d0-c64c58418320",
+      "name": "Concrete Cure w/Dye",
+      "slug": "concrete-cure-wdye",
+      "variations": [
+        "Concrete Cure w/Dye",
+        "Concrete-Cure-w/Dye",
+        "ConcreteCurew/Dye",
+        "concrete cure w/dye",
+        "CONCRETE CURE W/DYE"
+      ]
+    },
+    {
+      "id": "830d1d69-770d-450e-ae2c-61387f3b91ab",
+      "name": "Concrete Glue",
+      "slug": "concrete-glue",
+      "variations": [
+        "Concrete Glue",
+        "Concrete-Glue",
+        "ConcreteGlue",
+        "concrete glue",
+        "CONCRETE GLUE"
+      ]
+    },
+    {
+      "id": "8688a411-e789-4eda-aee6-f462b8e6cac5",
+      "name": "Crete-Away",
+      "slug": "crete-away",
+      "variations": [
+        "Crete-Away",
+        "Crete Away",
+        "crete-away",
+        "CRETE-AWAY"
+      ]
+    },
+    {
+      "id": "5ca70de6-5d26-4569-b3b3-943887db3160",
+      "name": "Crystal Rez",
+      "slug": "crystal-rez",
+      "variations": [
+        "Crystal Rez",
+        "Crystal-Rez",
+        "CrystalRez",
+        "crystal rez",
+        "CRYSTAL REZ"
+      ]
+    },
+    {
+      "id": "9689a804-2560-460b-9cae-2bf3700b18cd",
+      "name": "Crystal Rez w/ Dye",
+      "slug": "crystal-rez-w-dye",
+      "variations": [
+        "Crystal Rez w/ Dye",
+        "Crystal-Rez-w/-Dye",
+        "CrystalRezw/Dye",
+        "crystal rez w/ dye",
+        "CRYSTAL REZ W/ DYE"
+      ]
+    },
+    {
+      "id": "dc95d455-0b32-4c31-8154-4718a75f6caa",
+      "name": "Crystal Shine",
+      "slug": "crystal-shine",
+      "variations": [
+        "Crystal Shine",
+        "Crystal-Shine",
+        "CrystalShine",
+        "crystal shine",
+        "CRYSTAL SHINE"
+      ]
+    },
+    {
+      "id": "807f85c0-19d5-460e-9844-86e6a1b293b5",
+      "name": "Crystal Shine HS",
+      "slug": "crystal-shine-hs",
+      "variations": [
+        "Crystal Shine HS",
+        "Crystal-Shine-HS",
+        "CrystalShineHS",
+        "crystal shine hs",
+        "CRYSTAL SHINE HS"
+      ]
+    },
+    {
+      "id": "47ed057d-88f8-4071-82e6-f3ef8dac1c83",
+      "name": "Crystal Shine HS Matte",
+      "slug": "crystal-shine-hs-matte",
+      "variations": [
+        "Crystal Shine HS Matte",
+        "Crystal-Shine-HS-Matte",
+        "CrystalShineHSMatte",
+        "crystal shine hs matte",
+        "CRYSTAL SHINE HS MATTE"
+      ]
+    },
+    {
+      "id": "4c5c6af3-a1ea-41e8-ac7b-c695588866e3",
+      "name": "Crystal Shine HS SC",
+      "slug": "crystal-shine-hs-sc",
+      "variations": [
+        "Crystal Shine HS SC",
+        "Crystal-Shine-HS-SC",
+        "CrystalShineHSSC",
+        "crystal shine hs sc",
+        "CRYSTAL SHINE HS SC"
+      ]
+    },
+    {
+      "id": "6aa9c860-985d-4d41-ade1-a90b8c248141",
+      "name": "Crystal Shine HS SC Matte",
+      "slug": "crystal-shine-hs-sc-matte",
+      "variations": [
+        "Crystal Shine HS SC Matte",
+        "Crystal-Shine-HS-SC-Matte",
+        "CrystalShineHSSCMatte",
+        "crystal shine hs sc matte",
+        "CRYSTAL SHINE HS SC MATTE"
+      ]
+    },
+    {
+      "id": "1631bfd0-208c-4ede-ac75-703b4fdd40ae",
+      "name": "Crystal Shine Matte",
+      "slug": "crystal-shine-matte",
+      "variations": [
+        "Crystal Shine Matte",
+        "Crystal-Shine-Matte",
+        "CrystalShineMatte",
+        "crystal shine matte",
+        "CRYSTAL SHINE MATTE"
+      ]
+    },
+    {
+      "id": "8e66f2d9-54a0-4ff5-b1ae-946d5b696c4b",
+      "name": "Crystal Shine SC",
+      "slug": "crystal-shine-sc",
+      "variations": [
+        "Crystal Shine SC",
+        "Crystal-Shine-SC",
+        "CrystalShineSC",
+        "crystal shine sc",
+        "CRYSTAL SHINE SC"
+      ]
+    },
+    {
+      "id": "b72bda9d-2fb0-4d39-bc5c-06d8f0660ad1",
+      "name": "Crystal Shine SC Matte",
+      "slug": "crystal-shine-sc-matte",
+      "variations": [
+        "Crystal Shine SC Matte",
+        "Crystal-Shine-SC-Matte",
+        "CrystalShineSCMatte",
+        "crystal shine sc matte",
+        "CRYSTAL SHINE SC MATTE"
+      ]
+    },
+    {
+      "id": "92708480-7dac-4c0c-a1a8-b9fa55e3fddd",
+      "name": "Cure & Seal 25",
+      "slug": "cure-seal-25",
+      "variations": [
+        "Cure & Seal 25",
+        "Cure-&-Seal-25",
+        "Cure&Seal25",
+        "cure & seal 25",
+        "CURE & SEAL 25"
+      ]
+    },
+    {
+      "id": "37419be8-265c-4574-af6f-dd399d451c1d",
+      "name": "Cure & Seal 25 EX",
+      "slug": "cure-seal-25-ex",
+      "variations": [
+        "Cure & Seal 25 EX",
+        "Cure-&-Seal-25-EX",
+        "Cure&Seal25EX",
+        "cure & seal 25 ex",
+        "CURE & SEAL 25 EX",
+        "Cure & Seal 25",
+        "Cure-&-Seal-25"
+      ]
+    },
+    {
+      "id": "51929903-849f-49cd-9773-accf808bbd8f",
+      "name": "Cure & Seal 25 UV",
+      "slug": "cure-seal-25-uv",
+      "variations": [
+        "Cure & Seal 25 UV",
+        "Cure-&-Seal-25-UV",
+        "Cure&Seal25UV",
+        "cure & seal 25 uv",
+        "CURE & SEAL 25 UV"
+      ]
+    },
+    {
+      "id": "8bfea13a-b2e1-4497-b62b-3ae4d524374f",
+      "name": "Cure & Seal 25 UV EX",
+      "slug": "cure-seal-25-uv-ex",
+      "variations": [
+        "Cure & Seal 25 UV EX",
+        "Cure-&-Seal-25-UV-EX",
+        "Cure&Seal25UVEX",
+        "cure & seal 25 uv ex",
+        "CURE & SEAL 25 UV EX",
+        "Cure & Seal 25 UV",
+        "Cure-&-Seal-25-UV"
+      ]
+    },
+    {
+      "id": "5c58e2c7-0635-43d4-a8ec-5017af66360b",
+      "name": "Cure & Seal 30",
+      "slug": "cure-seal-30",
+      "variations": [
+        "Cure & Seal 30",
+        "Cure-&-Seal-30",
+        "Cure&Seal30",
+        "cure & seal 30",
+        "CURE & SEAL 30"
+      ]
+    },
+    {
+      "id": "06a1baa6-55dc-4070-9ae3-faeed59b8336",
+      "name": "Cure & Seal 30 EX",
+      "slug": "cure-seal-30-ex",
+      "variations": [
+        "Cure & Seal 30 EX",
+        "Cure-&-Seal-30-EX",
+        "Cure&Seal30EX",
+        "cure & seal 30 ex",
+        "CURE & SEAL 30 EX",
+        "Cure & Seal 30",
+        "Cure-&-Seal-30"
+      ]
+    },
+    {
+      "id": "238d48b3-dfbc-4730-a310-864900599b2a",
+      "name": "Cure & Seal EX",
+      "slug": "cure-seal-ex",
+      "variations": [
+        "Cure & Seal EX",
+        "Cure-&-Seal-EX",
+        "Cure&SealEX",
+        "cure & seal ex",
+        "CURE & SEAL EX",
+        "Cure & Seal",
+        "Cure-&-Seal"
+      ]
+    },
+    {
+      "id": "df1b0583-da79-4573-93c8-ababd098b2ae",
+      "name": "Cure & Seal WB",
+      "slug": "cure-seal-wb",
+      "variations": [
+        "Cure & Seal WB",
+        "Cure-&-Seal-WB",
+        "Cure&SealWB",
+        "cure & seal wb",
+        "CURE & SEAL WB",
+        "Cure & Seal",
+        "Cure-&-Seal"
+      ]
+    },
+    {
+      "id": "286331b4-3125-4e58-a26e-02afe10c5795",
+      "name": "Cure & Seal WB 25",
+      "slug": "cure-seal-wb-25",
+      "variations": [
+        "Cure & Seal WB 25",
+        "Cure-&-Seal-WB-25",
+        "Cure&SealWB25",
+        "cure & seal wb 25",
+        "CURE & SEAL WB 25",
+        "Cure & Seal 25",
+        "Cure-&-Seal-25"
+      ]
+    },
+    {
+      "id": "d339d5ed-37ac-4ae5-9361-d1a889e59567",
+      "name": "Cure & Seal WB 30",
+      "slug": "cure-seal-wb-30",
+      "variations": [
+        "Cure & Seal WB 30",
+        "Cure-&-Seal-WB-30",
+        "Cure&SealWB30",
+        "cure & seal wb 30",
+        "CURE & SEAL WB 30",
+        "Cure & Seal 30",
+        "Cure-&-Seal-30"
+      ]
+    },
+    {
+      "id": "b2519e0e-74be-4aad-8637-0dedf159bf5f",
+      "name": "Cure Hard",
+      "slug": "cure-hard",
+      "variations": [
+        "Cure Hard",
+        "Cure-Hard",
+        "CureHard",
+        "cure hard",
+        "CURE HARD"
+      ]
+    },
+    {
+      "id": "fd8372a4-7b51-41a4-b3aa-9da672082e8a",
+      "name": "Cure Hard Clear",
+      "slug": "cure-hard-clear",
+      "variations": [
+        "Cure Hard Clear",
+        "Cure-Hard-Clear",
+        "CureHardClear",
+        "cure hard clear",
+        "CURE HARD CLEAR"
+      ]
+    },
+    {
+      "id": "374bada8-e641-4909-9806-d755c598580c",
+      "name": "Cure Hard Concentrate",
+      "slug": "cure-hard-concentrate",
+      "variations": [
+        "Cure Hard Concentrate",
+        "Cure-Hard-Concentrate",
+        "CureHardConcentrate",
+        "cure hard concentrate",
+        "CURE HARD CONCENTRATE",
+        "Cure Hard",
+        "Cure-Hard"
+      ]
+    },
+    {
+      "id": "86cd4666-387a-4183-8b3e-a1d4c67a5091",
+      "name": "Cure Hard Plus",
+      "slug": "cure-hard-plus",
+      "variations": [
+        "Cure Hard Plus",
+        "Cure-Hard-Plus",
+        "CureHardPlus",
+        "cure hard plus",
+        "CURE HARD PLUS"
+      ]
+    },
+    {
+      "id": "88d72db1-ad9c-442b-a6c5-33a6ba07cad1",
+      "name": "Cure Shield",
+      "slug": "cure-shield",
+      "variations": [
+        "Cure Shield",
+        "Cure-Shield",
+        "CureShield",
+        "cure shield",
+        "CURE SHIELD"
+      ]
+    },
+    {
+      "id": "cf04d3e9-1b85-4677-b924-12d6164d7122",
+      "name": "Cure Shield EX",
+      "slug": "cure-shield-ex",
+      "variations": [
+        "Cure Shield EX",
+        "Cure-Shield-EX",
+        "CureShieldEX",
+        "cure shield ex",
+        "CURE SHIELD EX",
+        "Cure Shield",
+        "Cure-Shield"
+      ]
+    },
+    {
+      "id": "51972194-b9d7-459b-9980-6e3e63a9c513",
+      "name": "Cure Shield WB",
+      "slug": "cure-shield-wb",
+      "variations": [
+        "Cure Shield WB",
+        "Cure-Shield-WB",
+        "CureShieldWB",
+        "cure shield wb",
+        "CURE SHIELD WB",
+        "Cure Shield",
+        "Cure-Shield"
+      ]
+    },
+    {
+      "id": "02d1cbd0-daf4-4a3e-9536-d2e5f997c0b2",
+      "name": "Deco Liquid Release",
+      "slug": "deco-liquid-release",
+      "variations": [
+        "Deco Liquid Release",
+        "Deco-Liquid-Release",
+        "DecoLiquidRelease",
+        "deco liquid release",
+        "DECO LIQUID RELEASE"
+      ]
+    },
+    {
+      "id": "35df34fd-3e60-4822-87cf-0bff860ccb2d",
+      "name": "Deco Shine",
+      "slug": "deco-shine",
+      "variations": [
+        "Deco Shine",
+        "Deco-Shine",
+        "DecoShine",
+        "deco shine",
+        "DECO SHINE"
+      ]
+    },
+    {
+      "id": "68976105-1bf5-4a47-aca8-15ca0fd5051a",
+      "name": "Deco Shine Brown",
+      "slug": "deco-shine-brown",
+      "variations": [
+        "Deco Shine Brown",
+        "Deco-Shine-Brown",
+        "DecoShineBrown",
+        "deco shine brown",
+        "DECO SHINE BROWN"
+      ]
+    },
+    {
+      "id": "eced82f7-5817-41bc-914c-97d4b1ea7366",
+      "name": "Deco Shine Brown EX",
+      "slug": "deco-shine-brown-ex",
+      "variations": [
+        "Deco Shine Brown EX",
+        "Deco-Shine-Brown-EX",
+        "DecoShineBrownEX",
+        "deco shine brown ex",
+        "DECO SHINE BROWN EX",
+        "Deco Shine Brown",
+        "Deco-Shine-Brown"
+      ]
+    },
+    {
+      "id": "b9fa47d5-5ec2-4ea6-a6f2-6d362fadf7ef",
+      "name": "Deco Shine Matte",
+      "slug": "deco-shine-matte",
+      "variations": [
+        "Deco Shine Matte",
+        "Deco-Shine-Matte",
+        "DecoShineMatte",
+        "deco shine matte",
+        "DECO SHINE MATTE"
+      ]
+    },
+    {
+      "id": "4658180b-9c91-48de-9aab-edb394183d6c",
+      "name": "Dry Deck WB",
+      "slug": "dry-deck-wb",
+      "variations": [
+        "Dry Deck WB",
+        "Dry-Deck-WB",
+        "DryDeckWB",
+        "dry deck wb",
+        "DRY DECK WB",
+        "Dry Deck",
+        "Dry-Deck"
+      ]
+    },
+    {
+      "id": "f98ea000-2048-438c-b76e-72f4530913c0",
+      "name": "Duo Patch",
+      "slug": "duo-patch",
+      "variations": [
+        "Duo Patch",
+        "Duo-Patch",
+        "DuoPatch",
+        "duo patch",
+        "DUO PATCH"
+      ]
+    },
+    {
+      "id": "f229b039-0737-46aa-b4a3-51a6979d2b18",
+      "name": "E-Cure (No Dye)",
+      "slug": "e-cure-no-dye",
+      "variations": [
+        "E-Cure (No Dye)",
+        "E-Cure-(No-Dye)",
+        "E-Cure(NoDye)",
+        "E Cure (No Dye)",
+        "e-cure (no dye)",
+        "E-CURE (NO DYE)"
+      ]
+    },
+    {
+      "id": "e8fb4a9d-ac2a-4ae9-a4c7-80b552ea9454",
+      "name": "E-Cure®",
+      "slug": "e-cure",
+      "variations": [
+        "E-Cure®",
+        "E Cure®",
+        "e-cure®",
+        "E-CURE®"
+      ]
+    },
+    {
+      "id": "4ef4183a-fd39-4415-a3eb-5f63cc0b233e",
+      "name": "E-Cure® Concentrate",
+      "slug": "e-cure-concentrate",
+      "variations": [
+        "E-Cure® Concentrate",
+        "E-Cure®-Concentrate",
+        "E-Cure®Concentrate",
+        "E Cure® Concentrate",
+        "e-cure® concentrate",
+        "E-CURE® CONCENTRATE",
+        "E-Cure®"
+      ]
+    },
+    {
+      "id": "6234a0cb-995d-4200-8ca5-d01766e9eadd",
+      "name": "EZ Clean & Release",
+      "slug": "ez-clean-release",
+      "variations": [
+        "EZ Clean & Release",
+        "EZ-Clean-&-Release",
+        "EZClean&Release",
+        "ez clean & release",
+        "EZ CLEAN & RELEASE"
+      ]
+    },
+    {
+      "id": "70d9694f-f0d0-45e7-8e99-1b6c8614c3b9",
+      "name": "EZ Clean & Release Cherry",
+      "slug": "ez-clean-release-cherry",
+      "variations": [
+        "EZ Clean & Release Cherry",
+        "EZ-Clean-&-Release-Cherry",
+        "EZClean&ReleaseCherry",
+        "ez clean & release cherry",
+        "EZ CLEAN & RELEASE CHERRY"
+      ]
+    },
+    {
+      "id": "092cf9d5-6ebb-4b31-89e8-e9593a673df8",
+      "name": "Fencement",
+      "slug": "fencement",
+      "variations": [
+        "Fencement",
+        "fencement",
+        "FENCEMENT"
+      ]
+    },
+    {
+      "id": "ee8e3faa-4433-449e-a422-1687359b8cb2",
+      "name": "Final Finish",
+      "slug": "final-finish",
+      "variations": [
+        "Final Finish",
+        "Final-Finish",
+        "FinalFinish",
+        "final finish",
+        "FINAL FINISH"
+      ]
+    },
+    {
+      "id": "a2dfa022-1353-4b2f-b1b1-59a81828c8ef",
+      "name": "Final Finish FS",
+      "slug": "final-finish-fs",
+      "variations": [
+        "Final Finish FS",
+        "Final-Finish-FS",
+        "FinalFinishFS",
+        "final finish fs",
+        "FINAL FINISH FS"
+      ]
+    },
+    {
+      "id": "c3b1624d-9d8d-45e7-a77f-f1cde9192daf",
+      "name": "Form Seasoning WB",
+      "slug": "form-seasoning-wb",
+      "variations": [
+        "Form Seasoning WB",
+        "Form-Seasoning-WB",
+        "FormSeasoningWB",
+        "form seasoning wb",
+        "FORM SEASONING WB",
+        "Form Seasoning",
+        "Form-Seasoning"
+      ]
+    },
+    {
+      "id": "5203215d-6d9f-49f0-b0c0-2b0a83baddec",
+      "name": "Intracon",
+      "slug": "intracon",
+      "variations": [
+        "Intracon",
+        "intracon",
+        "INTRACON"
+      ]
+    },
+    {
+      "id": "c1175353-7361-4831-8e51-0a4437212f07",
+      "name": "IntraFilm",
+      "slug": "intrafilm",
+      "variations": [
+        "IntraFilm",
+        "intrafilm",
+        "INTRAFILM"
+      ]
+    },
+    {
+      "id": "0cac3842-438f-4491-a904-d2096e76c5fa",
+      "name": "IntraFilm Concentrate",
+      "slug": "intrafilm-concentrate",
+      "variations": [
+        "IntraFilm Concentrate",
+        "IntraFilm-Concentrate",
+        "IntraFilmConcentrate",
+        "intrafilm concentrate",
+        "INTRAFILM CONCENTRATE",
+        "IntraFilm"
+      ]
+    },
+    {
+      "id": "e8813b1a-c38e-4e57-858b-07ab86f2ff41",
+      "name": "IntraHard",
+      "slug": "intrahard",
+      "variations": [
+        "IntraHard",
+        "intrahard",
+        "INTRAHARD"
+      ]
+    },
+    {
+      "id": "54592e6e-df6d-43e6-aa30-b2b5d8fdc73c",
+      "name": "K-Set",
+      "slug": "k-set",
+      "variations": [
+        "K-Set",
+        "K Set",
+        "k-set",
+        "K-SET"
+      ]
+    },
+    {
+      "id": "75084846-f03f-48f0-a7e6-c2a4a08358b8",
+      "name": "LithSeal Lite",
+      "slug": "lithseal-lite",
+      "variations": [
+        "LithSeal Lite",
+        "LithSeal-Lite",
+        "LithSealLite",
+        "lithseal lite",
+        "LITHSEAL LITE"
+      ]
+    },
+    {
+      "id": "bd6f1b7b-7a90-4166-b849-fb22405733f7",
+      "name": "LithSeal SC",
+      "slug": "lithseal-sc",
+      "variations": [
+        "LithSeal SC",
+        "LithSeal-SC",
+        "LithSealSC",
+        "lithseal sc",
+        "LITHSEAL SC"
+      ]
+    },
+    {
+      "id": "f23cdac0-0711-4e09-a276-e0ec31ee67ce",
+      "name": "LithSeal SG",
+      "slug": "lithseal-sg",
+      "variations": [
+        "LithSeal SG",
+        "LithSeal-SG",
+        "LithSealSG",
+        "lithseal sg",
+        "LITHSEAL SG"
+      ]
+    },
+    {
+      "id": "23cb06a5-2dc4-431c-a5c8-294a38476b08",
+      "name": "Muriatic Acid",
+      "slug": "muriatic-acid",
+      "variations": [
+        "Muriatic Acid",
+        "Muriatic-Acid",
+        "MuriaticAcid",
+        "muriatic acid",
+        "MURIATIC ACID"
+      ]
+    },
+    {
+      "id": "71d840da-3ab6-4d20-b40b-36e68ec05ab0",
+      "name": "MVM Prime 5000 (Part A)",
+      "slug": "mvm-prime-5000-part-a",
+      "variations": [
+        "MVM Prime 5000 (Part A)",
+        "MVM-Prime-5000-(Part-A)",
+        "MVMPrime5000(PartA)",
+        "mvm prime 5000 (part a)",
+        "MVM PRIME 5000 (PART A)"
+      ]
+    },
+    {
+      "id": "4fcb5c04-1e44-476b-8eff-665d06374a29",
+      "name": "MVM Prime 5000 (Part B)",
+      "slug": "mvm-prime-5000-part-b",
+      "variations": [
+        "MVM Prime 5000 (Part B)",
+        "MVM-Prime-5000-(Part-B)",
+        "MVMPrime5000(PartB)",
+        "mvm prime 5000 (part b)",
+        "MVM PRIME 5000 (PART B)"
+      ]
+    },
+    {
+      "id": "eded8ed0-7e58-48d7-a2d5-0966bbb656b3",
+      "name": "Orange Peel<sup>®</sup>",
+      "slug": "orange-peelsupsup",
+      "variations": [
+        "Orange Peel<sup>®</sup>",
+        "Orange-Peel<sup>®</sup>",
+        "OrangePeel<sup>®</sup>",
+        "orange peel<sup>®</sup>",
+        "ORANGE PEEL<SUP>®</SUP>"
+      ]
+    },
+    {
+      "id": "40ec39aa-4c2e-4262-a710-71cb0d79f640",
+      "name": "OverCrete Coarse",
+      "slug": "overcrete-coarse",
+      "variations": [
+        "OverCrete Coarse",
+        "OverCrete-Coarse",
+        "OverCreteCoarse",
+        "overcrete coarse",
+        "OVERCRETE COARSE"
+      ]
+    },
+    {
+      "id": "7123ac20-2fb1-4f73-9946-8d0954e97917",
+      "name": "OverCrete Fine",
+      "slug": "overcrete-fine",
+      "variations": [
+        "OverCrete Fine",
+        "OverCrete-Fine",
+        "OverCreteFine",
+        "overcrete fine",
+        "OVERCRETE FINE"
+      ]
+    },
+    {
+      "id": "c8f18718-4f9f-485e-842b-3196c4f790c1",
+      "name": "Pave Cure AMS",
+      "slug": "pave-cure-ams",
+      "variations": [
+        "Pave Cure AMS",
+        "Pave-Cure-AMS",
+        "PaveCureAMS",
+        "pave cure ams",
+        "PAVE CURE AMS"
+      ]
+    },
+    {
+      "id": "5984a38b-cb72-4db5-9a93-1f617ab12afd",
+      "name": "Pave Cure AMS Caltrans",
+      "slug": "pave-cure-ams-caltrans",
+      "variations": [
+        "Pave Cure AMS Caltrans",
+        "Pave-Cure-AMS-Caltrans",
+        "PaveCureAMSCaltrans",
+        "pave cure ams caltrans",
+        "PAVE CURE AMS CALTRANS"
+      ]
+    },
+    {
+      "id": "6d4daf00-299b-416f-b50f-75840901dd53",
+      "name": "Pave Cure CW Caltrans",
+      "slug": "pave-cure-cw-caltrans",
+      "variations": [
+        "Pave Cure CW Caltrans",
+        "Pave-Cure-CW-Caltrans",
+        "PaveCureCWCaltrans",
+        "pave cure cw caltrans",
+        "PAVE CURE CW CALTRANS"
+      ]
+    },
+    {
+      "id": "a7acc5da-3dd6-49d3-b8fa-3d379d473c35",
+      "name": "Pave Cure CW with Dye",
+      "slug": "pave-cure-cw-with-dye",
+      "variations": [
+        "Pave Cure CW with Dye",
+        "Pave-Cure-CW-with-Dye",
+        "PaveCureCWwithDye",
+        "pave cure cw with dye",
+        "PAVE CURE CW WITH DYE"
+      ]
+    },
+    {
+      "id": "17507e5b-5ff3-4db5-84f4-64e1263972b0",
+      "name": "Pave Cure CW with Dye TX Type I",
+      "slug": "pave-cure-cw-with-dye-tx-type-i",
+      "variations": [
+        "Pave Cure CW with Dye TX Type I",
+        "Pave-Cure-CW-with-Dye-TX-Type-I",
+        "PaveCureCWwithDyeTXTypeI",
+        "pave cure cw with dye tx type i",
+        "PAVE CURE CW WITH DYE TX TYPE I"
+      ]
+    },
+    {
+      "id": "3a2332ec-b777-42ab-9d9b-216e470e7a5e",
+      "name": "Pave Cure Rez - Concrete Guard",
+      "slug": "pave-cure-rez-concrete-guard",
+      "variations": [
+        "Pave Cure Rez - Concrete Guard",
+        "Pave-Cure-Rez---Concrete-Guard",
+        "PaveCureRez-ConcreteGuard",
+        "Pave Cure Rez   Concrete Guard",
+        "pave cure rez - concrete guard",
+        "PAVE CURE REZ - CONCRETE GUARD"
+      ]
+    },
+    {
+      "id": "a65fd29a-9c89-4a2d-9f73-62d019702c17",
+      "name": "Pave Cure Rez Clear",
+      "slug": "pave-cure-rez-clear",
+      "variations": [
+        "Pave Cure Rez Clear",
+        "Pave-Cure-Rez-Clear",
+        "PaveCureRezClear",
+        "pave cure rez clear",
+        "PAVE CURE REZ CLEAR"
+      ]
+    },
+    {
+      "id": "118b6108-486f-43eb-9ebc-f7bb988fb351",
+      "name": "Pave Cure Rez Clear Caltrans",
+      "slug": "pave-cure-rez-clear-caltrans",
+      "variations": [
+        "Pave Cure Rez Clear Caltrans",
+        "Pave-Cure-Rez-Clear-Caltrans",
+        "PaveCureRezClearCaltrans",
+        "pave cure rez clear caltrans",
+        "PAVE CURE REZ CLEAR CALTRANS"
+      ]
+    },
+    {
+      "id": "ada7ca68-1cbc-4963-89bb-b1ee92d6c988",
+      "name": "Pave Cure Rez Clear TX Type I",
+      "slug": "pave-cure-rez-clear-tx-type-i",
+      "variations": [
+        "Pave Cure Rez Clear TX Type I",
+        "Pave-Cure-Rez-Clear-TX-Type-I",
+        "PaveCureRezClearTXTypeI",
+        "pave cure rez clear tx type i",
+        "PAVE CURE REZ CLEAR TX TYPE I"
+      ]
+    },
+    {
+      "id": "361b2227-53e1-44b9-86d8-47a623af7318",
+      "name": "Pave Cure Rez Guard",
+      "slug": "pave-cure-rez-guard",
+      "variations": [
+        "Pave Cure Rez Guard",
+        "Pave-Cure-Rez-Guard",
+        "PaveCureRezGuard",
+        "pave cure rez guard",
+        "PAVE CURE REZ GUARD"
+      ]
+    },
+    {
+      "id": "ebe771b3-f540-4889-9332-fecb40f0d76c",
+      "name": "Pave Cure Rez White",
+      "slug": "pave-cure-rez-white",
+      "variations": [
+        "Pave Cure Rez White",
+        "Pave-Cure-Rez-White",
+        "PaveCureRezWhite",
+        "pave cure rez white",
+        "PAVE CURE REZ WHITE"
+      ]
+    },
+    {
+      "id": "077ce143-71da-4a5a-8726-2eacd354137a",
+      "name": "Pave Cure Rez White Caltrans",
+      "slug": "pave-cure-rez-white-caltrans",
+      "variations": [
+        "Pave Cure Rez White Caltrans",
+        "Pave-Cure-Rez-White-Caltrans",
+        "PaveCureRezWhiteCaltrans",
+        "pave cure rez white caltrans",
+        "PAVE CURE REZ WHITE CALTRANS"
+      ]
+    },
+    {
+      "id": "6f75a60f-919e-4328-949d-7bb42bb72838",
+      "name": "Pave Cure Rez White Guard",
+      "slug": "pave-cure-rez-white-guard",
+      "variations": [
+        "Pave Cure Rez White Guard",
+        "Pave-Cure-Rez-White-Guard",
+        "PaveCureRezWhiteGuard",
+        "pave cure rez white guard",
+        "PAVE CURE REZ WHITE GUARD"
+      ]
+    },
+    {
+      "id": "cd848a51-e553-47d9-b1bf-00e09b9e9411",
+      "name": "Pave Cure WW",
+      "slug": "pave-cure-ww",
+      "variations": [
+        "Pave Cure WW",
+        "Pave-Cure-WW",
+        "PaveCureWW",
+        "pave cure ww",
+        "PAVE CURE WW"
+      ]
+    },
+    {
+      "id": "be0e3986-9b7b-4ed1-80db-febf49a83e56",
+      "name": "Pave Cure WW 300",
+      "slug": "pave-cure-ww-300",
+      "variations": [
+        "Pave Cure WW 300",
+        "Pave-Cure-WW-300",
+        "PaveCureWW300",
+        "pave cure ww 300",
+        "PAVE CURE WW 300"
+      ]
+    },
+    {
+      "id": "82cc3563-0ad6-4b72-884a-26bcb29b92c0",
+      "name": "Pave Cure WW Caltrans",
+      "slug": "pave-cure-ww-caltrans",
+      "variations": [
+        "Pave Cure WW Caltrans",
+        "Pave-Cure-WW-Caltrans",
+        "PaveCureWWCaltrans",
+        "pave cure ww caltrans",
+        "PAVE CURE WW CALTRANS"
+      ]
+    },
+    {
+      "id": "bc6f4b51-2fa9-4954-9b8c-3edbffaf4f88",
+      "name": "Pave Cure WW TX Type II",
+      "slug": "pave-cure-ww-tx-type-ii",
+      "variations": [
+        "Pave Cure WW TX Type II",
+        "Pave-Cure-WW-TX-Type-II",
+        "PaveCureWWTXTypeII",
+        "pave cure ww tx type ii",
+        "PAVE CURE WW TX TYPE II"
+      ]
+    },
+    {
+      "id": "3c965ecf-b4d2-4f0e-86a2-aa6081f4f06e",
+      "name": "Plaster Bond",
+      "slug": "plaster-bond",
+      "variations": [
+        "Plaster Bond",
+        "Plaster-Bond",
+        "PlasterBond",
+        "plaster bond",
+        "PLASTER BOND"
+      ]
+    },
+    {
+      "id": "728e3a2d-cbab-4d28-ae9e-a046e045f24c",
+      "name": "Poly Fix (Part A)",
+      "slug": "poly-fix-part-a",
+      "variations": [
+        "Poly Fix (Part A)",
+        "Poly-Fix-(Part-A)",
+        "PolyFix(PartA)",
+        "poly fix (part a)",
+        "POLY FIX (PART A)"
+      ]
+    },
+    {
+      "id": "a778d472-acb7-4089-81cb-2c7f4b499c23",
+      "name": "Poly Fix (Part B)",
+      "slug": "poly-fix-part-b",
+      "variations": [
+        "Poly Fix (Part B)",
+        "Poly-Fix-(Part-B)",
+        "PolyFix(PartB)",
+        "poly fix (part b)",
+        "POLY FIX (PART B)"
+      ]
+    },
+    {
+      "id": "deb18648-76a4-437c-97e7-fc10d905fce1",
+      "name": "PolyCure",
+      "slug": "polycure",
+      "variations": [
+        "PolyCure",
+        "polycure",
+        "POLYCURE"
+      ]
+    },
+    {
+      "id": "4e362e68-f4a9-4854-a9aa-739f495570d1",
+      "name": "Por-Rok",
+      "slug": "por-rok",
+      "variations": [
+        "Por-Rok",
+        "Por Rok",
+        "por-rok",
+        "POR-ROK"
+      ]
+    },
+    {
+      "id": "4473e293-d1d0-43bb-b6b6-e403ae8f0e4b",
+      "name": "Precast 80",
+      "slug": "precast-80",
+      "variations": [
+        "Precast 80",
+        "Precast-80",
+        "Precast80",
+        "precast 80",
+        "PRECAST 80"
+      ]
+    },
+    {
+      "id": "c8ac5ec0-b214-4e19-9a22-38d32f24f65a",
+      "name": "Rapid Flex 90",
+      "slug": "rapid-flex-90",
+      "variations": [
+        "Rapid Flex 90",
+        "Rapid-Flex-90",
+        "RapidFlex90",
+        "rapid flex 90",
+        "RAPID FLEX 90"
+      ]
+    },
+    {
+      "id": "ebed57d4-321f-4b98-93f1-f031da17b8fb",
+      "name": "Rapid Flex CJ",
+      "slug": "rapid-flex-cj",
+      "variations": [
+        "Rapid Flex CJ",
+        "Rapid-Flex-CJ",
+        "RapidFlexCJ",
+        "rapid flex cj",
+        "RAPID FLEX CJ"
+      ]
+    },
+    {
+      "id": "a7d404fd-4b3b-4c5c-9ef7-47f5979d5c94",
+      "name": "Rapid Rock",
+      "slug": "rapid-rock",
+      "variations": [
+        "Rapid Rock",
+        "Rapid-Rock",
+        "RapidRock",
+        "rapid rock",
+        "RAPID ROCK"
+      ]
+    },
+    {
+      "id": "a6a0294e-dc82-48ba-8159-cec335198f70",
+      "name": "Reaxion",
+      "slug": "reaxion",
+      "variations": [
+        "Reaxion",
+        "reaxion",
+        "REAXION"
+      ]
+    },
+    {
+      "id": "eb12841c-3f7b-49d5-ae4c-554140591e53",
+      "name": "RepCon 928",
+      "slug": "repcon-928",
+      "variations": [
+        "RepCon 928",
+        "RepCon-928",
+        "RepCon928",
+        "repcon 928",
+        "REPCON 928"
+      ]
+    },
+    {
+      "id": "c4a58d69-1b7b-468d-8539-e51a2e54bf71",
+      "name": "RepCon H",
+      "slug": "repcon-h",
+      "variations": [
+        "RepCon H",
+        "RepCon-H",
+        "RepConH",
+        "repcon h",
+        "REPCON H"
+      ]
+    },
+    {
+      "id": "706a10c0-dc48-4956-bdbf-31f13759a85c",
+      "name": "RepCon H-350",
+      "slug": "repcon-h-350",
+      "variations": [
+        "RepCon H-350",
+        "RepCon-H-350",
+        "RepConH-350",
+        "RepCon H 350",
+        "repcon h-350",
+        "REPCON H-350"
+      ]
+    },
+    {
+      "id": "025946d6-3f1c-413d-8fcc-966713e9d8f7",
+      "name": "RepCon UW Mortar",
+      "slug": "repcon-uw-mortar",
+      "variations": [
+        "RepCon UW Mortar",
+        "RepCon-UW-Mortar",
+        "RepConUWMortar",
+        "repcon uw mortar",
+        "REPCON UW MORTAR"
+      ]
+    },
+    {
+      "id": "8db54743-3092-4a0e-813d-0dfa8879d75f",
+      "name": "RepCon® 928 FS",
+      "slug": "repcon-928-fs",
+      "variations": [
+        "RepCon® 928 FS",
+        "RepCon®-928-FS",
+        "RepCon®928FS",
+        "repcon® 928 fs",
+        "REPCON® 928 FS"
+      ]
+    },
+    {
+      "id": "ac62bda2-5993-44e8-a191-e50d4059fb71",
+      "name": "RepCon® V/O",
+      "slug": "repcon-vo",
+      "variations": [
+        "RepCon® V/O",
+        "RepCon®-V/O",
+        "RepCon®V/O",
+        "repcon® v/o",
+        "REPCON® V/O"
+      ]
+    },
+    {
+      "id": "d7dfc3e0-f715-498c-9f90-33731426a113",
+      "name": "RePlug",
+      "slug": "replug",
+      "variations": [
+        "RePlug",
+        "replug",
+        "REPLUG"
+      ]
+    },
+    {
+      "id": "f8f66eb5-158e-45aa-80be-9030cf323de3",
+      "name": "RevCrete™",
+      "slug": "revcrete",
+      "variations": [
+        "RevCrete™",
+        "revcrete™",
+        "REVCRETE™"
+      ]
+    },
+    {
+      "id": "9bb2ec81-21ba-4eb4-8718-dc3cd97523ff",
+      "name": "SC Concrete Finish",
+      "slug": "sc-concrete-finish",
+      "variations": [
+        "SC Concrete Finish",
+        "SC-Concrete-Finish",
+        "SCConcreteFinish",
+        "sc concrete finish",
+        "SC CONCRETE FINISH"
+      ]
+    },
+    {
+      "id": "8ade84f3-0bb1-4ec9-a65e-9c5d03fba3ca",
+      "name": "SC Cure 500",
+      "slug": "sc-cure-500",
+      "variations": [
+        "SC Cure 500",
+        "SC-Cure-500",
+        "SCCure500",
+        "sc cure 500",
+        "SC CURE 500"
+      ]
+    },
+    {
+      "id": "3474d187-e4eb-4df1-a9f9-e213ed9d583a",
+      "name": "SC Foundation Coating",
+      "slug": "sc-foundation-coating",
+      "variations": [
+        "SC Foundation Coating",
+        "SC-Foundation-Coating",
+        "SCFoundationCoating",
+        "sc foundation coating",
+        "SC FOUNDATION COATING"
+      ]
+    },
+    {
+      "id": "92b99191-d3af-463f-900f-9a2d78fddfa7",
+      "name": "SC Metallic Grout",
+      "slug": "sc-metallic-grout",
+      "variations": [
+        "SC Metallic Grout",
+        "SC-Metallic-Grout",
+        "SCMetallicGrout",
+        "sc metallic grout",
+        "SC METALLIC GROUT"
+      ]
+    },
+    {
+      "id": "c401d7b4-95a7-4eb2-ac05-49a1fc196115",
+      "name": "SC MT Black Pigment",
+      "slug": "sc-mt-black-pigment",
+      "variations": [
+        "SC MT Black Pigment",
+        "SC-MT-Black-Pigment",
+        "SCMTBlackPigment",
+        "sc mt black pigment",
+        "SC MT BLACK PIGMENT"
+      ]
+    },
+    {
+      "id": "b510fd90-0906-4427-9bb1-e6f94fbbfde4",
+      "name": "SC Multi-Purpose Sealer",
+      "slug": "sc-multi-purpose-sealer",
+      "variations": [
+        "SC Multi-Purpose Sealer",
+        "SC-Multi-Purpose-Sealer",
+        "SCMulti-PurposeSealer",
+        "SC Multi Purpose Sealer",
+        "sc multi-purpose sealer",
+        "SC MULTI-PURPOSE SEALER"
+      ]
+    },
+    {
+      "id": "b493a52a-9da8-44cc-aa9a-cada478ecd9e",
+      "name": "SC Multipurpose Grout",
+      "slug": "sc-multipurpose-grout",
+      "variations": [
+        "SC Multipurpose Grout",
+        "SC-Multipurpose-Grout",
+        "SCMultipurposeGrout",
+        "sc multipurpose grout",
+        "SC MULTIPURPOSE GROUT"
+      ]
+    },
+    {
+      "id": "20c84225-7147-4761-9349-4af6a86d10d5",
+      "name": "SC Precision Grout",
+      "slug": "sc-precision-grout",
+      "variations": [
+        "SC Precision Grout",
+        "SC-Precision-Grout",
+        "SCPrecisionGrout",
+        "sc precision grout",
+        "SC PRECISION GROUT"
+      ]
+    },
+    {
+      "id": "ca4e6a62-da0d-4857-a679-4c1988d047b0",
+      "name": "SC Precision Grout HS",
+      "slug": "sc-precision-grout-hs",
+      "variations": [
+        "SC Precision Grout HS",
+        "SC-Precision-Grout-HS",
+        "SCPrecisionGroutHS",
+        "sc precision grout hs",
+        "SC PRECISION GROUT HS"
+      ]
+    },
+    {
+      "id": "f3cb49c8-90d4-4856-bdb1-c7bcc5421440",
+      "name": "Sealer Renew",
+      "slug": "sealer-renew",
+      "variations": [
+        "Sealer Renew",
+        "Sealer-Renew",
+        "SealerRenew",
+        "sealer renew",
+        "SEALER RENEW"
+      ]
+    },
+    {
+      "id": "0b6623e7-eadc-4820-83d8-eaf5abfe101c",
+      "name": "Sleek 1000 SLU",
+      "slug": "sleek-1000-slu",
+      "variations": [
+        "Sleek 1000 SLU",
+        "Sleek-1000-SLU",
+        "Sleek1000SLU",
+        "sleek 1000 slu",
+        "SLEEK 1000 SLU"
+      ]
+    },
+    {
+      "id": "f0431b89-4d86-4709-bb51-bd7e9bcacdcf",
+      "name": "Sodium Silicate",
+      "slug": "sodium-silicate",
+      "variations": [
+        "Sodium Silicate",
+        "Sodium-Silicate",
+        "SodiumSilicate",
+        "sodium silicate",
+        "SODIUM SILICATE"
+      ]
+    },
+    {
+      "id": "a6945a58-f7c8-4ec4-9cfc-4133773c22f0",
+      "name": "Solvent 100",
+      "slug": "solvent-100",
+      "variations": [
+        "Solvent 100",
+        "Solvent-100",
+        "Solvent100",
+        "solvent 100",
+        "SOLVENT 100"
+      ]
+    },
+    {
+      "id": "49b3afe0-0a02-4a3d-977e-794080bc718f",
+      "name": "Sonic Rock",
+      "slug": "sonic-rock",
+      "variations": [
+        "Sonic Rock",
+        "Sonic-Rock",
+        "SonicRock",
+        "sonic rock",
+        "SONIC ROCK"
+      ]
+    },
+    {
+      "id": "c6d28fc5-149a-4e4d-af46-98cedbf756a1",
+      "name": "Spec CJ Guard",
+      "slug": "spec-cj-guard",
+      "variations": [
+        "Spec CJ Guard",
+        "Spec-CJ-Guard",
+        "SpecCJGuard",
+        "spec cj guard",
+        "SPEC CJ GUARD"
+      ]
+    },
+    {
+      "id": "2e5c8557-e17e-4b5f-a5fc-ec6384939424",
+      "name": "Spec Hard-Intraseal",
+      "slug": "spec-hard-intraseal",
+      "variations": [
+        "Spec Hard-Intraseal",
+        "Spec-Hard-Intraseal",
+        "SpecHard-Intraseal",
+        "Spec Hard Intraseal",
+        "spec hard-intraseal",
+        "SPEC HARD-INTRASEAL"
+      ]
+    },
+    {
+      "id": "84bd3c22-0578-423d-b4f8-37fcaff78736",
+      "name": "Spec Rock",
+      "slug": "spec-rock",
+      "variations": [
+        "Spec Rock",
+        "Spec-Rock",
+        "SpecRock",
+        "spec rock",
+        "SPEC ROCK"
+      ]
+    },
+    {
+      "id": "8fa2b27b-b56a-4638-a2fd-54a1df8a4a8d",
+      "name": "Spec Shield EX",
+      "slug": "spec-shield-ex",
+      "variations": [
+        "Spec Shield EX",
+        "Spec-Shield-EX",
+        "SpecShieldEX",
+        "spec shield ex",
+        "SPEC SHIELD EX",
+        "Spec Shield",
+        "Spec-Shield"
+      ]
+    },
+    {
+      "id": "8f4004f3-2457-434d-8378-a9446b60345f",
+      "name": "Spec Shield SB",
+      "slug": "spec-shield-sb",
+      "variations": [
+        "Spec Shield SB",
+        "Spec-Shield-SB",
+        "SpecShieldSB",
+        "spec shield sb",
+        "SPEC SHIELD SB",
+        "Spec Shield",
+        "Spec-Shield"
+      ]
+    },
+    {
+      "id": "f846531a-3b63-4f18-9d8b-d8fe92967c0c",
+      "name": "Spec Shield WB EXTRA",
+      "slug": "spec-shield-wb-extra",
+      "variations": [
+        "Spec Shield WB EXTRA",
+        "Spec-Shield-WB-EXTRA",
+        "SpecShieldWBEXTRA",
+        "spec shield wb extra",
+        "SPEC SHIELD WB EXTRA",
+        "Spec Shield EXTRA",
+        "Spec-Shield-EXTRA"
+      ]
+    },
+    {
+      "id": "212f2e39-a942-4f18-b826-5424e52c29e7",
+      "name": "Spec Tilt 100",
+      "slug": "spec-tilt-100",
+      "variations": [
+        "Spec Tilt 100",
+        "Spec-Tilt-100",
+        "SpecTilt100",
+        "spec tilt 100",
+        "SPEC TILT 100"
+      ]
+    },
+    {
+      "id": "780dfadc-e5a7-4dcc-bb99-05ac72142799",
+      "name": "Spec Tilt EX",
+      "slug": "spec-tilt-ex",
+      "variations": [
+        "Spec Tilt EX",
+        "Spec-Tilt-EX",
+        "SpecTiltEX",
+        "spec tilt ex",
+        "SPEC TILT EX",
+        "Spec Tilt",
+        "Spec-Tilt"
+      ]
+    },
+    {
+      "id": "c19f524c-ab2b-4232-a1e1-a98b6709e748",
+      "name": "Spec-O-Lith",
+      "slug": "spec-o-lith",
+      "variations": [
+        "Spec-O-Lith",
+        "Spec O Lith",
+        "spec-o-lith",
+        "SPEC-O-LITH"
+      ]
+    },
+    {
+      "id": "5905e710-9660-467b-9c79-615fa9af547a",
+      "name": "SpecBlast",
+      "slug": "specblast",
+      "variations": [
+        "SpecBlast",
+        "specblast",
+        "SPECBLAST"
+      ]
+    },
+    {
+      "id": "3af37c32-2d63-4b63-8dc8-6a93f1efcacb",
+      "name": "SpecCity White",
+      "slug": "speccity-white",
+      "variations": [
+        "SpecCity White",
+        "SpecCity-White",
+        "SpecCityWhite",
+        "speccity white",
+        "SPECCITY WHITE"
+      ]
+    },
+    {
+      "id": "51849421-4bd7-4582-bb49-c5d741debc96",
+      "name": "SpecCity White Concentrate",
+      "slug": "speccity-white-concentrate",
+      "variations": [
+        "SpecCity White Concentrate",
+        "SpecCity-White-Concentrate",
+        "SpecCityWhiteConcentrate",
+        "speccity white concentrate",
+        "SPECCITY WHITE CONCENTRATE",
+        "SpecCity White",
+        "SpecCity-White"
+      ]
+    },
+    {
+      "id": "a9380bde-306c-49da-8d2d-8b7ddc0cb232",
+      "name": "SpecCity White STX",
+      "slug": "speccity-white-stx",
+      "variations": [
+        "SpecCity White STX",
+        "SpecCity-White-STX",
+        "SpecCityWhiteSTX",
+        "speccity white stx",
+        "SPECCITY WHITE STX"
+      ]
+    },
+    {
+      "id": "17c83aa7-fb36-4f46-aa5d-0c7a5a09a48a",
+      "name": "SpecEtch",
+      "slug": "specetch",
+      "variations": [
+        "SpecEtch",
+        "specetch",
+        "SPECETCH"
+      ]
+    },
+    {
+      "id": "2ba7a38a-9757-4573-a940-fef7bf40bc2e",
+      "name": "SpecEtch Clear",
+      "slug": "specetch-clear",
+      "variations": [
+        "SpecEtch Clear",
+        "SpecEtch-Clear",
+        "SpecEtchClear",
+        "specetch clear",
+        "SPECETCH CLEAR"
+      ]
+    },
+    {
+      "id": "efba5c30-5e64-4df2-b90f-fef08cdbae29",
+      "name": "SpecEtch Deep",
+      "slug": "specetch-deep",
+      "variations": [
+        "SpecEtch Deep",
+        "SpecEtch-Deep",
+        "SpecEtchDeep",
+        "specetch deep",
+        "SPECETCH DEEP"
+      ]
+    },
+    {
+      "id": "41046503-310a-4168-9913-bf3af423f1b1",
+      "name": "SpecFilm",
+      "slug": "specfilm",
+      "variations": [
+        "SpecFilm",
+        "specfilm",
+        "SPECFILM"
+      ]
+    },
+    {
+      "id": "5f9973f3-0d78-4c2e-835f-c735e72b669d",
+      "name": "SpecFilm Clear",
+      "slug": "specfilm-clear",
+      "variations": [
+        "SpecFilm Clear",
+        "SpecFilm-Clear",
+        "SpecFilmClear",
+        "specfilm clear",
+        "SPECFILM CLEAR"
+      ]
+    },
+    {
+      "id": "cdcfb78b-e247-4616-bd3c-7616f2bc8c90",
+      "name": "SpecFilm Concentrate",
+      "slug": "specfilm-concentrate",
+      "variations": [
+        "SpecFilm Concentrate",
+        "SpecFilm-Concentrate",
+        "SpecFilmConcentrate",
+        "specfilm concentrate",
+        "SPECFILM CONCENTRATE",
+        "SpecFilm"
+      ]
+    },
+    {
+      "id": "41cb20ee-0461-4076-8243-155f9f80b222",
+      "name": "SpecFilm NuWay",
+      "slug": "specfilm-nuway",
+      "variations": [
+        "SpecFilm NuWay",
+        "SpecFilm-NuWay",
+        "SpecFilmNuWay",
+        "specfilm nuway",
+        "SPECFILM NUWAY"
+      ]
+    },
+    {
+      "id": "025bd8ec-4106-4597-bf6e-a9a0c80ed5f6",
+      "name": "SpecFilm RTU",
+      "slug": "specfilm-rtu",
+      "variations": [
+        "SpecFilm RTU",
+        "SpecFilm-RTU",
+        "SpecFilmRTU",
+        "specfilm rtu",
+        "SPECFILM RTU"
+      ]
+    },
+    {
+      "id": "588fc3c6-d45f-4694-bff2-2f7a194fbc83",
+      "name": "SpecFilm Yellow",
+      "slug": "specfilm-yellow",
+      "variations": [
+        "SpecFilm Yellow",
+        "SpecFilm-Yellow",
+        "SpecFilmYellow",
+        "specfilm yellow",
+        "SPECFILM YELLOW"
+      ]
+    },
+    {
+      "id": "219139b8-9a3d-46c9-98bd-b961ce33b67f",
+      "name": "SpecFlex",
+      "slug": "specflex",
+      "variations": [
+        "SpecFlex",
+        "specflex",
+        "SPECFLEX"
+      ]
+    },
+    {
+      "id": "8fd1dd65-d724-47be-b018-6e25297e5ed3",
+      "name": "SpecFlow",
+      "slug": "specflow",
+      "variations": [
+        "SpecFlow",
+        "specflow",
+        "SPECFLOW"
+      ]
+    },
+    {
+      "id": "79693876-1aad-4509-8f5c-3fcd54d3bcd3",
+      "name": "SpecGuard",
+      "slug": "specguard",
+      "variations": [
+        "SpecGuard",
+        "specguard",
+        "SPECGUARD"
+      ]
+    },
+    {
+      "id": "cd551909-c400-4c1c-9495-ab4be7813fb0",
+      "name": "SpecHard Intraseal",
+      "slug": "spechard-intraseal",
+      "variations": [
+        "SpecHard Intraseal",
+        "SpecHard-Intraseal",
+        "SpecHardIntraseal",
+        "spechard intraseal",
+        "SPECHARD INTRASEAL"
+      ]
+    },
+    {
+      "id": "63a1da73-f929-402d-b32c-963b8a526e02",
+      "name": "SpecLevel PCT",
+      "slug": "speclevel-pct",
+      "variations": [
+        "SpecLevel PCT",
+        "SpecLevel-PCT",
+        "SpecLevelPCT",
+        "speclevel pct",
+        "SPECLEVEL PCT"
+      ]
+    },
+    {
+      "id": "9c9cf177-8d97-4a60-a45a-429e534a3497",
+      "name": "SpecLevel PCT-AGG",
+      "slug": "speclevel-pct-agg",
+      "variations": [
+        "SpecLevel PCT-AGG",
+        "SpecLevel-PCT-AGG",
+        "SpecLevelPCT-AGG",
+        "SpecLevel PCT AGG",
+        "speclevel pct-agg",
+        "SPECLEVEL PCT-AGG"
+      ]
+    },
+    {
+      "id": "df86eae6-1281-462e-8544-fe238c5152dc",
+      "name": "SpecPatch 15",
+      "slug": "specpatch-15",
+      "variations": [
+        "SpecPatch 15",
+        "SpecPatch-15",
+        "SpecPatch15",
+        "specpatch 15",
+        "SPECPATCH 15"
+      ]
+    },
+    {
+      "id": "2bafa866-a54e-406d-8640-1a71e9ca6c9a",
+      "name": "SpecPatch 30",
+      "slug": "specpatch-30",
+      "variations": [
+        "SpecPatch 30",
+        "SpecPatch-30",
+        "SpecPatch30",
+        "specpatch 30",
+        "SPECPATCH 30"
+      ]
+    },
+    {
+      "id": "5720ee38-51f5-40b7-b059-87d4240c3c6c",
+      "name": "SpecPatch 30-Light",
+      "slug": "specpatch-30-light",
+      "variations": [
+        "SpecPatch 30-Light",
+        "SpecPatch-30-Light",
+        "SpecPatch30-Light",
+        "SpecPatch 30 Light",
+        "specpatch 30-light",
+        "SPECPATCH 30-LIGHT"
+      ]
+    },
+    {
+      "id": "f4a715df-7559-4b1a-b1d5-a1640837a982",
+      "name": "SpecPatch 5",
+      "slug": "specpatch-5",
+      "variations": [
+        "SpecPatch 5",
+        "SpecPatch-5",
+        "SpecPatch5",
+        "specpatch 5",
+        "SPECPATCH 5"
+      ]
+    },
+    {
+      "id": "9951b8e2-c743-44fd-b51e-05cae5203040",
+      "name": "SpecPatch Light",
+      "slug": "specpatch-light",
+      "variations": [
+        "SpecPatch Light",
+        "SpecPatch-Light",
+        "SpecPatchLight",
+        "specpatch light",
+        "SPECPATCH LIGHT"
+      ]
+    },
+    {
+      "id": "aa53bd3e-6128-4c2e-ad2b-ef6fd4f1deac",
+      "name": "SpecPlate",
+      "slug": "specplate",
+      "variations": [
+        "SpecPlate",
+        "specplate",
+        "SPECPLATE"
+      ]
+    },
+    {
+      "id": "55076e05-b8bd-41b6-8da3-1d5884592063",
+      "name": "SpecPlate Topping",
+      "slug": "specplate-topping",
+      "variations": [
+        "SpecPlate Topping",
+        "SpecPlate-Topping",
+        "SpecPlateTopping",
+        "specplate topping",
+        "SPECPLATE TOPPING"
+      ]
+    },
+    {
+      "id": "e79f89c5-6de1-4202-a071-2634ad0fb9b1",
+      "name": "SpecPlug",
+      "slug": "specplug",
+      "variations": [
+        "SpecPlug",
+        "specplug",
+        "SPECPLUG"
+      ]
+    },
+    {
+      "id": "f5572aae-a156-4e17-ba07-0f9f0b25e6fa",
+      "name": "SpecPlug MKS",
+      "slug": "specplug-mks",
+      "variations": [
+        "SpecPlug MKS",
+        "SpecPlug-MKS",
+        "SpecPlugMKS",
+        "specplug mks",
+        "SPECPLUG MKS"
+      ]
+    },
+    {
+      "id": "6a432f06-4403-4fed-8314-1e9e1b317a3b",
+      "name": "SpecPoxy 1000 (Part A)",
+      "slug": "specpoxy-1000-part-a",
+      "variations": [
+        "SpecPoxy 1000 (Part A)",
+        "SpecPoxy-1000-(Part-A)",
+        "SpecPoxy1000(PartA)",
+        "specpoxy 1000 (part a)",
+        "SPECPOXY 1000 (PART A)"
+      ]
+    },
+    {
+      "id": "48d4f766-c97f-4413-9aa7-881cfe79cbaf",
+      "name": "SpecPoxy 1000 (Part B)",
+      "slug": "specpoxy-1000-part-b",
+      "variations": [
+        "SpecPoxy 1000 (Part B)",
+        "SpecPoxy-1000-(Part-B)",
+        "SpecPoxy1000(PartB)",
+        "specpoxy 1000 (part b)",
+        "SPECPOXY 1000 (PART B)"
+      ]
+    },
+    {
+      "id": "9b927469-95b5-494d-bbcf-35ce97fe306c",
+      "name": "SpecPoxy 2000 (Part A)",
+      "slug": "specpoxy-2000-part-a",
+      "variations": [
+        "SpecPoxy 2000 (Part A)",
+        "SpecPoxy-2000-(Part-A)",
+        "SpecPoxy2000(PartA)",
+        "specpoxy 2000 (part a)",
+        "SPECPOXY 2000 (PART A)"
+      ]
+    },
+    {
+      "id": "a0cccfcf-b426-496c-8893-48cba0fbd407",
+      "name": "SpecPoxy 2000 (Part B)",
+      "slug": "specpoxy-2000-part-b",
+      "variations": [
+        "SpecPoxy 2000 (Part B)",
+        "SpecPoxy-2000-(Part-B)",
+        "SpecPoxy2000(PartB)",
+        "specpoxy 2000 (part b)",
+        "SPECPOXY 2000 (PART B)"
+      ]
+    },
+    {
+      "id": "56dc17b0-73fb-49f1-b6ad-8be997f4c5d2",
+      "name": "SpecPoxy 2000 LPL (Part A)",
+      "slug": "specpoxy-2000-lpl-part-a",
+      "variations": [
+        "SpecPoxy 2000 LPL (Part A)",
+        "SpecPoxy-2000-LPL-(Part-A)",
+        "SpecPoxy2000LPL(PartA)",
+        "specpoxy 2000 lpl (part a)",
+        "SPECPOXY 2000 LPL (PART A)"
+      ]
+    },
+    {
+      "id": "597669ab-4b1a-4cee-abd3-7fa6e3a5c492",
+      "name": "SpecPoxy 2000 LPL (Part B)",
+      "slug": "specpoxy-2000-lpl-part-b",
+      "variations": [
+        "SpecPoxy 2000 LPL (Part B)",
+        "SpecPoxy-2000-LPL-(Part-B)",
+        "SpecPoxy2000LPL(PartB)",
+        "specpoxy 2000 lpl (part b)",
+        "SPECPOXY 2000 LPL (PART B)"
+      ]
+    },
+    {
+      "id": "c0abc913-b6e8-4c04-84f0-c537bf0f7b85",
+      "name": "SpecPoxy 3000 (Part A)",
+      "slug": "specpoxy-3000-part-a",
+      "variations": [
+        "SpecPoxy 3000 (Part A)",
+        "SpecPoxy-3000-(Part-A)",
+        "SpecPoxy3000(PartA)",
+        "specpoxy 3000 (part a)",
+        "SPECPOXY 3000 (PART A)"
+      ]
+    },
+    {
+      "id": "ebb73a6d-0a32-4504-a147-f941eb3a79fe",
+      "name": "SpecPoxy 3000 FS (Part A)",
+      "slug": "specpoxy-3000-fs-part-a",
+      "variations": [
+        "SpecPoxy 3000 FS (Part A)",
+        "SpecPoxy-3000-FS-(Part-A)",
+        "SpecPoxy3000FS(PartA)",
+        "specpoxy 3000 fs (part a)",
+        "SPECPOXY 3000 FS (PART A)"
+      ]
+    },
+    {
+      "id": "1ce51ae0-7b49-47b3-be9c-ea86429f2aa0",
+      "name": "SpecPoxy 3000 FS (Part B)",
+      "slug": "specpoxy-3000-fs-part-b",
+      "variations": [
+        "SpecPoxy 3000 FS (Part B)",
+        "SpecPoxy-3000-FS-(Part-B)",
+        "SpecPoxy3000FS(PartB)",
+        "specpoxy 3000 fs (part b)",
+        "SPECPOXY 3000 FS (PART B)"
+      ]
+    },
+    {
+      "id": "0fc1eb8f-c79e-4631-b6ea-bcc11ab2af00",
+      "name": "SpecPoxy 500 (Part A)",
+      "slug": "specpoxy-500-part-a",
+      "variations": [
+        "SpecPoxy 500 (Part A)",
+        "SpecPoxy-500-(Part-A)",
+        "SpecPoxy500(PartA)",
+        "specpoxy 500 (part a)",
+        "SPECPOXY 500 (PART A)"
+      ]
+    },
+    {
+      "id": "b57cc90c-ebf9-4760-bca7-1080f6cd179e",
+      "name": "SpecPoxy 500 (Part B)",
+      "slug": "specpoxy-500-part-b",
+      "variations": [
+        "SpecPoxy 500 (Part B)",
+        "SpecPoxy-500-(Part-B)",
+        "SpecPoxy500(PartB)",
+        "specpoxy 500 (part b)",
+        "SPECPOXY 500 (PART B)"
+      ]
+    },
+    {
+      "id": "543b01dd-2220-4d58-8b1c-b09df1bf92e1",
+      "name": "SpecPoxy Binder (Part A)",
+      "slug": "specpoxy-binder-part-a",
+      "variations": [
+        "SpecPoxy Binder (Part A)",
+        "SpecPoxy-Binder-(Part-A)",
+        "SpecPoxyBinder(PartA)",
+        "specpoxy binder (part a)",
+        "SPECPOXY BINDER (PART A)"
+      ]
+    },
+    {
+      "id": "417f9007-fb93-4f6c-84ad-d69b38cd3485",
+      "name": "SpecPoxy Binder (Part B)",
+      "slug": "specpoxy-binder-part-b",
+      "variations": [
+        "SpecPoxy Binder (Part B)",
+        "SpecPoxy-Binder-(Part-B)",
+        "SpecPoxyBinder(PartB)",
+        "specpoxy binder (part b)",
+        "SPECPOXY BINDER (PART B)"
+      ]
+    },
+    {
+      "id": "e02a538a-19dd-4aa4-8f3f-fbc985eef279",
+      "name": "SpecPoxy Bridge Overlay (Part A)",
+      "slug": "specpoxy-bridge-overlay-part-a",
+      "variations": [
+        "SpecPoxy Bridge Overlay (Part A)",
+        "SpecPoxy-Bridge-Overlay-(Part-A)",
+        "SpecPoxyBridgeOverlay(PartA)",
+        "specpoxy bridge overlay (part a)",
+        "SPECPOXY BRIDGE OVERLAY (PART A)"
+      ]
+    },
+    {
+      "id": "9f0e733b-bfaa-4aef-af32-52f361f20aa0",
+      "name": "SpecPoxy Bridge Overlay (Part B)",
+      "slug": "specpoxy-bridge-overlay-part-b",
+      "variations": [
+        "SpecPoxy Bridge Overlay (Part B)",
+        "SpecPoxy-Bridge-Overlay-(Part-B)",
+        "SpecPoxyBridgeOverlay(PartB)",
+        "specpoxy bridge overlay (part b)",
+        "SPECPOXY BRIDGE OVERLAY (PART B)"
+      ]
+    },
+    {
+      "id": "359bd6c9-556e-449f-97e3-000cb5baa71c",
+      "name": "SpecPoxy CJ (Part A)",
+      "slug": "specpoxy-cj-part-a",
+      "variations": [
+        "SpecPoxy CJ (Part A)",
+        "SpecPoxy-CJ-(Part-A)",
+        "SpecPoxyCJ(PartA)",
+        "specpoxy cj (part a)",
+        "SPECPOXY CJ (PART A)"
+      ]
+    },
+    {
+      "id": "31a99499-2185-4dc3-8cd0-28eec83609f6",
+      "name": "SpecPoxy CJ (Part B)",
+      "slug": "specpoxy-cj-part-b",
+      "variations": [
+        "SpecPoxy CJ (Part B)",
+        "SpecPoxy-CJ-(Part-B)",
+        "SpecPoxyCJ(PartB)",
+        "specpoxy cj (part b)",
+        "SPECPOXY CJ (PART B)"
+      ]
+    },
+    {
+      "id": "bb5848c0-d04b-4f23-b611-05aca696015f",
+      "name": "SpecPoxy CJ Yellow (Part A)",
+      "slug": "specpoxy-cj-yellow-part-a",
+      "variations": [
+        "SpecPoxy CJ Yellow (Part A)",
+        "SpecPoxy-CJ-Yellow-(Part-A)",
+        "SpecPoxyCJYellow(PartA)",
+        "specpoxy cj yellow (part a)",
+        "SPECPOXY CJ YELLOW (PART A)"
+      ]
+    },
+    {
+      "id": "1902ca43-4a11-471b-9db2-b7828b367240",
+      "name": "SpecPoxy CJ Yellow (Part B)",
+      "slug": "specpoxy-cj-yellow-part-b",
+      "variations": [
+        "SpecPoxy CJ Yellow (Part B)",
+        "SpecPoxy-CJ-Yellow-(Part-B)",
+        "SpecPoxyCJYellow(PartB)",
+        "specpoxy cj yellow (part b)",
+        "SPECPOXY CJ YELLOW (PART B)"
+      ]
+    },
+    {
+      "id": "c7b1406e-fdef-4a28-aae0-7eff57092ce5",
+      "name": "SpecPoxy Coating (Part A)",
+      "slug": "specpoxy-coating-part-a",
+      "variations": [
+        "SpecPoxy Coating (Part A)",
+        "SpecPoxy-Coating-(Part-A)",
+        "SpecPoxyCoating(PartA)",
+        "specpoxy coating (part a)",
+        "SPECPOXY COATING (PART A)"
+      ]
+    },
+    {
+      "id": "6ed29e72-50cf-4a50-aef8-6c6b19fb29eb",
+      "name": "SpecPoxy Coating Clear (Part A)",
+      "slug": "specpoxy-coating-clear-part-a",
+      "variations": [
+        "SpecPoxy Coating Clear (Part A)",
+        "SpecPoxy-Coating-Clear-(Part-A)",
+        "SpecPoxyCoatingClear(PartA)",
+        "specpoxy coating clear (part a)",
+        "SPECPOXY COATING CLEAR (PART A)"
+      ]
+    },
+    {
+      "id": "396b8411-b2f3-4737-b19e-2e8cfe6c78c0",
+      "name": "SpecPoxy Coating Clear (Part B)",
+      "slug": "specpoxy-coating-clear-part-b",
+      "variations": [
+        "SpecPoxy Coating Clear (Part B)",
+        "SpecPoxy-Coating-Clear-(Part-B)",
+        "SpecPoxyCoatingClear(PartB)",
+        "specpoxy coating clear (part b)",
+        "SPECPOXY COATING CLEAR (PART B)"
+      ]
+    },
+    {
+      "id": "789129fa-f8f1-4601-a29f-627b5c123f29",
+      "name": "SpecPoxy Coating Gray (Part A)",
+      "slug": "specpoxy-coating-gray-part-a",
+      "variations": [
+        "SpecPoxy Coating Gray (Part A)",
+        "SpecPoxy-Coating-Gray-(Part-A)",
+        "SpecPoxyCoatingGray(PartA)",
+        "specpoxy coating gray (part a)",
+        "SPECPOXY COATING GRAY (PART A)"
+      ]
+    },
+    {
+      "id": "29ecc310-d93e-4f80-9501-0c3902516dd6",
+      "name": "SpecPoxy Coating Gray (Part B)",
+      "slug": "specpoxy-coating-gray-part-b",
+      "variations": [
+        "SpecPoxy Coating Gray (Part B)",
+        "SpecPoxy-Coating-Gray-(Part-B)",
+        "SpecPoxyCoatingGray(PartB)",
+        "specpoxy coating gray (part b)",
+        "SPECPOXY COATING GRAY (PART B)"
+      ]
+    },
+    {
+      "id": "0e9080be-9a16-4a68-9ee7-e08063518420",
+      "name": "SpecPoxy Grout (Part A)",
+      "slug": "specpoxy-grout-part-a",
+      "variations": [
+        "SpecPoxy Grout (Part A)",
+        "SpecPoxy-Grout-(Part-A)",
+        "SpecPoxyGrout(PartA)",
+        "specpoxy grout (part a)",
+        "SPECPOXY GROUT (PART A)"
+      ]
+    },
+    {
+      "id": "b296fb05-dbb7-4b55-aea5-ed0d2a442530",
+      "name": "SpecPoxy Grout (Part B)",
+      "slug": "specpoxy-grout-part-b",
+      "variations": [
+        "SpecPoxy Grout (Part B)",
+        "SpecPoxy-Grout-(Part-B)",
+        "SpecPoxyGrout(PartB)",
+        "specpoxy grout (part b)",
+        "SPECPOXY GROUT (PART B)"
+      ]
+    },
+    {
+      "id": "4476a04c-8a06-42fa-b4ed-1df674f43275",
+      "name": "SpecPoxy Grout (Part C)",
+      "slug": "specpoxy-grout-part-c",
+      "variations": [
+        "SpecPoxy Grout (Part C)",
+        "SpecPoxy-Grout-(Part-C)",
+        "SpecPoxyGrout(PartC)",
+        "specpoxy grout (part c)",
+        "SPECPOXY GROUT (PART C)"
+      ]
+    },
+    {
+      "id": "e084e073-27bd-4ce3-9098-bde2b6ebd25e",
+      "name": "SpecPoxy Grout HS (Part A)",
+      "slug": "specpoxy-grout-hs-part-a",
+      "variations": [
+        "SpecPoxy Grout HS (Part A)",
+        "SpecPoxy-Grout-HS-(Part-A)",
+        "SpecPoxyGroutHS(PartA)",
+        "specpoxy grout hs (part a)",
+        "SPECPOXY GROUT HS (PART A)"
+      ]
+    },
+    {
+      "id": "1b66868f-9930-4faf-86a3-9dc0be76e08e",
+      "name": "SpecPoxy Grout HS (Part B)",
+      "slug": "specpoxy-grout-hs-part-b",
+      "variations": [
+        "SpecPoxy Grout HS (Part B)",
+        "SpecPoxy-Grout-HS-(Part-B)",
+        "SpecPoxyGroutHS(PartB)",
+        "specpoxy grout hs (part b)",
+        "SPECPOXY GROUT HS (PART B)"
+      ]
+    },
+    {
+      "id": "d05457b8-744b-40f7-943e-b22de7121288",
+      "name": "SpecPoxy Grout HS (Part C)",
+      "slug": "specpoxy-grout-hs-part-c",
+      "variations": [
+        "SpecPoxy Grout HS (Part C)",
+        "SpecPoxy-Grout-HS-(Part-C)",
+        "SpecPoxyGroutHS(PartC)",
+        "specpoxy grout hs (part c)",
+        "SPECPOXY GROUT HS (PART C)"
+      ]
+    },
+    {
+      "id": "6f1f2d60-86c5-4af3-a8cb-85fc24277d95",
+      "name": "SpecPoxy Mortar (Part A)",
+      "slug": "specpoxy-mortar-part-a",
+      "variations": [
+        "SpecPoxy Mortar (Part A)",
+        "SpecPoxy-Mortar-(Part-A)",
+        "SpecPoxyMortar(PartA)",
+        "specpoxy mortar (part a)",
+        "SPECPOXY MORTAR (PART A)"
+      ]
+    },
+    {
+      "id": "bd4933ee-997a-49ba-b756-f86d4cd3b66d",
+      "name": "SpecPoxy Mortar (Part B)",
+      "slug": "specpoxy-mortar-part-b",
+      "variations": [
+        "SpecPoxy Mortar (Part B)",
+        "SpecPoxy-Mortar-(Part-B)",
+        "SpecPoxyMortar(PartB)",
+        "specpoxy mortar (part b)",
+        "SPECPOXY MORTAR (PART B)"
+      ]
+    },
+    {
+      "id": "3de91777-de74-4792-b28e-556e9bc46fa3",
+      "name": "SpecPoxy Mortar (Part C)",
+      "slug": "specpoxy-mortar-part-c",
+      "variations": [
+        "SpecPoxy Mortar (Part C)",
+        "SpecPoxy-Mortar-(Part-C)",
+        "SpecPoxyMortar(PartC)",
+        "specpoxy mortar (part c)",
+        "SPECPOXY MORTAR (PART C)"
+      ]
+    },
+    {
+      "id": "0be05ac2-d6dc-47e2-92ac-9b8e21100242",
+      "name": "SpecPoxy Sealer (Part A)",
+      "slug": "specpoxy-sealer-part-a",
+      "variations": [
+        "SpecPoxy Sealer (Part A)",
+        "SpecPoxy-Sealer-(Part-A)",
+        "SpecPoxySealer(PartA)",
+        "specpoxy sealer (part a)",
+        "SPECPOXY SEALER (PART A)"
+      ]
+    },
+    {
+      "id": "e45de824-11b0-4f71-b98c-bd554dd856a5",
+      "name": "SpecPoxy Sealer (Part B)",
+      "slug": "specpoxy-sealer-part-b",
+      "variations": [
+        "SpecPoxy Sealer (Part B)",
+        "SpecPoxy-Sealer-(Part-B)",
+        "SpecPoxySealer(PartB)",
+        "specpoxy sealer (part b)",
+        "SPECPOXY SEALER (PART B)"
+      ]
+    },
+    {
+      "id": "62aee622-213b-4bf2-8ea9-cfb8208f1a24",
+      "name": "SpecPrep SB (Part C)",
+      "slug": "specprep-sb-part-c",
+      "variations": [
+        "SpecPrep SB (Part C)",
+        "SpecPrep-SB-(Part-C)",
+        "SpecPrepSB(PartC)",
+        "specprep sb (part c)",
+        "SPECPREP SB (PART C)",
+        "SpecPrep (Part C)",
+        "SpecPrep-(Part-C)"
+      ]
+    },
+    {
+      "id": "967ed9d8-40f7-4810-8539-3fa60ae23fb7",
+      "name": "SpecPrime",
+      "slug": "specprime",
+      "variations": [
+        "SpecPrime",
+        "specprime",
+        "SPECPRIME"
+      ]
+    },
+    {
+      "id": "8b8c7537-23f7-4154-95b5-b5f4910305ff",
+      "name": "SpecRez",
+      "slug": "specrez",
+      "variations": [
+        "SpecRez",
+        "specrez",
+        "SPECREZ"
+      ]
+    },
+    {
+      "id": "53be9a56-6133-4991-bf51-d0741c816751",
+      "name": "SpecRez (Concentrate)",
+      "slug": "specrez-concentrate",
+      "variations": [
+        "SpecRez (Concentrate)",
+        "SpecRez-(Concentrate)",
+        "SpecRez(Concentrate)",
+        "specrez (concentrate)",
+        "SPECREZ (CONCENTRATE)",
+        "SpecRez ()",
+        "SpecRez-()"
+      ]
+    },
+    {
+      "id": "9acc28ac-3419-4b7a-8173-c06889d69ae1",
+      "name": "SpecRez W/ Dye",
+      "slug": "specrez-w-dye",
+      "variations": [
+        "SpecRez W/ Dye",
+        "SpecRez-W/-Dye",
+        "SpecRezW/Dye",
+        "specrez w/ dye",
+        "SPECREZ W/ DYE"
+      ]
+    },
+    {
+      "id": "ada14745-4ee8-4730-acf5-1504c2a9b416",
+      "name": "SpecRock",
+      "slug": "specrock",
+      "variations": [
+        "SpecRock",
+        "specrock",
+        "SPECROCK"
+      ]
+    },
+    {
+      "id": "649f7c36-e0ba-42a2-8324-122ac8e8ae7b",
+      "name": "SpecShield EX",
+      "slug": "specshield-ex",
+      "variations": [
+        "SpecShield EX",
+        "SpecShield-EX",
+        "SpecShieldEX",
+        "specshield ex",
+        "SPECSHIELD EX",
+        "SpecShield"
+      ]
+    },
+    {
+      "id": "be7f2617-7398-429c-b295-e7cabc6266de",
+      "name": "SpecShield SB",
+      "slug": "specshield-sb",
+      "variations": [
+        "SpecShield SB",
+        "SpecShield-SB",
+        "SpecShieldSB",
+        "specshield sb",
+        "SPECSHIELD SB",
+        "SpecShield"
+      ]
+    },
+    {
+      "id": "d455eb5b-50f9-4874-89c5-9da398f503b8",
+      "name": "SpecShield WB",
+      "slug": "specshield-wb",
+      "variations": [
+        "SpecShield WB",
+        "SpecShield-WB",
+        "SpecShieldWB",
+        "specshield wb",
+        "SPECSHIELD WB",
+        "SpecShield"
+      ]
+    },
+    {
+      "id": "8f6a7ba5-11b2-424d-9787-817e5e848ad5",
+      "name": "SpecShield WB EXTRA",
+      "slug": "specshield-wb-extra",
+      "variations": [
+        "SpecShield WB EXTRA",
+        "SpecShield-WB-EXTRA",
+        "SpecShieldWBEXTRA",
+        "specshield wb extra",
+        "SPECSHIELD WB EXTRA",
+        "SpecShield EXTRA",
+        "SpecShield-EXTRA"
+      ]
+    },
+    {
+      "id": "2251efa8-d3b9-4d21-a2b4-21bc7d09493c",
+      "name": "SpecShot",
+      "slug": "specshot",
+      "variations": [
+        "SpecShot",
+        "specshot",
+        "SPECSHOT"
+      ]
+    },
+    {
+      "id": "17e6c689-ace5-481a-9e44-88239b0850bd",
+      "name": "SpecSilane 100",
+      "slug": "specsilane-100",
+      "variations": [
+        "SpecSilane 100",
+        "SpecSilane-100",
+        "SpecSilane100",
+        "specsilane 100",
+        "SPECSILANE 100"
+      ]
+    },
+    {
+      "id": "5ae29294-abc0-4b22-afb0-b403fd5c8d8f",
+      "name": "SpecSilane 20 WB",
+      "slug": "specsilane-20-wb",
+      "variations": [
+        "SpecSilane 20 WB",
+        "SpecSilane-20-WB",
+        "SpecSilane20WB",
+        "specsilane 20 wb",
+        "SPECSILANE 20 WB",
+        "SpecSilane 20",
+        "SpecSilane-20"
+      ]
+    },
+    {
+      "id": "b9c4357e-3d3a-401e-8fec-1a1105ce8621",
+      "name": "SpecSilane 40 WB",
+      "slug": "specsilane-40-wb",
+      "variations": [
+        "SpecSilane 40 WB",
+        "SpecSilane-40-WB",
+        "SpecSilane40WB",
+        "specsilane 40 wb",
+        "SPECSILANE 40 WB",
+        "SpecSilane 40",
+        "SpecSilane-40"
+      ]
+    },
+    {
+      "id": "6c52bbb7-e6f7-470e-829a-9beb4a3a30ec",
+      "name": "SpecStrip",
+      "slug": "specstrip",
+      "variations": [
+        "SpecStrip",
+        "specstrip",
+        "SPECSTRIP"
+      ]
+    },
+    {
+      "id": "7b9b2017-ad4f-4fb8-afbe-94de63232514",
+      "name": "Specstrip Cherry",
+      "slug": "specstrip-cherry",
+      "variations": [
+        "Specstrip Cherry",
+        "Specstrip-Cherry",
+        "SpecstripCherry",
+        "specstrip cherry",
+        "SPECSTRIP CHERRY"
+      ]
+    },
+    {
+      "id": "d917e90a-5e86-46f1-b1ab-e2d9d17e6868",
+      "name": "Specstrip Citrus",
+      "slug": "specstrip-citrus",
+      "variations": [
+        "Specstrip Citrus",
+        "Specstrip-Citrus",
+        "SpecstripCitrus",
+        "specstrip citrus",
+        "SPECSTRIP CITRUS"
+      ]
+    },
+    {
+      "id": "434c4f9d-9ba2-48d3-9330-f93b763c373d",
+      "name": "SpecStrip Citrus Winter Grade",
+      "slug": "specstrip-citrus-winter-grade",
+      "variations": [
+        "SpecStrip Citrus Winter Grade",
+        "SpecStrip-Citrus-Winter-Grade",
+        "SpecStripCitrusWinterGrade",
+        "specstrip citrus winter grade",
+        "SPECSTRIP CITRUS WINTER GRADE"
+      ]
+    },
+    {
+      "id": "b9392791-1dbd-4ef4-a5af-fb72d4233fce",
+      "name": "SpecStrip Plus",
+      "slug": "specstrip-plus",
+      "variations": [
+        "SpecStrip Plus",
+        "SpecStrip-Plus",
+        "SpecStripPlus",
+        "specstrip plus",
+        "SPECSTRIP PLUS"
+      ]
+    },
+    {
+      "id": "a964179d-1463-4ec4-89e2-4fa7da60031d",
+      "name": "SpecStrip Red",
+      "slug": "specstrip-red",
+      "variations": [
+        "SpecStrip Red",
+        "SpecStrip-Red",
+        "SpecStripRed",
+        "specstrip red",
+        "SPECSTRIP RED"
+      ]
+    },
+    {
+      "id": "849cc071-29bb-4c3b-aca2-9b2ef711abe4",
+      "name": "SpecStrip Ultra Blue",
+      "slug": "specstrip-ultra-blue",
+      "variations": [
+        "SpecStrip Ultra Blue",
+        "SpecStrip-Ultra-Blue",
+        "SpecStripUltraBlue",
+        "specstrip ultra blue",
+        "SPECSTRIP ULTRA BLUE"
+      ]
+    },
+    {
+      "id": "eb4334e2-a289-45ba-9393-dd4a27cffe23",
+      "name": "SpecStrip WB",
+      "slug": "specstrip-wb",
+      "variations": [
+        "SpecStrip WB",
+        "SpecStrip-WB",
+        "SpecStripWB",
+        "specstrip wb",
+        "SPECSTRIP WB",
+        "SpecStrip"
+      ]
+    },
+    {
+      "id": "16530a93-f63f-4219-bceb-ba26982eacd7",
+      "name": "SpecStrip WB Concentrate",
+      "slug": "specstrip-wb-concentrate",
+      "variations": [
+        "SpecStrip WB Concentrate",
+        "SpecStrip-WB-Concentrate",
+        "SpecStripWBConcentrate",
+        "specstrip wb concentrate",
+        "SPECSTRIP WB CONCENTRATE",
+        "SpecStrip"
+      ]
+    },
+    {
+      "id": "51be8fd6-ccba-48cd-8e0e-7d3e5d881268",
+      "name": "SpecTilt 100",
+      "slug": "spectilt-100",
+      "variations": [
+        "SpecTilt 100",
+        "SpecTilt-100",
+        "SpecTilt100",
+        "spectilt 100",
+        "SPECTILT 100"
+      ]
+    },
+    {
+      "id": "44b807de-20ec-4140-b5f8-2023c3804736",
+      "name": "SpecTilt 100 QD",
+      "slug": "spectilt-100-qd",
+      "variations": [
+        "SpecTilt 100 QD",
+        "SpecTilt-100-QD",
+        "SpecTilt100QD",
+        "spectilt 100 qd",
+        "SPECTILT 100 QD"
+      ]
+    },
+    {
+      "id": "a64f9144-81e0-4846-a469-c37be9e1c6f6",
+      "name": "SpecTilt EX",
+      "slug": "spectilt-ex",
+      "variations": [
+        "SpecTilt EX",
+        "SpecTilt-EX",
+        "SpecTiltEX",
+        "spectilt ex",
+        "SPECTILT EX",
+        "SpecTilt"
+      ]
+    },
+    {
+      "id": "e3d32836-080c-483b-bcaa-0cc3b1a08310",
+      "name": "SpecTilt WB",
+      "slug": "spectilt-wb",
+      "variations": [
+        "SpecTilt WB",
+        "SpecTilt-WB",
+        "SpecTiltWB",
+        "spectilt wb",
+        "SPECTILT WB",
+        "SpecTilt"
+      ]
+    },
+    {
+      "id": "b6e4932f-748a-4fb2-8d48-8ee4a9d0faf4",
+      "name": "SpecTilt WB Concentrate",
+      "slug": "spectilt-wb-concentrate",
+      "variations": [
+        "SpecTilt WB Concentrate",
+        "SpecTilt-WB-Concentrate",
+        "SpecTiltWBConcentrate",
+        "spectilt wb concentrate",
+        "SPECTILT WB CONCENTRATE",
+        "SpecTilt"
+      ]
+    },
+    {
+      "id": "fdbe9a23-4a79-4e71-a24f-6025c703f828",
+      "name": "SpecTilt WB w Dye",
+      "slug": "spectilt-wb-w-dye",
+      "variations": [
+        "SpecTilt WB w Dye",
+        "SpecTilt-WB-w-Dye",
+        "SpecTiltWBwDye",
+        "spectilt wb w dye",
+        "SPECTILT WB W DYE",
+        "SpecTilt w Dye",
+        "SpecTilt-w-Dye"
+      ]
+    },
+    {
+      "id": "a6fb0baf-9797-4447-be29-037d7f5f1826",
+      "name": "SpecWeld",
+      "slug": "specweld",
+      "variations": [
+        "SpecWeld",
+        "specweld",
+        "SPECWELD"
+      ]
+    },
+    {
+      "id": "ba3a324a-a78e-41b9-bc32-a99871bce52c",
+      "name": "Stripper Supreme",
+      "slug": "stripper-supreme",
+      "variations": [
+        "Stripper Supreme",
+        "Stripper-Supreme",
+        "StripperSupreme",
+        "stripper supreme",
+        "STRIPPER SUPREME"
+      ]
+    },
+    {
+      "id": "54cf1796-7dab-4a8d-94ee-c46294fcfe8f",
+      "name": "Strong Bond",
+      "slug": "strong-bond",
+      "variations": [
+        "Strong Bond",
+        "Strong-Bond",
+        "StrongBond",
+        "strong bond",
+        "STRONG BOND"
+      ]
+    },
+    {
+      "id": "4a64a5bd-b738-4ae2-83e6-1ddc654790e0",
+      "name": "Strong Bond Concentrate",
+      "slug": "strong-bond-concentrate",
+      "variations": [
+        "Strong Bond Concentrate",
+        "Strong-Bond-Concentrate",
+        "StrongBondConcentrate",
+        "strong bond concentrate",
+        "STRONG BOND CONCENTRATE",
+        "Strong Bond",
+        "Strong-Bond"
+      ]
+    },
+    {
+      "id": "b7d9e0c6-7439-4771-aa4f-d16b852c639e",
+      "name": "Stucco Bond",
+      "slug": "stucco-bond",
+      "variations": [
+        "Stucco Bond",
+        "Stucco-Bond",
+        "StuccoBond",
+        "stucco bond",
+        "STUCCO BOND"
+      ]
+    },
+    {
+      "id": "ed973bc0-da8c-499e-9a3f-f2bcefc80a38",
+      "name": "Stucco Bond Blue",
+      "slug": "stucco-bond-blue",
+      "variations": [
+        "Stucco Bond Blue",
+        "Stucco-Bond-Blue",
+        "StuccoBondBlue",
+        "stucco bond blue",
+        "STUCCO BOND BLUE"
+      ]
+    },
+    {
+      "id": "c4cce22d-635c-4b69-a98e-3384eed45cfe",
+      "name": "Stucco Bond White",
+      "slug": "stucco-bond-white",
+      "variations": [
+        "Stucco Bond White",
+        "Stucco-Bond-White",
+        "StuccoBondWhite",
+        "stucco bond white",
+        "STUCCO BOND WHITE"
+      ]
+    },
+    {
+      "id": "f58a9a54-2f01-4141-844e-0781243a0ca4",
+      "name": "Super SpecPlug",
+      "slug": "super-specplug",
+      "variations": [
+        "Super SpecPlug",
+        "Super-SpecPlug",
+        "SuperSpecPlug",
+        "super specplug",
+        "SUPER SPECPLUG"
+      ]
+    },
+    {
+      "id": "91fa6bba-097c-483e-a01f-e0bfdf1a0a2c",
+      "name": "Surface Shine",
+      "slug": "surface-shine",
+      "variations": [
+        "Surface Shine",
+        "Surface-Shine",
+        "SurfaceShine",
+        "surface shine",
+        "SURFACE SHINE"
+      ]
+    },
+    {
+      "id": "e0b12fc9-3f73-4923-9110-603886940022",
+      "name": "Surface Shine Brown",
+      "slug": "surface-shine-brown",
+      "variations": [
+        "Surface Shine Brown",
+        "Surface-Shine-Brown",
+        "SurfaceShineBrown",
+        "surface shine brown",
+        "SURFACE SHINE BROWN"
+      ]
+    },
+    {
+      "id": "7fc711b6-3b73-4690-9454-afff5fb4a9c1",
+      "name": "Surface Shine Brown EX",
+      "slug": "surface-shine-brown-ex",
+      "variations": [
+        "Surface Shine Brown EX",
+        "Surface-Shine-Brown-EX",
+        "SurfaceShineBrownEX",
+        "surface shine brown ex",
+        "SURFACE SHINE BROWN EX",
+        "Surface Shine Brown",
+        "Surface-Shine-Brown"
+      ]
+    },
+    {
+      "id": "478009d7-cfaf-4270-a8d0-c027b47bf7c5",
+      "name": "Surface Shine EX",
+      "slug": "surface-shine-ex",
+      "variations": [
+        "Surface Shine EX",
+        "Surface-Shine-EX",
+        "SurfaceShineEX",
+        "surface shine ex",
+        "SURFACE SHINE EX",
+        "Surface Shine",
+        "Surface-Shine"
+      ]
+    },
+    {
+      "id": "beaff102-30f3-4dfa-b82d-c01a4c86b30d",
+      "name": "Surface Shine Gray",
+      "slug": "surface-shine-gray",
+      "variations": [
+        "Surface Shine Gray",
+        "Surface-Shine-Gray",
+        "SurfaceShineGray",
+        "surface shine gray",
+        "SURFACE SHINE GRAY"
+      ]
+    },
+    {
+      "id": "d321a699-1aa2-4852-8c53-3d0e8d8a2a9a",
+      "name": "Surface Shine Gray EX",
+      "slug": "surface-shine-gray-ex",
+      "variations": [
+        "Surface Shine Gray EX",
+        "Surface-Shine-Gray-EX",
+        "SurfaceShineGrayEX",
+        "surface shine gray ex",
+        "SURFACE SHINE GRAY EX",
+        "Surface Shine Gray",
+        "Surface-Shine-Gray"
+      ]
+    },
+    {
+      "id": "0689ccd1-1f57-4de7-9c11-d7b1e1b927b1",
+      "name": "Surface Shine HS",
+      "slug": "surface-shine-hs",
+      "variations": [
+        "Surface Shine HS",
+        "Surface-Shine-HS",
+        "SurfaceShineHS",
+        "surface shine hs",
+        "SURFACE SHINE HS"
+      ]
+    },
+    {
+      "id": "9d90ebc2-975c-4f52-947c-fbd2050946e0",
+      "name": "Surface Shine HS EX",
+      "slug": "surface-shine-hs-ex",
+      "variations": [
+        "Surface Shine HS EX",
+        "Surface-Shine-HS-EX",
+        "SurfaceShineHSEX",
+        "surface shine hs ex",
+        "SURFACE SHINE HS EX",
+        "Surface Shine HS",
+        "Surface-Shine-HS"
+      ]
+    },
+    {
+      "id": "aa34f834-0e1d-4d09-b86e-56b011711a1b",
+      "name": "Surface Shine Slate",
+      "slug": "surface-shine-slate",
+      "variations": [
+        "Surface Shine Slate",
+        "Surface-Shine-Slate",
+        "SurfaceShineSlate",
+        "surface shine slate",
+        "SURFACE SHINE SLATE"
+      ]
+    },
+    {
+      "id": "eb43d1ae-8024-499f-810b-2d047d0aabad",
+      "name": "Surface Shine WB",
+      "slug": "surface-shine-wb",
+      "variations": [
+        "Surface Shine WB",
+        "Surface-Shine-WB",
+        "SurfaceShineWB",
+        "surface shine wb",
+        "SURFACE SHINE WB",
+        "Surface Shine",
+        "Surface-Shine"
+      ]
+    },
+    {
+      "id": "aa531c6c-b0f4-4ce3-9704-f83695e90679",
+      "name": "Test Product",
+      "slug": "test-product",
+      "variations": [
+        "Test Product",
+        "Test-Product",
+        "TestProduct",
+        "test product",
+        "TEST PRODUCT"
+      ]
+    },
+    {
+      "id": "08a56a28-9bbc-4af2-83d5-0c8f8fdd6096",
+      "name": "Total Patch",
+      "slug": "total-patch",
+      "variations": [
+        "Total Patch",
+        "Total-Patch",
+        "TotalPatch",
+        "total patch",
+        "TOTAL PATCH"
+      ]
+    },
+    {
+      "id": "84e9f84e-e32b-4af4-85b4-01ab00251ca3",
+      "name": "TriAct",
+      "slug": "triact",
+      "variations": [
+        "TriAct",
+        "triact",
+        "TRIACT"
+      ]
+    },
+    {
+      "id": "9e4121fb-5052-4c58-be43-eebaf8910965",
+      "name": "UW Admixture",
+      "slug": "uw-admixture",
+      "variations": [
+        "UW Admixture",
+        "UW-Admixture",
+        "UWAdmixture",
+        "uw admixture",
+        "UW ADMIXTURE"
+      ]
+    },
+    {
+      "id": "c01a986f-70d7-4f76-b3ab-a4a1277ad024",
+      "name": "UW Grout",
+      "slug": "uw-grout",
+      "variations": [
+        "UW Grout",
+        "UW-Grout",
+        "UWGrout",
+        "uw grout",
+        "UW GROUT"
+      ]
+    },
+    {
+      "id": "abd7c425-c035-4eb8-abcf-ace5715ed019",
+      "name": "V Form Release #1",
+      "slug": "v-form-release-1",
+      "variations": [
+        "V Form Release #1",
+        "V-Form-Release-#1",
+        "VFormRelease#1",
+        "v form release #1",
+        "V FORM RELEASE #1"
+      ]
+    },
+    {
+      "id": "920f8394-8455-4061-97cd-7a134641af30",
+      "name": "V Form Release #1 Citrus",
+      "slug": "v-form-release-1-citrus",
+      "variations": [
+        "V Form Release #1 Citrus",
+        "V-Form-Release-#1-Citrus",
+        "VFormRelease#1Citrus",
+        "v form release #1 citrus",
+        "V FORM RELEASE #1 CITRUS"
+      ]
+    },
+    {
+      "id": "4141c1ce-b5f3-4c1e-8ff2-aad221eea74b",
+      "name": "V Release #100",
+      "slug": "v-release-100",
+      "variations": [
+        "V Release #100",
+        "V-Release-#100",
+        "VRelease#100",
+        "v release #100",
+        "V RELEASE #100"
+      ]
+    },
+    {
+      "id": "d9ec5e21-3948-4166-b1a5-d09f1f48d503",
+      "name": "V Release Concentrate",
+      "slug": "v-release-concentrate",
+      "variations": [
+        "V Release Concentrate",
+        "V-Release-Concentrate",
+        "VReleaseConcentrate",
+        "v release concentrate",
+        "V RELEASE CONCENTRATE",
+        "V Release",
+        "V-Release"
+      ]
+    },
+    {
+      "id": "b5220d8b-e6f2-4748-9f27-5a7ff0741e51",
+      "name": "V Release Winter Grade",
+      "slug": "v-release-winter-grade",
+      "variations": [
+        "V Release Winter Grade",
+        "V-Release-Winter-Grade",
+        "VReleaseWinterGrade",
+        "v release winter grade",
+        "V RELEASE WINTER GRADE"
+      ]
+    },
+    {
+      "id": "88c0c84f-4c2a-4259-adc3-e667aa9fd0b7",
+      "name": "Versa Etch Coarse #125",
+      "slug": "versa-etch-coarse-125",
+      "variations": [
+        "Versa Etch Coarse #125",
+        "Versa-Etch-Coarse-#125",
+        "VersaEtchCoarse#125",
+        "versa etch coarse #125",
+        "VERSA ETCH COARSE #125"
+      ]
+    },
+    {
+      "id": "15b3b397-44bf-4698-acbc-61fb1635a984",
+      "name": "Versa Etch Extender",
+      "slug": "versa-etch-extender",
+      "variations": [
+        "Versa Etch Extender",
+        "Versa-Etch-Extender",
+        "VersaEtchExtender",
+        "versa etch extender",
+        "VERSA ETCH EXTENDER"
+      ]
+    },
+    {
+      "id": "bbcde129-81eb-4260-8299-b232161f5fb5",
+      "name": "Versa Etch Fine #25",
+      "slug": "versa-etch-fine-25",
+      "variations": [
+        "Versa Etch Fine #25",
+        "Versa-Etch-Fine-#25",
+        "VersaEtchFine#25",
+        "versa etch fine #25",
+        "VERSA ETCH FINE #25"
+      ]
+    },
+    {
+      "id": "bb32c6fe-fb57-42ac-beda-9c178f355fb6",
+      "name": "Versa Etch Light Etch #15",
+      "slug": "versa-etch-light-etch-15",
+      "variations": [
+        "Versa Etch Light Etch #15",
+        "Versa-Etch-Light-Etch-#15",
+        "VersaEtchLightEtch#15",
+        "versa etch light etch #15",
+        "VERSA ETCH LIGHT ETCH #15"
+      ]
+    },
+    {
+      "id": "fa5caa02-0ba3-4418-96c0-a26f4753c236",
+      "name": "Versa Etch Medium #75",
+      "slug": "versa-etch-medium-75",
+      "variations": [
+        "Versa Etch Medium #75",
+        "Versa-Etch-Medium-#75",
+        "VersaEtchMedium#75",
+        "versa etch medium #75",
+        "VERSA ETCH MEDIUM #75"
+      ]
+    },
+    {
+      "id": "7fd54228-b702-4aaa-be2c-3d8ea06901bf",
+      "name": "Versa Etch Micro Etch #3",
+      "slug": "versa-etch-micro-etch-3",
+      "variations": [
+        "Versa Etch Micro Etch #3",
+        "Versa-Etch-Micro-Etch-#3",
+        "VersaEtchMicroEtch#3",
+        "versa etch micro etch #3",
+        "VERSA ETCH MICRO ETCH #3"
+      ]
+    },
+    {
+      "id": "7725dfa0-fa89-4114-9b4b-8536e3fa7d0b",
+      "name": "Versa Etch Sandblast #5",
+      "slug": "versa-etch-sandblast-5",
+      "variations": [
+        "Versa Etch Sandblast #5",
+        "Versa-Etch-Sandblast-#5",
+        "VersaEtchSandblast#5",
+        "versa etch sandblast #5",
+        "VERSA ETCH SANDBLAST #5"
+      ]
+    },
+    {
+      "id": "5d84264c-02e4-4955-a12a-c79d97440c75",
+      "name": "Versa Etch Zero #1",
+      "slug": "versa-etch-zero-1",
+      "variations": [
+        "Versa Etch Zero #1",
+        "Versa-Etch-Zero-#1",
+        "VersaEtchZero#1",
+        "versa etch zero #1",
+        "VERSA ETCH ZERO #1"
+      ]
+    },
+    {
+      "id": "8c7d7ea0-b41d-4ff0-9831-5c6c55803e45",
+      "name": "Xylene",
+      "slug": "xylene",
+      "variations": [
+        "Xylene",
+        "xylene",
+        "XYLENE"
+      ]
+    }
+  ]
+}

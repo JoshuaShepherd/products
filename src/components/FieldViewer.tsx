@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Check, X } from "lucide-react";
 import Image from "next/image";
 import ProductFieldViewer from "@/components/ProductFieldViewer";
 import { PDFExportButton } from "@/components/pdf-export";
@@ -86,7 +86,31 @@ function getActualFieldName(displayName: string): string {
   return FIELD_NAME_MAPPING[displayName] || displayName;
 }
 
-// Function to convert display field name to database field name for API updates
+// Database boolean fields that should use boolean editor
+const BOOLEAN_DATABASE_FIELDS = new Set([
+  'Do Not Freeze',
+  'Mix Well', 
+  'Green Conscious'
+]);
+
+function isDatabaseBooleanField(selectedField: string): boolean {
+  return BOOLEAN_DATABASE_FIELDS.has(selectedField);
+}
+
+// Database enum fields and their valid options
+const ENUM_FIELD_OPTIONS = {
+  'Signal Word': ['Danger', 'Warning', 'None'],
+  'Transport: Hazard Class': ['Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Not applicable'],
+  'Transport: Packing Group': ['PG I', 'PG II', 'PG III', 'Not applicable']
+};
+
+function isDatabaseEnumField(selectedField: string): boolean {
+  return selectedField in ENUM_FIELD_OPTIONS;
+}
+
+function getEnumOptions(selectedField: string): string[] {
+  return ENUM_FIELD_OPTIONS[selectedField as keyof typeof ENUM_FIELD_OPTIONS] || [];
+}// Function to convert display field name to database field name for API updates
 function getDBFieldName(displayName: string): string {
   const dbFieldMapping: { [key: string]: string } = {
     // Basic Information
@@ -164,7 +188,7 @@ function renderIconField(value: string) {
       alt=""
       loading="lazy"
       style={{
-        maxWidth: 48,
+        maxWidth: 48,      
         marginRight: 8,
         display: 'inline-block',
         verticalAlign: 'middle'
@@ -173,7 +197,76 @@ function renderIconField(value: string) {
   );
 }
 
-// Icon field editor component
+// Function to render boolean fields with icons (only show icon when true)
+function renderBooleanIconField(fieldName: string, value: string | boolean) {
+  // Convert string values to boolean
+  const boolValue = typeof value === 'boolean' ? value : value === 'true';
+  
+  if (!boolValue) {
+    return (
+      <div className="flex items-center gap-2 text-gray-500">
+        <X className="w-4 h-4" />
+        <span>No</span>
+      </div>
+    );
+  }
+  
+  const iconUrl = ICON_URLS[fieldName as keyof typeof ICON_URLS];
+  if (iconUrl) {
+    return (
+      <div className="flex items-center gap-2">
+        <img
+          src={iconUrl}
+          alt={fieldName}
+          loading="lazy"
+          style={{
+            maxWidth: 48,
+            marginRight: 8,
+            display: 'inline-block',
+            verticalAlign: 'middle'
+          }}
+        />
+        <span className="text-green-600 font-medium">Yes</span>
+      </div>
+    );
+  }
+  
+  return (
+    <div className="flex items-center gap-2 text-green-600">
+      <Check className="w-4 h-4" />
+      <span className="font-medium">Yes</span>
+    </div>
+  );
+}
+
+// Boolean field editor component for database boolean fields
+function BooleanFieldEditor({ 
+  field, 
+  value, 
+  onChange 
+}: { 
+  field: string; 
+  value: boolean | string | null; 
+  onChange: (value: boolean) => void; 
+}) {
+  // Convert various input formats to boolean
+  const boolValue = typeof value === 'boolean' ? value : 
+                   typeof value === 'string' ? (value === 'true' || value === 'yes' || !!value) : 
+                   false;
+  
+  return (
+    <select
+      className="w-full p-3 border rounded-lg dark:bg-neutral-800 dark:border-neutral-700"
+      value={boolValue ? "true" : "false"}
+      onChange={e => onChange(e.target.value === "true")}
+    >
+      <option value="false">No</option>
+      <option value="true">Yes</option>
+    </select>
+  );
+}
+
+// Icon field editor component for display-only icon fields
 function IconFieldEditor({ 
   field, 
   value, 
@@ -200,6 +293,40 @@ function IconFieldEditor({
       <option value="no">No</option>
       <option value="yes">Yes</option>
     </select>
+  );
+}
+
+// Enum field editor component for database enum fields
+function EnumFieldEditor({ 
+  field, 
+  value, 
+  onChange, 
+  options 
+}: { 
+  field: string; 
+  value: string; 
+  onChange: (value: string) => void; 
+  options: string[];
+}) {
+  return (
+    <div className="space-y-2">
+      <select
+        className="w-full p-3 border rounded-lg dark:bg-neutral-800 dark:border-neutral-700 text-sm"
+        value={value || ''}
+        onChange={(e) => onChange(e.target.value)}
+      >
+        <option value="">Select {field}...</option>
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+      
+      <p className="text-sm text-gray-600 dark:text-gray-400">
+        Current value: <span className="font-mono">{value || 'None'}</span>
+      </p>
+    </div>
   );
 }
 
@@ -282,10 +409,31 @@ export function FieldViewer({
     setSaveStatus("saving");
     
     try {
+      // Convert value based on field type
+      let valueToSave: any = editedValue;
+      if (isDatabaseBooleanField(selectedField)) {
+        valueToSave = editedValue === 'true';
+      }
+      
       if (onSave) {
-        await onSave(dbFieldName, editedValue);
+        await onSave(dbFieldName, valueToSave);
+      } else if (product?.ID) {
+        // Use the validated endpoint with proper form mappings
+        const formData = { [selectedField]: valueToSave };
+        
+        const response = await fetch(`/api/products/${product.ID}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to save');
+        }
       } else {
-        const updates = { [dbFieldName]: editedValue };
+        // Fallback to legacy endpoint if no product ID
+        const updates = { [dbFieldName]: valueToSave };
         
         const response = await fetch('/api/update-product', {
           method: 'POST',
@@ -404,7 +552,22 @@ export function FieldViewer({
                   value={editedValue}
                   onChange={setEditedValue}
                 />
-              ) : /* Special editor for icon fields */
+              ) : /* Special editor for database boolean fields */
+              isDatabaseBooleanField(selectedField) ? (
+                <BooleanFieldEditor
+                  field={selectedField}
+                  value={editedValue}
+                  onChange={(boolValue) => setEditedValue(String(boolValue))}
+                />
+              ) : /* Special editor for database enum fields */
+              isDatabaseEnumField(selectedField) ? (
+                <EnumFieldEditor
+                  field={selectedField}
+                  value={editedValue}
+                  onChange={setEditedValue}
+                  options={getEnumOptions(selectedField)}
+                />
+              ) : /* Special editor for icon display fields */
               actualFieldName && (actualFieldName === "Green Conscious" || actualFieldName === "Do Not Freeze" || actualFieldName === "Mix Well") ? (
                 <IconFieldEditor
                   field={actualFieldName}
@@ -438,14 +601,12 @@ export function FieldViewer({
             </div>
           ) : (
             <div className="bg-muted/50 p-4 rounded-lg border min-h-[200px]">
-              {fieldValue ? (
-                isPictogramField(selectedField, actualFieldName) ? (
-                  <PictogramDisplay value={fieldValue} />
-                ) : (actualFieldName === "Green Conscious" || actualFieldName === "Do Not Freeze" || actualFieldName === "Mix Well") ? (
-                  renderIconField(fieldValue)
-                ) : (
-                  <ProductFieldViewer value={fieldValue} />
-                )
+              {isPictogramField(selectedField, actualFieldName) ? (
+                <PictogramDisplay value={fieldValue} />
+              ) : (actualFieldName === "Green Conscious" || actualFieldName === "Do Not Freeze" || actualFieldName === "Mix Well") ? (
+                renderBooleanIconField(actualFieldName, fieldValue)
+              ) : fieldValue ? (
+                <ProductFieldViewer value={fieldValue} />
               ) : (
                 <span className="italic text-gray-400">No data for this field</span>
               )}

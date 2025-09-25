@@ -1,0 +1,1365 @@
+{
+  "conversion_date": "2025-09-25T02:09:50.623568",
+  "total_files": 226,
+  "successful": 0,
+  "failed": 226,
+  "available_methods": [],
+  "files": [
+    {
+      "filename": "SpecPoxy-1000-PartAB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecHard-Intraseal-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Aqua-Plug-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pro-Plug-45-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "All-Shield-SB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-Sealer-PartA&B-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecRock-ES-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecStrip-Ultra-Blue-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SC-Multipurpose-Grout-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPrep-SB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Spec-CJ-Guard-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-WW-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecStrip-WB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "LithSeal-SC-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "PlasterBond-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecStrip-Supreme-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-Grout-HS-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "RepCon-H-350-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SC-Foundation-Coating-White-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Solvent-100-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "V-Form-Release-1-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecRez-SDS-R020624-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-Mortar-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SC-Cure-500-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPatch-15-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Crystal-Shine-SC-SDS-R061024-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecStrip-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecBlast-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPatch-Light-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecSilane-20-WB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Surface-Shine-Gray-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-CW-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Bio-Strip-WB-Concentrate-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cempatch-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SC-Multi-Purpose-Sealer-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "All-Shield-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecStrip-VOC-100-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-Grout-Part-C-LD-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Form-Seasoning-WB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "IntraFilm-Concentrate-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Spec-O-Lith-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Surface-Shine-WB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-Coating-Gray-part-A-&-B-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-Shield-WB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Versa-Etch-Extender-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Xylene-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Bio-Strip-WB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SC-Concrete-Finish-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Rapid-Rock-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-&-Seal-WB-25-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-Rez-Caltrans-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecEtch-Deep-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-&-Seal-25-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "IntraFilm-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Surface-Grip-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-Rez-TX-Type-I-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-2000-Part-A&B-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-3000-PartAB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Surface-Shine-Brown-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Deco-Shine-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Max-A-Patch-ACP-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecShot-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecShield-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPlug-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Rapid-Flex-Colorant-System-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPlate-NOX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Crystal-Shine-Matte-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecStrip-Citrus-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Quartz-Floor-Hardener-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "RepCon-928-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Acetone-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Crystal-Shine-Matte-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPatch-30-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Sealer-Renew-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Muriatic-Acid-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SC-Metallic-Grout-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecTilt-100-QD-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SC-MT-Black-Pigment-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Por-Rok-Halco-Grout-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-&-Seal-WB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "LithSeal-Lite-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Overcrete-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-Rez-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SC-Multi-Purpose-Grout-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-CW-Caltrans-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Orange-Peel-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPatch-5-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pool-Patch-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "StuccoBond-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-&-Seal-30-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Sleek-1000-SLU-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-WW-TX-Type-II-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SC-Precision-Grout-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Por-Rok-Concrete-Patch-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecShield-SB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecCity-White-STX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-CJ-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecSilane-40-WB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecShot-Plus-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecFlow-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecStrip-Winter-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-2000-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Super-SpecPlug-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-Rez-White-Guard-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Total-Patch-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecTilt-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "C-Set-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SC-Foundation-Coating-Gray-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Rapid-Flex-90-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Concrete-Cure-w-Dye-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecCrete-Plus-SCC-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Max-A-Seal-SB-Non-Fibred-Asphalt-Foundation-Coating-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Versa-Etch-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "DOT-Grout-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecSilane-100-SDS-5-28-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Max-A-Seal-DP-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecWeld-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Concrete-Glue-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecTilt-WB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cherry-Fragrance-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-CW-W-Dye-TX-Type-I-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-Grout-Part-A-B-C-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Max-A-Fill-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPlate-Topping-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "UW-Grout-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-Hard-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-Hard-Plus-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecSilane-40-SDS-R052824-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-3000-FS-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "TriAct-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "RepCon-UW-Mortar-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecFilm-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecGuard-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-&-Seal-25-UV-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecChem-CreteAway-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Super-Por-Rok-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecCity-White-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Deco-Shine-Matte-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SC-Precision-Grout-HS-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Surface-Shine-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Flowable-Fill-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Surface-Shine-Gray-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecStrip-Red-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-&-Seal-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Aqua-Shine-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "PolyCure-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "RepCon-928-CA-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "MVM-Prime-5000-Part-A-B-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "RevCrete-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Plaster-Bond-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-Coating-Clear-part-A&B-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-Binder-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecEtch-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Deco-Shine-Brown-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecShield-WB-Extra-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Strong-Bond-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecShield-WB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPrime-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-HSHV-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Por-Rok-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Precast-80-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Precast-Patch-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecRock-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-&-Seal-25-UV-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-Rez-White-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-Bridge-Deck-Overlay-Parts-A&B-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-&-Seal-WB-30-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-Shield-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Surface-Shine-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-AMS-Caltrans-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-&-Seal-30-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "EZ-Clean-&-Release-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-Rez-White-TX-Type-II-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Max-A-Seal-WP-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-WW-Caltrans-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Surface-Shine-HS-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-Coating-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-Accelerator-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-Rez-White-Caltrans-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-AMS-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecSmooth-Plus-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Revcrete-Fine-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Crystal-Shine-HS-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecFilm-Concentrate-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecRez-SL-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Max-A-Tack-TTC-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Reaxion-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Dry-Deck-WB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Final-Finish-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "K-Set-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "E-Cure-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-Shield-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-3000-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Precast-Patch-Light-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "All-Shield-WB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Duo-Patch-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Berry-Clean-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecTilt-100-SDS-R073123-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-Rez-IL-DOT-(Type-II)-w-dye-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecFlex-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-500-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Surface-Shine-Brown-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "RepCon-H-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Deco-Liquid-Release-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecStrip-Citrus-SDS-FR-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "HydroPatch-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecLevel-PCT-AGG-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "RepCon-928-FS-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecStrip-50-50-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Polyfix-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Pave-Cure-WW-300-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Cure-&-Seal-25-EX-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecLevel-PCT-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Max-A-Seal-Asphalt-Paint-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Crystal-Rez-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPlate-Hardener-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Precast-Patch-5-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "CleanLift-2020-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecStrip-Plus-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Crystal-Shine-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-Metallic-Mortar-PartA&B-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-2000-LPL-PartAB-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "RepCon-VO-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "RepCon-VO-15-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "Rapid-Flex-CJ-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    },
+    {
+      "filename": "SpecPoxy-1000-PartA&B-sds.pdf",
+      "status": "failed",
+      "method": "none",
+      "error": "No text extracted"
+    }
+  ]
+}

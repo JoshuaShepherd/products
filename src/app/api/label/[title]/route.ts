@@ -21,15 +21,10 @@ export async function GET(
 
     const supabase = await createClient()
 
-    // Get product by name with pictograms
+    // Get product by name (pictograms are in the pictograms column)
     const { data: product, error } = await supabase
       .from('products')
-      .select(`
-        *,
-        product_pictograms(
-          pictograms(*)
-        )
-      `)
+      .select('*')
       .eq('name', decodedTitle)
       .single()
 
@@ -62,8 +57,13 @@ export async function GET(
       .eq('product_id', product.id)
       .maybeSingle()
 
-    // Extract pictogram data from the joined query
-    const pictogramData = product.product_pictograms?.map((pp: any) => pp.pictograms) || []
+    // Extract pictogram data from the pictograms column (comma-separated URLs)
+    const pictogramData = product.pictograms ? 
+      product.pictograms.split(',').map((url: string, index: number) => ({
+        url: url.trim(),
+        name: `Pictogram ${index + 1}`,
+        alt: `Safety pictogram ${index + 1}`
+      })) : []
 
     // Create a comprehensive mapping of template variables to product data
     const templateVars: Record<string, string> = {
@@ -217,12 +217,10 @@ export async function GET(
     
     // Debug: Log template processing
     console.log('🔍 DEBUG - Template before processing conditionals (length):', html.length);
-    console.log('🔍 DEBUG - Checking key SDS variables:');
-    console.log('  - proper_shipping_name:', templateVars.proper_shipping_name);
-    console.log('  - components_determining_hazard:', templateVars.components_determining_hazard);
-    console.log('  - pictograms:', templateVars.pictograms);
-    
-    // Process conditionals with proper nesting support
+    console.log('🔍 DEBUG - Checking key SDS variables:')
+    console.log(`  - proper_shipping_name: ${product.proper_shipping_name}`)
+    console.log(`  - components_determining_hazard: ${product.components_determining_hazard}`)
+    console.log(`  - pictograms: ${product.pictograms ? 'FOUND (' + product.pictograms.split(',').length + ' pictograms)' : 'NOT FOUND'}`)    // Process conditionals with proper nesting support
     const processedHTML = processConditionals(html, templateVars);
     
     html = processedHTML;

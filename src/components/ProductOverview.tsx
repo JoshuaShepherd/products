@@ -33,6 +33,10 @@ export function ProductOverview({ title, onSave, onNavigate }: ProductOverviewPr
   const [allProducts, setAllProducts] = useState<any[]>([]);
   const [currentProductId, setCurrentProductId] = useState<number | null>(null);
   
+  // Inline editing states
+  const [editingField, setEditingField] = useState<string | null>(null);
+  const [editingValue, setEditingValue] = useState<string>("");
+  
   // Quick edit states for the special fields
   const [quickEditValues, setQuickEditValues] = useState({
     "Do Not Freeze": "",
@@ -41,21 +45,94 @@ export function ProductOverview({ title, onSave, onNavigate }: ProductOverviewPr
     "Used By Date": ""
   });
 
-  // Helper function to determine Yes/No based on URL presence
-  const getYesNoFromUrl = (value: string): string => {
-    if (!value || value.trim() === '') return "No";
+
+
+  // Mapping from display names to database column names
+  const displayNameToColumnName = (displayName: string): string => {
+    const mapping: { [key: string]: string } = {
+      "Name": "name",
+      "Short Description (English)": "short_description_english",
+      "Short Description (French)": "short_description_french", 
+      "Short Description (Spanish)": "short_description_spanish",
+      "Description": "description",
+      "Application": "application",
+      "Features": "features",
+      "Coverage": "coverage",
+      "Limitations": "limitations",
+      "Shelf Life": "shelf_life",
+      "VOC Data": "voc_data",
+      "Signal Word": "signal_word",
+      "Components Determining Hazard": "components_determining_hazard",
+      "Hazard Statements": "hazard_statements",
+      "Precautionary Statements": "precautionary_statements",
+      "Response Statements": "response_statements",
+      "First Aid": "first_aid",
+      "Storage": "storage",
+      "Disposal": "disposal",
+      "Proper Shipping Name": "proper_shipping_name",
+      "UN Number": "un_number",
+      "Hazard Class": "hazard_class",
+      "Packing Group": "packing_group",
+      "Emergency Response Guide": "emergency_response_guide",
+      "Do Not Freeze": "do_not_freeze",
+      "Mix Well": "mix_well",
+      "Green Conscious": "green_conscious",
+      "Used By Date": "used_by_date"
+    };
     
-    // Check if value contains a valid URL
+    return mapping[displayName] || displayName.toLowerCase().replace(/ /g, '_');
+  };
+
+  // Inline editing functions
+  const handleStartEdit = (field: string, currentValue: any) => {
+    setEditingField(field);
+    setEditingValue(String(currentValue || ""));
+  };
+
+  const handleSaveEdit = async () => {
+    if (!editingField || !onSave) return;
+    
     try {
-      const trimmed = value.trim();
-      if (trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.includes('firebasestorage')) {
-        return "Yes";
+      // Convert display name to database column name
+      const columnName = displayNameToColumnName(editingField);
+      await onSave(columnName, editingValue);
+      setEditingField(null);
+      setEditingValue("");
+      
+      // Refresh the product data
+      if (title) {
+        const response = await fetch(`/api/product?title=${encodeURIComponent(title)}`);
+        if (response.ok) {
+          const data = await response.json();
+          setProduct(data.product);
+        }
       }
-    } catch (e) {
-      // If URL parsing fails, treat as No
+    } catch (error) {
+      console.error('Failed to save:', error);
+      // Handle error (you could add a toast notification here)
     }
-    
-    return "No";
+  };
+
+  // Helper function to get dropdown options for enum fields
+  const getEnumOptions = (fieldName: string): string[] | null => {
+    switch (fieldName) {
+      case "Signal Word":
+        return ["Danger", "Warning", "None"];
+      case "Hazard Class":
+        return [
+          "Class 1", "Class 2", "Class 3", "Class 4", "Class 5",
+          "Class 6", "Class 7", "Class 8", "Class 9", "Not applicable"
+        ];
+      case "Packing Group":
+        return ["PG I", "PG II", "PG III", "Not applicable"];
+      default:
+        return null;
+    }
+  };
+
+  const handleCancelEdit = () => {
+    setEditingField(null);
+    setEditingValue("");
   };
 
   // Fetch product data
@@ -96,11 +173,11 @@ export function ProductOverview({ title, onSave, onNavigate }: ProductOverviewPr
         setProduct(data.product);
         setCurrentProductId(data.product.ID);
         
-        // Initialize quick edit values with proper Yes/No logic for URL fields
+        // Initialize quick edit values with proper boolean to Yes/No conversion
         setQuickEditValues({
-          "Do Not Freeze": getYesNoFromUrl(data.product["Do Not Freeze"]),
-          "Green Conscious": getYesNoFromUrl(data.product["Green Conscious"]),
-          "Mix Well": getYesNoFromUrl(data.product["Mix Well"]),
+          "Do Not Freeze": data.product["Do Not Freeze"] ? "Yes" : "No",
+          "Green Conscious": data.product["Green Conscious"] ? "Yes" : "No", 
+          "Mix Well": data.product["Mix Well"] ? "Yes" : "No",
           "Used By Date": data.product["Used By Date"] || ""
         });
         
@@ -132,55 +209,44 @@ export function ProductOverview({ title, onSave, onNavigate }: ProductOverviewPr
     
     setSaving(true);
     try {
-      // Save each changed field, converting Yes/No back to URLs for icon fields
-      for (const [field, value] of Object.entries(quickEditValues)) {
-        let valueToSave = value;
+      // Save each changed field with proper data type conversion
+      for (const [displayField, value] of Object.entries(quickEditValues)) {
+        // Convert display field name to database column name
+        const dbColumnName = displayNameToColumnName(displayField);
+        let valueToSave: any = value;
         
-        // For icon fields, convert Yes to the appropriate URL, No to empty string
-        if (field === "Do Not Freeze" || field === "Green Conscious" || field === "Mix Well") {
-          if (value === "Yes") {
-            // Use the existing URL if it exists, otherwise use a default/placeholder URL
-            const existingUrl = product[field];
-            if (existingUrl && (existingUrl.includes('http') || existingUrl.includes('firebasestorage'))) {
-              valueToSave = existingUrl; // Keep existing URL
-            } else {
-              // Set a placeholder URL or handle this case based on your needs
-              valueToSave = getDefaultUrlForField(field);
-            }
-          } else if (value === "No") {
-            valueToSave = ""; // Empty string for No
-          }
+        // For boolean fields, convert Yes/No to true/false
+        if (displayField === "Do Not Freeze" || displayField === "Green Conscious" || displayField === "Mix Well") {
+          valueToSave = value === "Yes";
+        }
+        // For used_by_date, keep as string
+        else if (displayField === "Used By Date") {
+          valueToSave = value || null; // Use null for empty string
         }
         
         // Only save if the value actually changed
         let currentDisplayValue;
-        if (field === "Do Not Freeze" || field === "Green Conscious" || field === "Mix Well") {
-          currentDisplayValue = getYesNoFromUrl(product[field]);
+        if (displayField === "Do Not Freeze" || displayField === "Green Conscious" || displayField === "Mix Well") {
+          // Get current boolean value and convert to Yes/No for comparison
+          const currentBoolValue = product[displayField];
+          currentDisplayValue = currentBoolValue ? "Yes" : "No";
         } else {
-          currentDisplayValue = product[field] || "";
+          currentDisplayValue = product[displayField] || "";
         }
           
         if (currentDisplayValue !== value) {
-          await onSave(field, valueToSave);
+          console.log(`Saving ${dbColumnName}:`, valueToSave, `(was: ${currentDisplayValue}, now: ${value})`);
+          await onSave(dbColumnName, valueToSave);
         }
       }
       
       // Update local product state with the actual saved values
       const updatedProduct = { ...product };
-      for (const [field, value] of Object.entries(quickEditValues)) {
-        if (field === "Do Not Freeze" || field === "Green Conscious" || field === "Mix Well") {
-          if (value === "Yes") {
-            const existingUrl = product[field];
-            if (existingUrl && (existingUrl.includes('http') || existingUrl.includes('firebasestorage'))) {
-              updatedProduct[field] = existingUrl;
-            } else {
-              updatedProduct[field] = getDefaultUrlForField(field);
-            }
-          } else if (value === "No") {
-            updatedProduct[field] = "";
-          }
+      for (const [displayField, value] of Object.entries(quickEditValues)) {
+        if (displayField === "Do Not Freeze" || displayField === "Green Conscious" || displayField === "Mix Well") {
+          updatedProduct[displayField] = value === "Yes";
         } else {
-          updatedProduct[field] = value;
+          updatedProduct[displayField] = value;
         }
       }
       
@@ -194,22 +260,14 @@ export function ProductOverview({ title, onSave, onNavigate }: ProductOverviewPr
     }
   };
 
-  // Helper function to get default URLs for icon fields when setting to "Yes"
-  const getDefaultUrlForField = (field: string): string => {
-    const defaultUrls = {
-      "Green Conscious": "https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Fgreen-conscious.png?alt=media&token=f58533a5-5698-4e4e-968b-cd4af2bc2a28",
-      "Do Not Freeze": "https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Fdo-not-freeze.png?alt=media&token=010ba974-dde9-4be7-b80e-5d1f7e7d0e49",
-      "Mix Well": "https://firebasestorage.googleapis.com/v0/b/specchem-pwa-feb-25.firebasestorage.app/o/pictograms%2Fmix-well.png?alt=media&token=example-token"
-    };
-    return defaultUrls[field as keyof typeof defaultUrls] || "";
-  };
+
 
   const handleQuickEditCancel = () => {
-    // Reset to original values using the same logic as initialization
+    // Reset to original values using proper boolean to Yes/No conversion
     setQuickEditValues({
-      "Do Not Freeze": getYesNoFromUrl(product["Do Not Freeze"]),
-      "Green Conscious": getYesNoFromUrl(product["Green Conscious"]),
-      "Mix Well": getYesNoFromUrl(product["Mix Well"]),
+      "Do Not Freeze": product["Do Not Freeze"] ? "Yes" : "No",
+      "Green Conscious": product["Green Conscious"] ? "Yes" : "No",
+      "Mix Well": product["Mix Well"] ? "Yes" : "No",
       "Used By Date": product["Used By Date"] || ""
     });
     setEditing(false);
@@ -380,14 +438,33 @@ export function ProductOverview({ title, onSave, onNavigate }: ProductOverviewPr
     // Convert value to string for processing
     const stringValue = String(value);
     
-    // Special handling for pictograms
-    if (key === "Pictograms" && stringValue.includes('<img')) {
-      return (
-        <div
-          className="flex gap-2 flex-wrap"
-          dangerouslySetInnerHTML={{ __html: stringValue }}
-        />
-      );
+    // Special handling for pictograms - handle both HTML and comma-separated URLs
+    if (key === "Pictograms") {
+      // If it contains HTML (legacy format), display as HTML
+      if (stringValue.includes('<img')) {
+        return (
+          <div
+            className="flex gap-2 flex-wrap"
+            dangerouslySetInnerHTML={{ __html: stringValue }}
+          />
+        );
+      }
+      // If it's comma-separated URLs (new format), display as images
+      if (stringValue.includes('http')) {
+        const urls = stringValue.split(',').map(url => url.trim()).filter(Boolean);
+        return (
+          <div className="flex gap-2 flex-wrap">
+            {urls.map((url, index) => (
+              <img
+                key={index}
+                src={url}
+                alt="Pictogram"
+                className="w-12 h-12 object-contain border border-gray-200 rounded"
+              />
+            ))}
+          </div>
+        );
+      }
     }
     
     // Check if the value contains HTML tags
@@ -624,14 +701,75 @@ export function ProductOverview({ title, onSave, onNavigate }: ProductOverviewPr
         
         <div className="grid gap-6">
           {getFilteredFields().map(([key, value]) => (
-            <div key={key} className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+            <div key={key} className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 group hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
               <div className="flex items-start justify-between mb-2">
                 <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm uppercase tracking-wide">
                   {key}
                 </h3>
+                {/* Edit button - appears on hover */}
+                <button
+                  onClick={() => handleStartEdit(key, value)}
+                  className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+                  title={`Edit ${key}`}
+                >
+                  <Edit2 className="w-4 h-4 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300" />
+                </button>
               </div>
               <div className="text-gray-700 dark:text-gray-300">
-                {renderFieldValue(key, value)}
+                {editingField === key ? (
+                  <div className="space-y-2">
+                    {(() => {
+                      const enumOptions = getEnumOptions(key);
+                      if (enumOptions) {
+                        return (
+                          <Select
+                            value={editingValue}
+                            onValueChange={setEditingValue}
+                          >
+                            <SelectTrigger className="w-full">
+                              <SelectValue placeholder={`Select ${key.toLowerCase()}...`} />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {enumOptions.map((option) => (
+                                <SelectItem key={option} value={option}>
+                                  {option}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        );
+                      } else {
+                        return (
+                          <textarea
+                            value={editingValue}
+                            onChange={(e) => setEditingValue(e.target.value)}
+                            className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical min-h-[100px]"
+                            placeholder={`Enter ${key.toLowerCase()}...`}
+                            autoFocus
+                          />
+                        );
+                      }
+                    })()}
+                    <div className="flex gap-2">
+                      <button
+                        onClick={handleSaveEdit}
+                        className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-600 text-white text-sm font-medium rounded-md hover:bg-green-700 transition-colors"
+                      >
+                        <Check className="w-3 h-3" />
+                        Save
+                      </button>
+                      <button
+                        onClick={handleCancelEdit}
+                        className="inline-flex items-center gap-1 px-3 py-1.5 bg-gray-500 text-white text-sm font-medium rounded-md hover:bg-gray-600 transition-colors"
+                      >
+                        <X className="w-3 h-3" />
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  renderFieldValue(key, value)
+                )}
               </div>
             </div>
           ))}

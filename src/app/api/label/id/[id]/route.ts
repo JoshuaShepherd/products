@@ -53,71 +53,46 @@ export async function GET(
     // Generate HTML by replacing template variables
     let html = template.html_template || ''
     
-    // Create a comprehensive mapping of template variables to product data
-    const templateVars: Record<string, string> = {
-      product_name: product.name || '',
-      name: product.name || '',
+    // Map product data to template variables
+    const templateVars = {
+      ...product,
+      id: product.id,
+      title: product.name || product.title || 'Untitled Product',
+      slug: product.slug || '',
       description: product.description || '',
-      application: product.application || '',
-      features: product.features || '',
-      limitations: product.limitations || '',
-      shelf_life: product.shelf_life || '',
-      short_description_english: product.short_description_english || '',
-      short_description_french: product.short_description_french || '',
-      short_description_spanish: product.short_description_spanish || '',
-      signal_word: product.signal_word || '',
-      hazard_statements: product.hazard_statements || '',
-      precautionary_statements: product.precautionary_statements || '',
-      response_statements: product.response_statements || '',
-      first_aid: product.first_aid || '',
-      storage: product.storage || '',
-      disposal: product.disposal || '',
+      // Add specific mappings
+      pictograms: product.pictograms || '',
+      pictogram_urls: product.pictogram_urls || '',
       proper_shipping_name: product.proper_shipping_name || '',
       un_number: product.un_number || '',
       hazard_class: product.hazard_class || '',
       packing_group: product.packing_group || '',
+      signal_word: product.signal_word || '',
+      hazard_statements: product.hazard_statements || '',
+      precautionary_statements: product.precautionary_statements || '',
+      first_aid: product.first_aid || '',
+      storage: product.storage || '',
+      disposal: product.disposal || '',
       emergency_response_guide: product.emergency_response_guide || '',
-      components_determining_hazard: product.components_determining_hazard || '',
-      coverage: product.coverage || '',
-      voc_data: product.voc_data || '',
       // Boolean flags
       do_not_freeze: product.do_not_freeze ? 'Yes' : 'No',
       mix_well: product.mix_well ? 'Yes' : 'No',
       green_conscious: product.green_conscious ? 'Yes' : 'No',
-      // French fields
-      composants_determinant_le_danger: product.composants_determinant_le_danger || '',
-      mot_de_signalement: product.mot_de_signalement || '',
-      mentions_de_danger: product.mentions_de_danger || '',
-      conseils_de_prudence: product.conseils_de_prudence || '',
-      premiers_soins: product.premiers_soins || '',
-      mesures_de_premiers_secours: product.mesures_de_premiers_secours || '',
-      consignes_de_stockage: product.consignes_de_stockage || '',
-      consignes_delimination: product.consignes_delimination || '',
-      
-      // Pictograms - we'll populate this separately
-      pictograms: ''
+      // Warranty and conditions fields - use actual product data
+      safety_notice: product.safety_notice || '',
+      conditions_of_sale: product.conditions_of_sale || '',
+      warranty_limitation: product.warranty_limitation || '',
+      inherent_risk: product.inherent_risk || '',
+      additional_terms: product.additional_terms || '',
+      manufacturing_notice: product.manufacturing_notice || ''
     };
 
-    // Get pictograms for this product
-    const { data: productPictograms } = await supabase
-      .from('product_pictograms')
-      .select(`
-        pictograms (
-          name,
-          slug,
-          url,
-          description
-        )
-      `)
-      .eq('product_id', product.id)
-      .order('sort_order');
-
-    // Generate pictogram HTML
-    if (productPictograms && productPictograms.length > 0) {
-      const pictogramHtml = productPictograms
-        .map((pp: any) => {
-          const p = pp.pictograms;
-          return `<img src="${p.url}" alt="${p.description || p.name}" style="width: 26px; height: 26px; object-fit: contain; border-radius: 5px; border: 1px solid #e3e8f1; background: #f7fafc;">`;
+    // Generate pictogram HTML from the pictograms column (comma-separated URLs)
+    if (product.pictograms) {
+      const pictogramUrls = product.pictograms.split(',').map((url: string) => url.trim());
+      const pictogramHtml = pictogramUrls
+        .map((url: string, index: number) => {
+          return `<img src="${url}" alt="Safety pictogram ${index + 1}" style="width: 26px; height: 26px; object-fit: contain; border-radius: 5px; border: 1px solid #e3e8f1; background: #f7fafc;">`;
         })
         .join('');
       templateVars.pictograms = pictogramHtml;

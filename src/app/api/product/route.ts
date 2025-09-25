@@ -57,10 +57,11 @@ export async function GET(request: NextRequest) {
         "Hazard Class": product.hazard_class,
         "Packing Group": product.packing_group,
         "Emergency Response Guide": product.emergency_response_guide,
-        "Do Not Freeze": product.do_not_freeze ? "true" : "false",
-        "Mix Well": product.mix_well ? "true" : "false",
-        "Green Conscious": product.green_conscious ? "true" : "false",
-        "Used By Date": product.used_by_date
+        "Do Not Freeze": product.do_not_freeze,
+        "Mix Well": product.mix_well,
+        "Green Conscious": product.green_conscious,
+        "Used By Date": product.used_by_date,
+        "Pictograms": product.pictograms
       };
 
       return NextResponse.json({ product: transformedProduct })
@@ -112,10 +113,11 @@ export async function GET(request: NextRequest) {
         "Hazard Class": product.hazard_class,
         "Packing Group": product.packing_group,
         "Emergency Response Guide": product.emergency_response_guide,
-        "Do Not Freeze": product.do_not_freeze ? "true" : "false",
-        "Mix Well": product.mix_well ? "true" : "false",
-        "Green Conscious": product.green_conscious ? "true" : "false",
-        "Used By Date": product.used_by_date
+        "Do Not Freeze": product.do_not_freeze,
+        "Mix Well": product.mix_well,
+        "Green Conscious": product.green_conscious,
+        "Used By Date": product.used_by_date,
+        "Pictograms": product.pictograms
       }));
 
       return NextResponse.json({ products: transformedProducts })

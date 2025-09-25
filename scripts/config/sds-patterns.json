@@ -1,0 +1,105 @@
+{
+  "section_patterns": {
+    "signal_word": [
+      "Signal Word[\\s:]*([A-Z][A-Za-z]*|None|N/A|Not applicable)",
+      "Signal word[\\s:]*([A-Z][A-Za-z]*|None|N/A|Not applicable)",
+      "SIGNAL WORD[\\s:]*([A-Z][A-Za-z]*|None|N/A|Not applicable)",
+      "Signal[\\s:]*([A-Z][A-Za-z]*|None|N/A|Not applicable)"
+    ],
+    "hazard_statements": [
+      "Hazard [Ss]tatement\\(?s?\\)?[\\s:]*([H][0-9][0-9][0-9][^\\n]*(?:[,;]\\s*[H][0-9][0-9][0-9][^\\n]*)*)",
+      "Hazard [Ss]tatements?[\\s:]*([\\s\\S]*?)(?=Precautionary|Prevention|Response|Storage|Disposal|Section|Signal)",
+      "H-[Ss]tatements?[\\s:]*([H][0-9][0-9][0-9][^\\n]*(?:[,;\\s]*[H][0-9][0-9][0-9][^\\n]*)*)",
+      "Hazard[\\s:]*([H][0-9][0-9][0-9][^\\n]*(?:[,;\\s]*[H][0-9][0-9][0-9][^\\n]*)*)"
+    ],
+    "precautionary_statements": [
+      "Precautionary [Ss]tatement\\(?s?\\)?[\\s:]*([P][0-9][0-9][0-9][^\\n]*(?:[,;]\\s*[P][0-9][0-9][0-9][^\\n]*)*)",
+      "Precautionary [Ss]tatements?[\\s:]*([\\s\\S]*?)(?=Response|Storage|Disposal|Section|First)",
+      "P-[Ss]tatements?[\\s:]*([P][0-9][0-9][0-9][^\\n]*(?:[,;\\s]*[P][0-9][0-9][0-9][^\\n]*)*)",
+      "Prevention[\\s:]*([P][0-9][0-9][0-9][^\\n]*(?:[,;\\s]*[P][0-9][0-9][0-9][^\\n]*)*)"
+    ],
+    "response_statements": [
+      "Response[\\s:]*([P][0-9][0-9][0-9][^\\n]*(?:[,;\\s]*[P][0-9][0-9][0-9][^\\n]*)*)",
+      "Response [Ss]tatements?[\\s:]*([\\s\\S]*?)(?=Storage|Disposal|Section|First)"
+    ],
+    "components_determining_hazard": [
+      "Components? determining hazard[\\s:]*([\\s\\S]*?)(?=Section|Signal|Hazard [Ss]tatement|Classification)",
+      "Hazardous [Ii]ngredients?[\\s:]*([\\s\\S]*?)(?=Section|Signal|Hazard [Ss]tatement)",
+      "Chemical [Nn]ame[\\s\\S]*?CAS[\\s\\S]*?([\\s\\S]*?)(?=Section [0-9]|SECTION [0-9])",
+      "Ingredient[\\s\\S]*?Concentration[\\s\\S]*?([\\s\\S]*?)(?=Section [0-9]|SECTION [0-9])"
+    ],
+    "first_aid": [
+      "First [Aa]id [Mm]easures[\\s:]*([\\s\\S]*?)(?=Section [0-9]|SECTION [0-9]|Fire)",
+      "First [Aa]id[\\s:]*([\\s\\S]*?)(?=Section [0-9]|SECTION [0-9]|Fire)",
+      "Emergency [Ff]irst [Aa]id[\\s:]*([\\s\\S]*?)(?=Section [0-9]|SECTION [0-9]|Fire)"
+    ],
+    "storage": [
+      "Storage[\\s:]*([\\s\\S]*?)(?=Section [0-9]|SECTION [0-9]|Disposal|Handling)",
+      "Storage [Cc]onditions?[\\s:]*([\\s\\S]*?)(?=Section [0-9]|SECTION [0-9]|Disposal)",
+      "Handling and [Ss]torage[\\s\\S]*?Storage[\\s:]*([\\s\\S]*?)(?=Section [0-9]|SECTION [0-9]|Disposal)"
+    ],
+    "disposal": [
+      "Disposal [Cc]onsiderations?[\\s:]*([\\s\\S]*?)(?=Section [0-9]|SECTION [0-9]|Transport)",
+      "Disposal [Mm]ethods?[\\s:]*([\\s\\S]*?)(?=Section [0-9]|SECTION [0-9]|Transport)",
+      "Disposal[\\s:]*([\\s\\S]*?)(?=Section [0-9]|SECTION [0-9]|Transport)"
+    ],
+    "un_number": [
+      "UN[\\s#]*([0-9]{4})",
+      "UN Number[\\s:]*([0-9]{4})",
+      "United Nations Number[\\s:]*([0-9]{4})",
+      "UN No\\.[\\s:]*([0-9]{4})"
+    ],
+    "proper_shipping_name": [
+      "Proper [Ss]hipping [Nn]ame[\\s:]*([^\\n\\r]+?)(?=\\n|UN|Class|Hazard)",
+      "Shipping [Nn]ame[\\s:]*([^\\n\\r]+?)(?=\\n|UN|Class|Hazard)",
+      "PSN[\\s:]*([^\\n\\r]+?)(?=\\n|UN|Class|Hazard)"
+    ],
+    "hazard_class": [
+      "Hazard [Cc]lass[\\s:]*([^\\n\\r]+?)(?=\\n|Packing|Group|UN)",
+      "Transport [Hh]azard [Cc]lass[\\s:]*([^\\n\\r]+?)(?=\\n|Packing|Group)",
+      "Class[\\s:]*([0-9][^\\n\\r]*?)(?=\\n|Packing|Group|UN)"
+    ],
+    "packing_group": [
+      "Packing [Gg]roup[\\s:]*([IVX]+|None|N/A|Not applicable)",
+      "Package [Gg]roup[\\s:]*([IVX]+|None|N/A|Not applicable)",
+      "PG[\\s:]*([IVX]+|None|N/A|Not applicable)"
+    ],
+    "emergency_response_guide": [
+      "Emergency [Rr]esponse [Gg]uide[\\s#:]*([0-9]+)",
+      "N\\.A\\. Emergency Response Guidebook[\\s#:]*([0-9]+)",
+      "ERG[\\s#:]*([0-9]+)",
+      "Guide [Nn]umber[\\s:]*([0-9]+)"
+    ]
+  },
+  "cleanup_patterns": {
+    "remove_extra_whitespace": "\\s+",
+    "remove_newlines": "[\\r\\n]+",
+    "remove_section_headers": "Section [0-9]+[\\s\\-]*[A-Za-z\\s]+[\\r\\n]+",
+    "remove_page_numbers": "Page [0-9]+ of [0-9]+",
+    "standardize_none": "(?i)(none|n/a|not applicable|not available|nil)"
+  },
+  "validation_rules": {
+    "signal_word": {
+      "allowed_values": ["DANGER", "WARNING", "NONE"],
+      "standardize_map": {
+        "none": "NONE",
+        "n/a": "NONE",
+        "not applicable": "NONE",
+        "danger": "DANGER",
+        "warning": "WARNING"
+      }
+    },
+    "h_statements": {
+      "pattern": "H[0-9]{3}",
+      "common_codes": ["H302", "H315", "H319", "H335", "H336", "H373", "H411"]
+    },
+    "p_statements": {
+      "pattern": "P[0-9]{3}",
+      "common_codes": ["P261", "P280", "P305", "P312", "P337", "P403", "P501"]
+    },
+    "un_number": {
+      "pattern": "^[0-9]{4}$",
+      "common_numbers": ["1993", "3082", "1170", "1987", "1866"]
+    }
+  }
+}
