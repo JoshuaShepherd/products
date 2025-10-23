@@ -78,6 +78,8 @@ export async function GET(
       do_not_freeze: product.do_not_freeze ? 'Yes' : 'No',
       mix_well: product.mix_well ? 'Yes' : 'No',
       green_conscious: product.green_conscious ? 'Yes' : 'No',
+      // Date fields
+      used_by_date: product.used_by_date || '',
       // Warranty and conditions fields - use actual product data
       safety_notice: product.safety_notice || '',
       conditions_of_sale: product.conditions_of_sale || '',

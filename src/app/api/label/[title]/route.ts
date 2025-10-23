@@ -96,6 +96,8 @@ export async function GET(
       do_not_freeze: product.do_not_freeze ? 'Yes' : 'No',
       mix_well: product.mix_well ? 'Yes' : 'No',
       green_conscious: product.green_conscious ? 'Yes' : 'No',
+      // Date fields
+      used_by_date: product.used_by_date || '',
       // French fields
       composants_determinant_le_danger: product.composants_determinant_le_danger || '',
       mot_de_signalement: product.mot_de_signalement || '',

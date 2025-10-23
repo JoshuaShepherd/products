@@ -7,7 +7,7 @@ import { FieldViewer } from "@/components/FieldViewer";
 import { ProductOverview } from "@/components/ProductOverview";
 import { BrandedSidebarTrigger } from "@/components/branded-sidebar-trigger";
 import { ProductDropdown } from "@/components/ProductDropdown";
-import { FloatingAssistant } from "@/components/FloatingAssistant";
+import { PDFExtractionChatbot } from "@/components/PDFExtractionChatbot";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -286,8 +286,8 @@ function ProductsPageContent() {
             draggable={false}
           />
 
-          {/* Floating Assistant */}
-          <FloatingAssistant />
+          {/* PDF Extraction Chatbot */}
+          <PDFExtractionChatbot />
         </div>
       </SidebarInset>
     </>

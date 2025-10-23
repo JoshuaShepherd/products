@@ -376,6 +376,7 @@ export function ProductOverview({ title, onSave, onNavigate }: ProductOverviewPr
       "16 months",
       "18 months",
       "2 years",
+      "3 years",
       "5 years",
       "Not applicable",
       "See Technical Data Sheet"
