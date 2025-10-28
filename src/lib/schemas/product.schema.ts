@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { Database } from '@/types/database.types'
+import { Database } from '@/lib/types/database'
 
 // Database enum types
 const HazardSignalEnum = z.enum(['Danger', 'Warning', 'None'])
@@ -96,12 +96,10 @@ export const ProductFormSchema = ProductInsertSchema.extend({
     .regex(/^[a-z0-9-]+$/, 'Slug must contain only lowercase letters, numbers, and hyphens'),
   sku: z.string()
     .max(100, 'SKU must be 100 characters or less')
-    .optional()
     .nullable()
     .transform(val => val === '' ? null : val),
   category_id: z.string()
     .uuid('Please select a valid category')
-    .optional()
     .nullable()
     .transform(val => val === '' ? null : val),
 })

@@ -70,11 +70,12 @@ export function mapFormDataToDatabase(legacyFormData: Record<string, any>): Part
     const dbField = FORM_FIELD_MAPPINGS[formField]
     
     if (dbField) {
-      // Handle empty strings - convert to undefined for optional fields
+      // Handle empty strings - convert to null for optional fields (matching database schema)
       if (value === '' || value === undefined) {
-        mappedData[dbField] = undefined
+        // Use type assertion to handle strict typing
+        (mappedData as any)[dbField] = null
       } else {
-        mappedData[dbField] = value
+        (mappedData as any)[dbField] = value
       }
     } else {
       console.warn(`Unknown form field: ${formField}`)
